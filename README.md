@@ -67,6 +67,9 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 * The ESP32 antenna should be positioned at the edge of the PCB.
 * The gap between the inner and outer diameters of the through holes in the ESP32 footprint is 0.7 mm.
 * the pins of the Esp32 are numberred counter clockwise
+
+## Do Not Tell
+
 * I've made errors.
 * Engineers and spelling are not bestfriends.
 * I was about to distroy the universe but my ESP32 was not strong enough.
