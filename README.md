@@ -63,9 +63,9 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 * I understand the function of a decoupling resistor.
 * I comprehend the rationale behind including a voltage regulator circuit.
 * ESP32 input pins require a pull-up resistor.
-* It's necessary to include a power flag next to your GND and Vin connections.
+* It's necessary to include a power flag next to your GND and Vin connections in the KiCad schematic.
 * The ESP32 antenna should be positioned at the edge of the PCB.
-* The gap between the inner and outer diameters of the through holes in the ESP32 footprint is 0.7 mm.
+* The anular ring between the inner and outer diameters of the through holes in the ESP32 footprint is 0.7 mm.
 * the pins of the Esp32 are numberred counter clockwise
 
 ## Do Not Tell
