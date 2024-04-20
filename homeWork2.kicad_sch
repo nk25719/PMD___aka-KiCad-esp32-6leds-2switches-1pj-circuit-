@@ -813,7 +813,7 @@
       )
     )
     (symbol "New_Library.ESP32KIT:ESP32_-_V2" (in_bom yes) (on_board yes)
-      (property "Reference" "ESP1" (at 0.889 0 0)
+      (property "Reference" "ESP32" (at 0 2.54 0)
         (effects (font (size 1.27 1.27)))
       )
       (property "Value" "~" (at -1.524 1.524 0)
@@ -870,125 +870,125 @@
         (text "power pin" (at 29.21 -39.116 0)
           (effects (font (size 1.27 1.27)))
         )
-        (pin input line (at -13.97 -6.35 0) (length 0.762)
-          (name "En" (effects (font (size 0.762 0.762))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at -13.97 -29.21 0) (length 0.762)
-          (name "O27" (effects (font (size 0.762 0.762))))
-          (number "10" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at -13.97 -31.75 0) (length 0.762)
-          (name "O1" (effects (font (size 0.762 0.762))))
-          (number "11" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at -13.97 -34.29 0) (length 0.762)
-          (name "O12" (effects (font (size 0.762 0.762))))
-          (number "12" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at -13.97 -36.83 0) (length 0.762)
-          (name "O13" (effects (font (size 0.762 0.762))))
-          (number "13" (effects (font (size 1.27 1.27))))
+        (pin bidirectional line (at 14.224 -41.91 180) (length 0.762)
+          (name "3V3" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
         )
         (pin bidirectional line (at -13.97 -39.37 0) (length 0.762)
           (name "GND" (effects (font (size 0.762 0.762))))
-          (number "14" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at -13.97 -41.91 0) (length 0.762)
-          (name "VIN" (effects (font (size 0.762 0.762))))
-          (number "15" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -41.91 180) (length 0.762)
-          (name "3V3" (effects (font (size 0.762 0.762))))
-          (number "16" (effects (font (size 1.27 1.27))))
+          (number "" (effects (font (size 1.27 1.27))))
         )
         (pin bidirectional line (at 14.224 -39.37 180) (length 0.762)
           (name "GND" (effects (font (size 0.762 0.762))))
-          (number "17" (effects (font (size 1.27 1.27))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -13.97 -31.75 0) (length 0.762)
+          (name "O1" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -13.97 -34.29 0) (length 0.762)
+          (name "O12" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -13.97 -36.83 0) (length 0.762)
+          (name "O13" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
         )
         (pin bidirectional line (at 14.224 -36.83 180) (length 0.762)
           (name "O15" (effects (font (size 0.762 0.762))))
-          (number "18" (effects (font (size 1.27 1.27))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -21.59 180) (length 0.762)
+          (name "O18" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -19.05 180) (length 0.762)
+          (name "O19" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
         )
         (pin bidirectional line (at 14.224 -34.29 180) (length 0.762)
           (name "O2" (effects (font (size 0.762 0.762))))
-          (number "19" (effects (font (size 1.27 1.27))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -16.51 180) (length 0.762)
+          (name "O21" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -8.89 180) (length 0.762)
+          (name "O22" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -6.35 180) (length 0.762)
+          (name "O23" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -13.97 -24.13 0) (length 0.762)
+          (name "O25" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -13.97 -26.67 0) (length 0.762)
+          (name "O26" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -13.97 -29.21 0) (length 0.762)
+          (name "O27" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -13.97 -19.05 0) (length 0.762)
+          (name "O32" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -13.97 -21.59 0) (length 0.762)
+          (name "O33" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin input line (at -13.97 -13.97 0) (length 0.762)
+          (name "O34" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin input line (at -13.97 -16.51 0) (length 0.762)
+          (name "O35" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -31.75 180) (length 0.762)
+          (name "O4" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -24.13 180) (length 0.762)
+          (name "O5" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -13.97 180) (length 0.762)
+          (name "RX0" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -29.21 180) (length 0.762)
+          (name "RX2" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -11.43 180) (length 0.762)
+          (name "TX0" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at 14.224 -26.67 180) (length 0.762)
+          (name "TX2" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin bidirectional line (at -13.97 -41.91 0) (length 0.762)
+          (name "VIN" (effects (font (size 0.762 0.762))))
+          (number "" (effects (font (size 1.27 1.27))))
+        )
+        (pin input line (at -13.97 -6.35 0) (length 0.762)
+          (name "En" (effects (font (size 0.762 0.762))))
+          (number "1" (effects (font (size 1.27 1.27))))
         )
         (pin input line (at -13.97 -8.89 0) (length 0.762)
           (name "VP" (effects (font (size 0.762 0.762))))
           (number "2" (effects (font (size 1.27 1.27))))
         )
-        (pin bidirectional line (at 14.224 -31.75 180) (length 0.762)
-          (name "O4" (effects (font (size 0.762 0.762))))
-          (number "20" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -29.21 180) (length 0.762)
-          (name "RX2" (effects (font (size 0.762 0.762))))
-          (number "21" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -26.67 180) (length 0.762)
-          (name "TX2" (effects (font (size 0.762 0.762))))
-          (number "22" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -24.13 180) (length 0.762)
-          (name "O5" (effects (font (size 0.762 0.762))))
-          (number "23" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -21.59 180) (length 0.762)
-          (name "O18" (effects (font (size 0.762 0.762))))
-          (number "24" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -19.05 180) (length 0.762)
-          (name "O19" (effects (font (size 0.762 0.762))))
-          (number "25" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -16.51 180) (length 0.762)
-          (name "O21" (effects (font (size 0.762 0.762))))
-          (number "26" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -13.97 180) (length 0.762)
-          (name "RX0" (effects (font (size 0.762 0.762))))
-          (number "27" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -11.43 180) (length 0.762)
-          (name "TX0" (effects (font (size 0.762 0.762))))
-          (number "28" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -8.89 180) (length 0.762)
-          (name "O22" (effects (font (size 0.762 0.762))))
-          (number "29" (effects (font (size 1.27 1.27))))
-        )
         (pin input line (at -13.97 -11.43 0) (length 0.762)
           (name "VN" (effects (font (size 0.762 0.762))))
           (number "3" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at 14.224 -6.35 180) (length 0.762)
-          (name "O23" (effects (font (size 0.762 0.762))))
-          (number "30" (effects (font (size 1.27 1.27))))
-        )
-        (pin input line (at -13.97 -13.97 0) (length 0.762)
-          (name "O34" (effects (font (size 0.762 0.762))))
-          (number "4" (effects (font (size 1.27 1.27))))
-        )
-        (pin input line (at -13.97 -16.51 0) (length 0.762)
-          (name "O35" (effects (font (size 0.762 0.762))))
-          (number "5" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at -13.97 -19.05 0) (length 0.762)
-          (name "O32" (effects (font (size 0.762 0.762))))
-          (number "6" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at -13.97 -21.59 0) (length 0.762)
-          (name "O33" (effects (font (size 0.762 0.762))))
-          (number "7" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at -13.97 -24.13 0) (length 0.762)
-          (name "O25" (effects (font (size 0.762 0.762))))
-          (number "8" (effects (font (size 1.27 1.27))))
-        )
-        (pin bidirectional line (at -13.97 -26.67 0) (length 0.762)
-          (name "O26" (effects (font (size 0.762 0.762))))
-          (number "9" (effects (font (size 1.27 1.27))))
         )
       )
     )
@@ -2037,6 +2037,10 @@
     (uuid ff72ce24-4a20-484e-949d-c300df725b52)
   )
 
+  (text "20240420\nSN:_____\n" (at 109.22 20.32 0)
+    (effects (font (size 2.54 2.54) (thickness 10.16) bold) (justify left bottom))
+    (uuid 0b2f8be0-74af-4ae1-9f9e-50d1c9d054f5)
+  )
   (text "Power supply decoupling and bypass for ESP32" (at 63.5 93.98 0)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 57bc9548-1a2f-4606-af10-dc3736b6c96f)
@@ -2072,7 +2076,7 @@
   (symbol (lib_id "power:GND") (at 119.38 93.98 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0249475f-9763-44fa-b887-d2172f2986d0)
-    (property "Reference" "#PWR023" (at 119.38 100.33 0)
+    (property "Reference" "#PWR?" (at 119.38 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 119.38 99.06 0)
@@ -2088,7 +2092,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR023") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
     )
@@ -2097,10 +2101,10 @@
   (symbol (lib_id "Device:C") (at 101.6 171.45 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0516ffbf-da34-4f43-b578-3744d81b4d2f)
-    (property "Reference" "C6" (at 104.521 170.2816 0)
+    (property "Reference" "C?" (at 104.521 170.2816 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "100nF" (at 104.521 172.593 0)
+    (property "Value" "C" (at 104.521 172.593 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 102.5652 175.26 0)
@@ -2135,7 +2139,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "C6") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2149,7 +2153,7 @@
   (symbol (lib_id "power:+3.3V") (at 66.04 22.86 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 08955a88-2f79-4a1d-9da7-393541a56cb1)
-    (property "Reference" "#PWR010" (at 66.04 26.67 0)
+    (property "Reference" "#PWR?" (at 66.04 26.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 66.04 17.78 0)
@@ -2165,7 +2169,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR010") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
     )
@@ -2174,10 +2178,10 @@
   (symbol (lib_id "Device:C") (at 76.2 176.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0cd97d1e-191f-4977-beaf-6036433600e9)
-    (property "Reference" "C5" (at 79.121 175.3616 0)
+    (property "Reference" "C?" (at 79.121 175.3616 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "100nF" (at 79.121 177.673 0)
+    (property "Value" "C" (at 79.121 177.673 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 77.1652 180.34 0)
@@ -2212,7 +2216,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "C5") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2226,10 +2230,10 @@
   (symbol (lib_id "Device:C_Polarized") (at 114.3 171.45 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0cefa03f-ae75-43fb-a14b-5bd810b5f4f6)
-    (property "Reference" "C7" (at 117.2972 170.2816 0)
+    (property "Reference" "C?" (at 117.2972 170.2816 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "47uF 16V" (at 117.2972 172.593 0)
+    (property "Value" "C_Polarized" (at 117.2972 172.593 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Capacitor_SMD:CP_Elec_5x5.4" (at 115.2652 175.26 0)
@@ -2261,7 +2265,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "C7") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2275,7 +2279,7 @@
   (symbol (lib_id "Regulator_Linear:LM7805_TO220") (at 86.36 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0cfe51d8-191c-44ad-9faf-48e00d11fa27)
-    (property "Reference" "U1" (at 86.36 157.48 0)
+    (property "Reference" "U?" (at 86.36 157.48 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "LM7805_TO220" (at 86.36 160.02 0)
@@ -2317,7 +2321,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "U1") (unit 1)
+          (reference "U?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2404,10 +2408,10 @@
   (symbol (lib_id "Connector:TestPoint") (at 33.02 182.88 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1cb66c2a-4745-4a06-9c8f-c22f77f9ece1)
-    (property "Reference" "TP1" (at 24.13 180.34 0)
+    (property "Reference" "TP?" (at 24.13 180.34 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "TP_GND" (at 25.4 182.88 0)
+    (property "Value" "TestPoint" (at 25.4 182.88 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "TestPoint:TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded" (at 38.1 182.88 0)
@@ -2423,7 +2427,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "TP1") (unit 1)
+          (reference "TP?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2437,10 +2441,10 @@
   (symbol (lib_id "Device:R") (at 143.51 114.3 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1dd4bb1f-4338-42cd-8cb4-11a7cc73466a)
-    (property "Reference" "R10" (at 142.24 109.22 90)
+    (property "Reference" "R?" (at 142.24 109.22 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "330R" (at 143.51 111.76 90)
+    (property "Value" "R" (at 143.51 111.76 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 143.51 112.522 90)
@@ -2475,7 +2479,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R10") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2559,7 +2563,7 @@
   (symbol (lib_id "New_Library.ESP32KIT:ESP32_-_V2") (at 100.076 54.61 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1e8828c4-8f64-439d-892e-e07291ca4a93)
-    (property "Reference" "ESP1" (at 100.965 54.61 0)
+    (property "Reference" "ESP?" (at 100.965 54.61 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "~" (at 98.552 53.086 0)
@@ -2571,40 +2575,40 @@
     (property "Datasheet" "" (at 98.552 53.086 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
+    (pin "" (uuid b2c29ddf-521e-4344-ac37-8f146e473331))
     (pin "1" (uuid 369ef590-a0c1-445b-80f6-5e808ce00be1))
-    (pin "10" (uuid 34e6ebe1-aeab-4be3-8fad-3331f364be38))
-    (pin "11" (uuid 4e9455da-d818-4d0b-995a-86973abeda93))
-    (pin "12" (uuid 7edd8860-c1e3-47c9-895a-9a5409929a61))
-    (pin "13" (uuid d48aff8d-9668-4280-9d7e-150d18eaeea9))
-    (pin "14" (uuid b88f1955-e03c-4897-9a66-6efa3fbc80dd))
-    (pin "15" (uuid b54c3738-80c0-44b6-8e86-984830c0aa30))
-    (pin "16" (uuid e49a413a-fd7e-4c7a-8f3b-168d1b401ad7))
-    (pin "17" (uuid bde5e2de-d722-4071-a15f-2421e738ca2e))
-    (pin "18" (uuid 43eea0d7-ea9c-47df-8acc-367f82e21831))
-    (pin "19" (uuid 3a074677-9c6c-4205-903b-7daf59725044))
     (pin "2" (uuid 47886fab-d112-4ffd-9cff-c0549adbe1de))
-    (pin "20" (uuid 7eb019ce-9948-4f0e-a29b-83b72921f7c6))
-    (pin "21" (uuid 4213fd54-7b6e-4ecf-9ba7-885175370ee8))
-    (pin "22" (uuid e39736eb-d8ae-46af-bba2-360b7bc3b10e))
-    (pin "23" (uuid 8756eba5-951c-4f63-bdb8-1ac2c18129b7))
-    (pin "24" (uuid c601649a-1d1b-448b-9c52-0d3d454a78bc))
-    (pin "25" (uuid 494e516c-8386-484a-a906-05850f0140b5))
-    (pin "26" (uuid 3c5cc5f5-5cb1-4d5e-8019-5456c34db343))
-    (pin "27" (uuid 269e7190-47d7-4ee3-a46d-73d874b41f3a))
-    (pin "28" (uuid 9cd2e49a-56e9-46c3-9f9a-1bce7616592d))
-    (pin "29" (uuid 0ab94732-b6f2-48b9-9153-151d10119496))
     (pin "3" (uuid df0efeba-a9b3-4d22-a823-345ff98a875f))
-    (pin "30" (uuid 2ca4aa06-cbbe-49f5-b580-84e5af75e26c))
-    (pin "4" (uuid f8100382-c05e-425c-9e9d-c0e95b5250d3))
-    (pin "5" (uuid 06267d7e-a0ec-4f95-a56a-881eff9317d3))
-    (pin "6" (uuid b1766ef6-c730-4bff-ba24-760c105d4d11))
-    (pin "7" (uuid 32139fad-351b-4dc8-b5d3-158385b8a4b4))
-    (pin "8" (uuid 03201b42-13ed-4951-b9eb-b8044a767f5a))
-    (pin "9" (uuid f336f82f-12a5-4bcd-a853-62280a632567))
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "ESP1") (unit 1)
+          (reference "ESP?") (unit 1)
         )
       )
     )
@@ -2613,10 +2617,10 @@
   (symbol (lib_id "Device:R") (at 66.04 74.93 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2470a5f2-79fe-4c87-9f1d-0ad37f0f4a34)
-    (property "Reference" "R6" (at 60.96 76.2 90)
+    (property "Reference" "R?" (at 60.96 76.2 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "10K" (at 63.5 74.93 90)
+    (property "Value" "R" (at 63.5 74.93 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 64.262 74.93 90)
@@ -2651,7 +2655,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R6") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2665,7 +2669,7 @@
   (symbol (lib_id "power:GND") (at 101.6 177.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2529225f-c26a-4245-9c69-4d6985869e92)
-    (property "Reference" "#PWR017" (at 101.6 184.15 0)
+    (property "Reference" "#PWR?" (at 101.6 184.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 101.727 182.1942 0)
@@ -2681,7 +2685,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR017") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2695,7 +2699,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 45.72 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 274ca22a-1a81-451a-9f83-2fdef7ee49c3)
-    (property "Reference" "#FLG02" (at 45.72 163.195 0)
+    (property "Reference" "#FLG?" (at 45.72 163.195 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 43.18 160.02 0)
@@ -2711,7 +2715,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG02") (unit 1)
+          (reference "#FLG?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2725,10 +2729,10 @@
   (symbol (lib_id "Device:D_Schottky") (at 59.69 165.1 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 285bf3b9-d54a-4683-84e3-2f124b1ec7f2)
-    (property "Reference" "D2" (at 59.69 162.56 0)
+    (property "Reference" "D?" (at 59.69 162.56 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "Schottky 2A" (at 62.23 168.91 0)
+    (property "Value" "D_Schottky" (at 62.23 168.91 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Diode_SMD:D_SMB" (at 59.69 165.1 0)
@@ -2760,7 +2764,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "D2") (unit 1)
+          (reference "D?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2774,7 +2778,7 @@
   (symbol (lib_id "power:+3.3V") (at 121.92 101.6 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2ab40a0a-99c5-437d-ab62-326bb4b853ca)
-    (property "Reference" "#PWR020" (at 121.92 105.41 0)
+    (property "Reference" "#PWR?" (at 121.92 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 121.92 96.52 0)
@@ -2790,7 +2794,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR020") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
     )
@@ -2799,7 +2803,7 @@
   (symbol (lib_id "power:GND") (at 40.64 43.18 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2b9c4c95-85d8-4306-a3f7-a1ef73bfd03b)
-    (property "Reference" "#PWR04" (at 40.64 49.53 0)
+    (property "Reference" "#PWR?" (at 40.64 49.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 40.767 47.5742 0)
@@ -2815,7 +2819,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR04") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2829,7 +2833,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 40.64 76.2 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 360fc99c-1914-4e4a-9b25-170bad646745)
-    (property "Reference" "#FLG06" (at 40.64 74.295 0)
+    (property "Reference" "#FLG?" (at 40.64 74.295 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 40.64 71.8058 0)
@@ -2845,7 +2849,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG06") (unit 1)
+          (reference "#FLG?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2859,10 +2863,10 @@
   (symbol (lib_id "Device:R") (at 138.43 172.72 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 38320edb-41a7-49a3-9a76-d1d9f2b4f920)
-    (property "Reference" "R8" (at 137.16 167.64 90)
+    (property "Reference" "R?" (at 137.16 167.64 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "DNI" (at 138.43 170.18 90)
+    (property "Value" "R" (at 138.43 170.18 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 138.43 170.942 90)
@@ -2897,7 +2901,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R8") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2911,7 +2915,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 40.64 60.96 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3bcad1b4-a706-4463-a3a5-cf98a07b19f4)
-    (property "Reference" "#FLG07" (at 40.64 59.055 0)
+    (property "Reference" "#FLG?" (at 40.64 59.055 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 40.64 56.5658 0)
@@ -2927,7 +2931,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG07") (unit 1)
+          (reference "#FLG?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2941,7 +2945,7 @@
   (symbol (lib_id "power:GND") (at 43.18 182.88 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 403b3025-ed39-48e4-a4d5-ca8dc8169579)
-    (property "Reference" "#PWR07" (at 43.18 189.23 0)
+    (property "Reference" "#PWR?" (at 43.18 189.23 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 43.307 187.2742 0)
@@ -2957,7 +2961,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -2971,7 +2975,7 @@
   (symbol (lib_id "power:GND") (at 40.64 60.96 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4580c894-cf35-455f-afff-4a2f08436c7d)
-    (property "Reference" "#PWR05" (at 40.64 67.31 0)
+    (property "Reference" "#PWR?" (at 40.64 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 40.767 65.3542 0)
@@ -2987,7 +2991,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR05") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -3061,10 +3065,10 @@
   (symbol (lib_id "Device:R") (at 66.04 26.67 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4b7bfabf-4e26-4dd2-b85d-1d7562c46c86)
-    (property "Reference" "R3" (at 71.12 25.4 90)
+    (property "Reference" "R?" (at 71.12 25.4 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "10K" (at 68.58 26.67 90)
+    (property "Value" "R" (at 68.58 26.67 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 67.818 26.67 90)
@@ -3099,7 +3103,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R3") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -3113,10 +3117,10 @@
   (symbol (lib_id "Device:C") (at 43.18 176.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4da9be41-0a07-4506-953d-57c0c0c3f556)
-    (property "Reference" "C2" (at 46.101 175.3616 0)
+    (property "Reference" "C?" (at 46.101 175.3616 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "39pF" (at 46.101 177.673 0)
+    (property "Value" "C" (at 46.101 177.673 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 44.1452 180.34 0)
@@ -3148,7 +3152,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "C2") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -3305,7 +3309,7 @@
   (symbol (lib_id "power:+3.3V") (at 66.04 55.88 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 51e9c3d1-a7a3-41f8-9b21-1c1b57cb2278)
-    (property "Reference" "#PWR012" (at 66.04 59.69 0)
+    (property "Reference" "#PWR?" (at 66.04 59.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 66.04 50.8 0)
@@ -3321,7 +3325,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR012") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
     )
@@ -3470,7 +3474,7 @@
   (symbol (lib_id "power:+3.3V") (at 66.04 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5b77e515-9726-44e1-adcf-1e07191f438b)
-    (property "Reference" "#PWR011" (at 66.04 41.91 0)
+    (property "Reference" "#PWR?" (at 66.04 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 66.04 33.02 0)
@@ -3486,7 +3490,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR011") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
     )
@@ -3495,10 +3499,10 @@
   (symbol (lib_id "Device:R") (at 66.04 59.69 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 607030eb-560b-4ada-9f30-f027915c13a6)
-    (property "Reference" "R5" (at 60.96 60.96 90)
+    (property "Reference" "R?" (at 60.96 60.96 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "10K" (at 63.5 59.69 90)
+    (property "Value" "R" (at 63.5 59.69 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 64.262 59.69 90)
@@ -3533,7 +3537,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R5") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -3547,7 +3551,7 @@
   (symbol (lib_id "power:GND") (at 238.76 55.88 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 655745b7-d7c9-40f8-aba1-d812cce6880f)
-    (property "Reference" "#PWR022" (at 238.76 62.23 0)
+    (property "Reference" "#PWR?" (at 238.76 62.23 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 238.633 60.2742 0)
@@ -3563,7 +3567,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -3577,7 +3581,7 @@
   (symbol (lib_id "power:GND") (at 190.5 111.76 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 66423bab-ab7e-410f-a629-f9cb61696ae7)
-    (property "Reference" "#PWR021" (at 190.5 118.11 0)
+    (property "Reference" "#PWR?" (at 190.5 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 190.5 116.84 0)
@@ -3593,7 +3597,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR021") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
     )
@@ -3602,7 +3606,7 @@
   (symbol (lib_id "power:GND") (at 53.34 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 67ad0b38-29bc-4ce6-a9a8-d5638777910f)
-    (property "Reference" "#PWR08" (at 53.34 125.73 0)
+    (property "Reference" "#PWR?" (at 53.34 125.73 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 53.467 123.7742 0)
@@ -3618,7 +3622,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR08") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -3632,7 +3636,7 @@
   (symbol (lib_id "power:+5V") (at 35.56 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6bb2e5cb-b613-463c-9aba-56ee94a30cc4)
-    (property "Reference" "#PWR01" (at 35.56 107.95 0)
+    (property "Reference" "#PWR?" (at 35.56 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 35.941 99.7458 0)
@@ -3648,7 +3652,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR01") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -3662,10 +3666,10 @@
   (symbol (lib_id "Device:R") (at 151.13 73.66 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6bf6955b-0042-4dfa-8332-f527de38b1e2)
-    (property "Reference" "R13" (at 149.86 68.58 90)
+    (property "Reference" "R?" (at 149.86 68.58 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "330R" (at 151.13 71.12 90)
+    (property "Value" "R" (at 151.13 71.12 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 151.13 71.882 90)
@@ -3700,7 +3704,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R13") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -3714,10 +3718,10 @@
   (symbol (lib_id "Connector:TestPoint") (at 68.58 162.56 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6c5fa3d9-9a95-4617-b568-1d61153f0e55)
-    (property "Reference" "TP2" (at 60.96 156.21 0)
+    (property "Reference" "TP?" (at 60.96 156.21 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "Vin" (at 60.96 158.75 0)
+    (property "Value" "TestPoint" (at 60.96 158.75 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "TestPoint:TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded" (at 73.66 162.56 0)
@@ -3733,7 +3737,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "TP2") (unit 1)
+          (reference "TP?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4018,7 +4022,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 33.02 193.04 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6e095795-efbc-47ee-876b-a104f83ab645)
-    (property "Reference" "#FLG01" (at 33.02 191.135 0)
+    (property "Reference" "#FLG?" (at 33.02 191.135 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 30.48 187.96 0)
@@ -4034,7 +4038,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG01") (unit 1)
+          (reference "#FLG?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4048,10 +4052,10 @@
   (symbol (lib_id "Device:R") (at 143.51 104.14 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8192acc8-b74e-454c-8fb7-bc3bb417eade)
-    (property "Reference" "R9" (at 142.24 99.06 90)
+    (property "Reference" "R?" (at 142.24 99.06 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "330R" (at 143.51 101.6 90)
+    (property "Value" "R" (at 143.51 101.6 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 143.51 102.362 90)
@@ -4086,7 +4090,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R9") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4100,10 +4104,10 @@
   (symbol (lib_id "Device:C_Polarized") (at 63.5 173.99 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 87673709-2fd0-4525-a187-5c4422f1dc81)
-    (property "Reference" "C4" (at 66.4972 172.8216 0)
+    (property "Reference" "C?" (at 66.4972 172.8216 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "47uF 16V" (at 66.4972 175.133 0)
+    (property "Value" "C_Polarized" (at 66.4972 175.133 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Capacitor_SMD:CP_Elec_5x5.4" (at 64.4652 177.8 0)
@@ -4135,7 +4139,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "C4") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4264,10 +4268,10 @@
   (symbol (lib_id "Device:C_Polarized") (at 53.34 113.03 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9a9eada3-644f-4078-bde7-58efff8289c3)
-    (property "Reference" "C3" (at 56.3372 111.8616 0)
+    (property "Reference" "C?" (at 56.3372 111.8616 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "47uF 16V" (at 56.3372 114.173 0)
+    (property "Value" "C_Polarized" (at 56.3372 114.173 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Capacitor_SMD:CP_Elec_5x5.4" (at 54.3052 116.84 0)
@@ -4299,7 +4303,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "C3") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4391,10 +4395,10 @@
   (symbol (lib_id "Device:R") (at 151.13 63.5 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a0879870-e11a-4dd6-838c-abb622f06228)
-    (property "Reference" "R12" (at 149.86 58.42 90)
+    (property "Reference" "R?" (at 149.86 58.42 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "330R" (at 151.13 60.96 90)
+    (property "Value" "R" (at 151.13 60.96 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 151.13 61.722 90)
@@ -4429,7 +4433,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R12") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4443,10 +4447,10 @@
   (symbol (lib_id "Device:C") (at 38.1 113.03 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a3fa0899-fca0-4aae-93ba-06c7bf73d1fd)
-    (property "Reference" "C1" (at 41.021 111.8616 0)
+    (property "Reference" "C?" (at 41.021 111.8616 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "100nF" (at 41.021 114.173 0)
+    (property "Value" "C" (at 41.021 114.173 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 39.0652 116.84 0)
@@ -4481,7 +4485,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "C1") (unit 1)
+          (reference "C?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4495,7 +4499,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 71.12 160.02 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a763ead9-6813-4f30-8174-9845775b9488)
-    (property "Reference" "#FLG04" (at 71.12 158.115 0)
+    (property "Reference" "#FLG?" (at 71.12 158.115 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 74.93 154.94 0)
@@ -4511,7 +4515,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG04") (unit 1)
+          (reference "#FLG?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4525,7 +4529,7 @@
   (symbol (lib_id "power:+3.3V") (at 66.04 71.12 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a8cfa1c3-9964-4a3e-aa20-7821d24259cf)
-    (property "Reference" "#PWR013" (at 66.04 74.93 0)
+    (property "Reference" "#PWR?" (at 66.04 74.93 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 66.04 66.04 0)
@@ -4541,7 +4545,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR013") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
     )
@@ -4550,10 +4554,10 @@
   (symbol (lib_id "Connector:TestPoint") (at 104.14 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a96f9d17-b9e9-4fa9-964d-7ae1d18f88e9)
-    (property "Reference" "TP3" (at 96.52 158.75 0)
+    (property "Reference" "TP?" (at 96.52 158.75 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "+5V" (at 96.52 161.29 0)
+    (property "Value" "TestPoint" (at 96.52 161.29 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "TestPoint:TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded" (at 109.22 165.1 0)
@@ -4569,7 +4573,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "TP3") (unit 1)
+          (reference "TP?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4583,7 +4587,7 @@
   (symbol (lib_id "power:GND") (at 40.64 25.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid adbb71bf-b5f7-4455-8f6f-dc414864ad6f)
-    (property "Reference" "#PWR03" (at 40.64 31.75 0)
+    (property "Reference" "#PWR?" (at 40.64 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 40.767 29.7942 0)
@@ -4599,7 +4603,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR03") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4613,7 +4617,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 40.64 43.18 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ae1b515e-5bc4-4f83-9bd8-8a3b193891fb)
-    (property "Reference" "#FLG08" (at 40.64 41.275 0)
+    (property "Reference" "#FLG?" (at 40.64 41.275 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 40.64 38.7858 0)
@@ -4629,7 +4633,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG08") (unit 1)
+          (reference "#FLG?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4643,10 +4647,10 @@
   (symbol (lib_id "Device:R") (at 143.51 124.46 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b27f7a9d-4524-45bd-abb9-5cd42b8a5688)
-    (property "Reference" "R11" (at 142.24 119.38 90)
+    (property "Reference" "R?" (at 142.24 119.38 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "330R" (at 143.51 121.92 90)
+    (property "Value" "R" (at 143.51 121.92 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 143.51 122.682 90)
@@ -4681,7 +4685,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R11") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4695,7 +4699,7 @@
   (symbol (lib_id "power:GND") (at 40.64 76.2 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b4b2eb01-824a-45a1-b3bb-3f8ec79bd669)
-    (property "Reference" "#PWR06" (at 40.64 82.55 0)
+    (property "Reference" "#PWR?" (at 40.64 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 40.767 80.5942 0)
@@ -4711,7 +4715,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR06") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4725,10 +4729,10 @@
   (symbol (lib_id "Device:R") (at 116.84 100.33 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ba187a87-bc2a-4b61-92fd-d4085ddb8aac)
-    (property "Reference" "R7" (at 111.76 101.6 90)
+    (property "Reference" "R?" (at 111.76 101.6 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "1R0" (at 114.3 100.33 90)
+    (property "Value" "R" (at 114.3 100.33 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 115.062 100.33 90)
@@ -4763,7 +4767,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R7") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4777,7 +4781,7 @@
   (symbol (lib_id "power:GND") (at 86.36 177.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid becedcec-9414-43b0-b824-76af60898653)
-    (property "Reference" "#PWR016" (at 86.36 184.15 0)
+    (property "Reference" "#PWR?" (at 86.36 184.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 86.487 182.1942 0)
@@ -4793,7 +4797,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR016") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4807,7 +4811,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 200.66 114.3 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c2f8c7c2-7f05-4006-8387-234916fc7c16)
-    (property "Reference" "#FLG05" (at 200.66 112.395 0)
+    (property "Reference" "#FLG?" (at 200.66 112.395 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 200.66 109.22 0)
@@ -4823,7 +4827,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG05") (unit 1)
+          (reference "#FLG?") (unit 1)
         )
       )
     )
@@ -4832,10 +4836,10 @@
   (symbol (lib_id "Device:R") (at 49.53 149.86 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c73ca79a-1773-49bb-8ee5-c93afab4cdea)
-    (property "Reference" "R2" (at 50.8 144.78 90)
+    (property "Reference" "R?" (at 50.8 144.78 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "DNI" (at 49.53 147.32 90)
+    (property "Value" "R" (at 49.53 147.32 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 49.53 148.082 90)
@@ -4870,7 +4874,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R2") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4884,7 +4888,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 40.64 25.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c7768225-1b53-4a52-bb66-43dc7cc6194f)
-    (property "Reference" "#FLG09" (at 40.64 23.495 0)
+    (property "Reference" "#FLG?" (at 40.64 23.495 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 40.64 21.0058 0)
@@ -4900,7 +4904,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG09") (unit 1)
+          (reference "#FLG?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4914,10 +4918,10 @@
   (symbol (lib_id "Device:R") (at 66.04 41.91 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c8f33f6c-2138-46c1-ac40-ff4fa8baf382)
-    (property "Reference" "R4" (at 60.96 43.18 90)
+    (property "Reference" "R?" (at 60.96 43.18 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "10K" (at 63.5 41.91 90)
+    (property "Value" "R" (at 63.5 41.91 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 64.262 41.91 90)
@@ -4952,7 +4956,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R4") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4966,7 +4970,7 @@
   (symbol (lib_id "power:GND") (at 63.5 180.34 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d1eccb44-36dc-4de0-afbc-6ca98c3e832c)
-    (property "Reference" "#PWR09" (at 63.5 186.69 0)
+    (property "Reference" "#PWR?" (at 63.5 186.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 63.627 184.7342 0)
@@ -4982,7 +4986,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR09") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -5041,10 +5045,10 @@
   (symbol (lib_id "Device:D_Schottky") (at 57.15 144.78 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d3dcb871-8d01-4a31-b81f-ea96e61c6ea2)
-    (property "Reference" "D1" (at 60.96 147.32 0)
+    (property "Reference" "D?" (at 60.96 147.32 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "Schottky 2A" (at 62.23 149.86 0)
+    (property "Value" "D_Schottky" (at 62.23 149.86 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Diode_SMD:D_SMB" (at 57.15 144.78 0)
@@ -5076,7 +5080,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "D1") (unit 1)
+          (reference "D?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -5168,10 +5172,10 @@
   (symbol (lib_id "Device:R") (at 46.99 104.14 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d6e19c3e-df41-4dd6-b308-f8487f3899ac)
-    (property "Reference" "R1" (at 45.72 99.06 90)
+    (property "Reference" "R?" (at 45.72 99.06 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "1R0" (at 46.99 101.6 90)
+    (property "Value" "R" (at 46.99 101.6 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 46.99 102.362 90)
@@ -5206,7 +5210,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R1") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -5220,7 +5224,7 @@
   (symbol (lib_id "Device:Polyfuse_Small") (at 50.8 165.1 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d838fedb-ba81-412d-afaf-d32081ab94f7)
-    (property "Reference" "F1" (at 52.07 162.56 90)
+    (property "Reference" "F?" (at 52.07 162.56 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Polyfuse_Small" (at 52.07 167.64 90)
@@ -5258,7 +5262,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "F1") (unit 1)
+          (reference "F?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -5272,10 +5276,10 @@
   (symbol (lib_id "Device:R") (at 151.13 83.82 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid da8e5764-1877-4dd0-8094-f44a3e080c4a)
-    (property "Reference" "R14" (at 149.86 78.74 90)
+    (property "Reference" "R?" (at 149.86 78.74 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "330R" (at 151.13 81.28 90)
+    (property "Value" "R" (at 151.13 81.28 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" (at 151.13 82.042 90)
@@ -5310,7 +5314,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "R14") (unit 1)
+          (reference "R?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -5324,7 +5328,7 @@
   (symbol (lib_id "power:GND") (at 114.3 175.26 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid db638f1d-222a-4593-9070-44e8c1ea38ec)
-    (property "Reference" "#PWR018" (at 114.3 181.61 0)
+    (property "Reference" "#PWR?" (at 114.3 181.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 114.427 179.6542 0)
@@ -5340,7 +5344,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR018") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -5399,7 +5403,7 @@
   (symbol (lib_id "power:GND") (at 38.1 119.38 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e5e14e7d-7064-46b9-b0f4-1259d72345ac)
-    (property "Reference" "#PWR02" (at 38.1 125.73 0)
+    (property "Reference" "#PWR?" (at 38.1 125.73 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 38.227 123.7742 0)
@@ -5415,7 +5419,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR02") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -5429,7 +5433,7 @@
   (symbol (lib_id "power:GND") (at 76.2 180.34 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e76a007a-b1e6-4b0c-bed2-0c49e8e5c812)
-    (property "Reference" "#PWR014" (at 76.2 186.69 0)
+    (property "Reference" "#PWR?" (at 76.2 186.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 78.74 180.34 0)
@@ -5445,7 +5449,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR014") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -5504,7 +5508,7 @@
   (symbol (lib_id "power:+5V") (at 119.38 162.56 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f7e16314-7aed-408d-b58a-631a1ec0d658)
-    (property "Reference" "#PWR019" (at 119.38 166.37 0)
+    (property "Reference" "#PWR?" (at 119.38 166.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 119.761 158.1658 0)
@@ -5520,7 +5524,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#PWR019") (unit 1)
+          (reference "#PWR?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -5534,7 +5538,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 53.34 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f93451f6-ed54-45a7-b22d-64b94c02ea59)
-    (property "Reference" "#FLG03" (at 53.34 102.235 0)
+    (property "Reference" "#FLG?" (at 53.34 102.235 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 53.34 99.7458 0)
@@ -5550,7 +5554,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG03") (unit 1)
+          (reference "#FLG?") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
