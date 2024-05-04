@@ -14,26 +14,15 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 * 6 leds are connected to the output pins of the Esp32
 * the voltage regulator supply the esp32 with a 5 V
 
-<img width="553" alt="Screenshot 2024-04-14 111852" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/63691c1a-9944-455e-be2a-e1bb4b41cf15">
-   
->> 3D view of the PCB 
+<img width="548" alt="Screenshot 2024-05-04 142451" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/0442248e-4fe0-45d8-8a70-28317dc192c6">
 
-<img width="553" alt="Screenshot 2024-04-14 111930" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/faeef497-9df3-449e-8532-af20914d873e">    
-  
->> Ratina eye view, if your brain did not turn the image right side up
+> 3D view of the PCB 
 
 
-<img width="553" alt="Screenshot 2024-04-13 151128" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/c1332fbf-2f6d-4983-9f07-34efd907add3">  
-  
->> Close-up 3D view of the PCB
+<img width="584" alt="Screenshot 2024-05-04 142512" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/e4d125c1-e61a-420f-aa4e-43089a11fc38">
 
-<img width="553" alt="Screenshot 2024-04-13 151206" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/53f85212-560f-4160-bf36-3c6988d04d17">    
-  
->> Back-view of the PCB
+> 3D backview of the PCB
 
-<img width="552" alt="Screenshot 2024-04-14 113210" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/4ea952ee-4472-40ac-8825-5353c43b01da">  
-
->> This image after final component layout and copper routing
 
 ## Designs  
 * ### Esp32-6leds-2switches-1pj-circuit > Kicanvas live view of current schematic and PCB is found at:  
@@ -42,22 +31,18 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 
 * ### Esp32-6leds-2switches-1pj-circuit > KiCad PCB Layers View:
 
+ <img width="369" alt="Screenshot 2024-05-04 143248" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/438bd35e-1c96-4783-b498-5070019c0a80">
 
-<img width="554" alt="Screenshot 2024-04-14 115412" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/db679c9d-6992-4979-84dc-1283d0789d5b">  
-  
->> All Layers View
+> All Layers View
 
-<img width="531" alt="Screenshot 2024-04-14 115625" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/d7da0c03-7eba-4b81-a825-6c88d7063da3">  
-  
->> Copper Layers View  
 
-<img width="545" alt="Screenshot 2024-04-14 115822" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/a20aabb1-1540-4510-a6af-5e7fda78b2f1">  
+ <img width="352" alt="Screenshot 2024-05-04 143336" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/074c1bdf-9fe8-4dd8-b635-c37a70e7b1eb">
 
->> Front Assembly Layer View  
+> Front Assembly Copper Layer View  
 
-<img width="527" alt="Screenshot 2024-04-14 115919" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/1d407177-2b15-4a7f-b61f-ad225bfb44e6">  
+<img width="373" alt="Screenshot 2024-05-04 143358" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/fa0d7802-6db5-47b9-932f-50d26896fe3a">
 
->> Back Layer View
+> Back Layer View
 
 
 
