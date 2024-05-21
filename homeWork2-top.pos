@@ -1,0 +1,44 @@
+### Footprint positions - created on Tue May 21 10:54:18 2024 ###
+### Printed by KiCad version 7.0.5
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref                  Val                               Package                                           PosX       PosY       Rot  Side
+C1                     100nF                             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder   -32.7000    17.8000   90.0000  top
+C2                     39pF                              C_0603_1608Metric_Pad1.08x0.95mm_HandSolder   -53.4500    12.5000   90.0000  top
+C3                     47uF_16V                          CP_Elec_5x5.4                                 -38.8000    17.5000   90.0000  top
+C4                     47uF_16V                          CP_Elec_5x5.4                                 -47.2500    17.6000   90.0000  top
+C5                     100nF                             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder   -48.7000    11.3000   90.0000  top
+C6                     100nF                             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder   -44.1500    11.2500   90.0000  top
+C7                     47uF_16V                          CP_Elec_5x5.4                                 -46.2000     4.5000  180.0000  top
+D2                     D_Schottky                        D_SMB                                         -52.5000    26.4000   90.0000  top
+D3-babyCrying1         LED_T1.75_CLEAR_RED               LED_5mm_Radial                                 26.0000    38.7500    0.0000  top
+D4-coldFood1           LED_T1.75_CLEAR_RED               LED_5mm_Radial                                 25.7700    31.2500    0.0000  top
+D5-mute1               LED_T1.75_CLEAR_RED               LED_5mm_Radial                                 25.7700    23.7500    0.0000  top
+D6-lostSock1           LED_T1.75_CLEAR_RED               LED_5mm_Radial                                 26.3100    64.7500    0.0000  top
+D7-unstableGround1     LED_T1.75_CLEAR_RED               LED_5mm_Radial                                 26.3100    57.2500    0.0000  top
+D8-highBloodPreasure1  LED_T1.75_CLEAR_RED               LED_5mm_Radial                                 26.0400    47.7500    0.0000  top
+ESP1                   ~                                 esp32                                          -8.5041   101.4050    0.0000  top
+F1                     Polyfuse_Small                    Fuse_0603_1608Metric                          -52.7125    31.4000  180.0000  top
+J1                     Barrel_Jack_Switch_SMT            BarrelJack_CLIFF_FC681465S_SMT_Horizontal     -79.9000    19.6000    0.0000  top
+R1                     R                                 R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   -38.8000    11.3125   90.0000  top
+R2                     330R                              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   -40.5000     2.0000   90.0000  top
+R3                     10_k                              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   -34.3960    87.5420  180.0000  top
+R4                     10_k                              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   -34.4085    79.5420    0.0000  top
+R5                     10_k                              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   -34.3085    70.7920    0.0000  top
+R6                     10_k                              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder   -34.5085    62.7420    0.0000  top
+R7                     1_Ohm                             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder    17.5000    15.2500    0.0000  top
+R9                     60_ohm                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder    17.5000    35.2500  180.0000  top
+R10                    60_ohm                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder    17.5000    30.2500  180.0000  top
+R11                    60_ohm                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder    17.5000    25.2500  180.0000  top
+R12                    60_ohm                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder    17.5000    60.2500  180.0000  top
+R13                    60_ohm                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder    17.5000    55.2500  180.0000  top
+R14                    60_ohm                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder    17.5000    50.2500  180.0000  top
+S1-morseCodeDanger1    SWITCH_TACTILE_SPST-NO_0.05A_24V  Switch_Tactile_THT_6x6mm                      -47.5585    91.7920    0.0000  top
+S2-RepeatCalculation1  SWITCH_TACTILE_SPST-NO_0.05A_24V  Switch_Tactile_THT_6x6mm                      -47.5585    83.5420    0.0000  top
+S3-muteFiveMin1        SWITCH_TACTILE_SPST-NO_0.05A_24V  Switch_Tactile_THT_6x6mm                      -47.5585    75.2920    0.0000  top
+S4-SendEmergMessage1   SWITCH_TACTILE_SPST-NO_0.05A_24V  Switch_Tactile_THT_6x6mm                      -47.5585    67.0420    0.0000  top
+TP1                    TestPoint                         TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded      -53.9000     6.1000    0.0000  top
+TP2                    TestPoint                         TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded      -44.5000    34.6000    0.0000  top
+TP3                    TestPoint                         TestPoint_Loop_D2.54mm_Drill1.5mm_Beaded      -33.1500     4.6000    0.0000  top
+U1                     LM7805_TO220                      TO-220-3_Vertical                             -44.8400    25.5050    0.0000  top
+## End
