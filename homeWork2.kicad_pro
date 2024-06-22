@@ -34,9 +34,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 0.95,
-          "width": 1.075
+          "drill": 1.5,
+          "height": 3.0,
+          "width": 3.0
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -459,7 +459,7 @@
         "name": "GND",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.6,
+        "track_width": 1.27,
         "via_diameter": 0.5,
         "via_drill": 0.3,
         "wire_width": 6
@@ -473,27 +473,10 @@
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "PWR3.3V",
+        "name": "PWR",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.67,
-        "via_diameter": 0.5,
-        "via_drill": 0.3,
-        "wire_width": 6
-      },
-      {
-        "bus_width": 12,
-        "clearance": 0.2,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "PWR5V",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 1.19,
+        "track_width": 1.016,
         "via_diameter": 0.5,
         "via_drill": 0.3,
         "wire_width": 6
@@ -506,20 +489,28 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "PWR5V",
-        "pattern": "+5V"
-      },
-      {
-        "netclass": "PWR3.3V",
-        "pattern": "+3.3V"
-      },
-      {
         "netclass": "GND",
         "pattern": "GND"
       },
       {
         "netclass": "Default",
         "pattern": "Net*"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "+*"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "/PVRAW"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "V*"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "Net-(ESP1-3V3)"
       }
     ]
   },
