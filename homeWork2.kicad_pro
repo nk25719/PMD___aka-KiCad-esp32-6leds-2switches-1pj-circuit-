@@ -498,7 +498,7 @@
       },
       {
         "netclass": "PWR",
-        "pattern": "+*"
+        "pattern": "*+*"
       },
       {
         "netclass": "PWR",
@@ -511,6 +511,10 @@
       {
         "netclass": "PWR",
         "pattern": "Net-(ESP1-3V3)"
+      },
+      {
+        "netclass": "Default",
+        "pattern": ""
       }
     ]
   },
