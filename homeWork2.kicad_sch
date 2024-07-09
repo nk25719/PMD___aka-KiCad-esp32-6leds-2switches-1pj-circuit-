@@ -2898,7 +2898,7 @@
   (symbol (lib_id "GPAD_SCH_LIB:LED_T1.75_CLEAR_WHITE") (at 171.45 93.98 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1e3ad297-993f-4367-9865-879902b5bfe6)
-    (property "Reference" "D7-unstableGND" (at 168.91 87.63 0)
+    (property "Reference" "D7-SheildFailure1" (at 168.91 87.63 0)
       (effects (font (size 1.524 1.524)) (justify left))
     )
     (property "Value" "LED_T1.75_CLEAR_RED" (at 173.99 91.44 0)
@@ -2949,12 +2949,12 @@
     (property "Distributor 1 PN" "160-1682-ND" (at 171.45 93.98 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid be86d5d0-8f5a-4216-a4d6-8302843337aa))
-    (pin "2" (uuid 25c7a9d4-956a-414e-8192-90ca19f8b5f2))
+    (pin "1" (uuid d5ec8971-4600-4609-a71c-0d03c179638b))
+    (pin "2" (uuid 169fb7ad-cd71-42e7-b05c-50aabff43844))
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "D7-unstableGND") (unit 1)
+          (reference "D7-SheildFailure1") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -3590,7 +3590,7 @@
   (symbol (lib_id "GPAD_SCH_LIB:LED_T1.75_CLEAR_WHITE") (at 171.45 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 52866ba0-daae-4455-aaf3-8fc48d1c9030)
-    (property "Reference" "D8-highBP" (at 168.91 97.79 0)
+    (property "Reference" "D8-highBP1" (at 168.91 97.79 0)
       (effects (font (size 1.524 1.524)) (justify left))
     )
     (property "Value" "LED_T1.75_CLEAR_RED" (at 173.99 101.6 0)
@@ -3641,12 +3641,12 @@
     (property "Distributor 1 PN" "160-1682-ND" (at 171.45 104.14 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid c423154a-e6c2-4f18-bed6-74d5660c9d61))
-    (pin "2" (uuid 4caf4f72-c0ea-40ed-ab46-efa2aabdf324))
+    (pin "1" (uuid 555089a1-397c-4f73-8ce8-af21a8083bf7))
+    (pin "2" (uuid 0591aa0a-5b00-4e87-aa48-b9c3518943dd))
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "D8-highBP") (unit 1)
+          (reference "D8-highBP1") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
