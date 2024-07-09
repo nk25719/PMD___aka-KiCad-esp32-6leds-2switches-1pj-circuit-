@@ -1610,6 +1610,9 @@
   (junction (at 121.92 125.73) (diameter 0) (color 0 0 0 0)
     (uuid 0fd704d5-da4c-48fa-a10b-eab6636e8157)
   )
+  (junction (at 119.38 170.18) (diameter 0) (color 0 0 0 0)
+    (uuid 18809c1c-81e9-436b-b151-950d5a7c3475)
+  )
   (junction (at 152.4 158.75) (diameter 0) (color 0 0 0 0)
     (uuid 1e1c6fac-8cdb-42d0-8f9d-f8a0a0df86a3)
   )
@@ -1786,9 +1789,6 @@
   )
   (junction (at 57.15 107.95) (diameter 0) (color 0 0 0 0)
     (uuid e314984b-049b-4b33-ac2f-60b9839ff0a6)
-  )
-  (junction (at 204.47 124.46) (diameter 0) (color 0 0 0 0)
-    (uuid ebd9a1f7-fdb6-4934-b7ba-484984e23127)
   )
 
   (wire (pts (xy 254 96.52) (xy 246.38 96.52))
@@ -2163,7 +2163,7 @@
     (stroke (width 0) (type default))
     (uuid 7ffeae4d-0b70-4f48-83f4-f0367269d473)
   )
-  (wire (pts (xy 119.38 171.45) (xy 119.38 166.37))
+  (wire (pts (xy 119.38 166.37) (xy 119.38 170.18))
     (stroke (width 0) (type default))
     (uuid 8023dd94-c644-4f3b-962c-c58876af109d)
   )
@@ -2387,10 +2387,6 @@
     (stroke (width 0) (type default))
     (uuid c69da5fc-7ed6-4ab8-88dc-e5ef2b744c56)
   )
-  (wire (pts (xy 204.47 134.62) (xy 204.47 124.46))
-    (stroke (width 0) (type default))
-    (uuid c93308d6-75be-459d-8d0e-11e6dbf65cc5)
-  )
   (wire (pts (xy 67.31 74.93) (xy 67.31 77.47))
     (stroke (width 0) (type default))
     (uuid ca25617f-d49b-4eec-a951-89b930ad4ac8)
@@ -2431,6 +2427,10 @@
     (stroke (width 0) (type default))
     (uuid dc44aabd-a4e4-4769-a08b-18df79bc647a)
   )
+  (wire (pts (xy 123.19 170.18) (xy 119.38 170.18))
+    (stroke (width 0) (type default))
+    (uuid dc8f8d96-a986-4f4a-ba2d-f105498a50f4)
+  )
   (wire (pts (xy 246.38 96.52) (xy 246.38 104.14))
     (stroke (width 0) (type default))
     (uuid dd28fa3d-0b26-4e1c-a8af-2fbb7ce30969)
@@ -2454,6 +2454,10 @@
   (wire (pts (xy 69.85 74.93) (xy 69.85 77.47))
     (stroke (width 0) (type default))
     (uuid e1e6f79c-e95c-4290-9642-48d2e090d79e)
+  )
+  (wire (pts (xy 119.38 170.18) (xy 119.38 171.45))
+    (stroke (width 0) (type default))
+    (uuid e32777a5-1e7e-458f-9fde-77621250dfbd)
   )
   (wire (pts (xy 81.28 166.37) (xy 81.28 161.29))
     (stroke (width 0) (type default))
@@ -2506,10 +2510,6 @@
   (wire (pts (xy 76.2 157.48) (xy 76.2 158.75))
     (stroke (width 0) (type default))
     (uuid f69f39ad-011e-40c8-a88b-3f2e61fd8ab9)
-  )
-  (wire (pts (xy 212.09 134.62) (xy 204.47 134.62))
-    (stroke (width 0) (type default))
-    (uuid f6e591c2-5072-4f98-9302-a8e26f32bb1c)
   )
   (wire (pts (xy 81.28 158.75) (xy 78.74 158.75))
     (stroke (width 0) (type default))
@@ -3649,7 +3649,7 @@
   (symbol (lib_id "GPAD_SCH_LIB:LED_T1.75_CLEAR_WHITE") (at 163.83 134.62 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4f4d8b6e-4cae-432c-850e-1ef15c7ace25)
-    (property "Reference" "D4-coldFood1" (at 161.29 128.27 0)
+    (property "Reference" "D4-ONOFF1" (at 161.29 128.27 0)
       (effects (font (size 1.524 1.524)) (justify left))
     )
     (property "Value" "LED_T1.75_CLEAR_RED" (at 166.37 132.08 0)
@@ -3705,7 +3705,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "D4-coldFood1") (unit 1)
+          (reference "D4-ONOFF1") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4291,7 +4291,7 @@
   (symbol (lib_id "GPAD_SCH_LIB:LED_T1.75_CLEAR_WHITE") (at 163.83 144.78 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6dd54f6e-143b-4548-a66b-508a332c810f)
-    (property "Reference" "D5-ONOFF1" (at 161.29 138.43 0)
+    (property "Reference" "D5-coldFood1" (at 161.29 138.43 0)
       (effects (font (size 1.524 1.524)) (justify left))
     )
     (property "Value" "LED_T1.75_CLEAR_RED" (at 166.37 142.24 0)
@@ -4347,7 +4347,7 @@
     (instances
       (project "homeWork2"
         (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "D5-ONOFF1") (unit 1)
+          (reference "D5-coldFood1") (unit 1)
         )
       )
       (project "GeneralPurposeAlarmDevicePCB"
@@ -4476,6 +4476,36 @@
       (project "GeneralPurposeAlarmDevicePCB"
         (path "/412a327d-1ee3-473e-bc00-1545004b7edf"
           (reference "H103") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:PWR_FLAG") (at 123.19 170.18 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 79c12dd8-5685-44fa-ab58-d720c297f000)
+    (property "Reference" "#FLG01" (at 123.19 168.275 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "PWR_FLAG" (at 123.19 165.1 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 123.19 170.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 123.19 170.18 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 54f3149d-190c-49f3-946b-3fbf5d9c2b05))
+    (instances
+      (project "homeWork2"
+        (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
+          (reference "#FLG01") (unit 1)
+        )
+      )
+      (project "GeneralPurposeAlarmDevicePCB"
+        (path "/412a327d-1ee3-473e-bc00-1545004b7edf"
+          (reference "#FLG0102") (unit 1)
         )
       )
     )
@@ -5559,31 +5589,6 @@
       (project "GeneralPurposeAlarmDevicePCB"
         (path "/412a327d-1ee3-473e-bc00-1545004b7edf"
           (reference "#PWR0107") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "power:PWR_FLAG") (at 212.09 134.62 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
-    (uuid c2f8c7c2-7f05-4006-8387-234916fc7c16)
-    (property "Reference" "#FLG0109" (at 212.09 132.715 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Value" "PWR_FLAG" (at 212.09 129.54 0)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "" (at 212.09 134.62 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 212.09 134.62 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 80c32faf-c5ae-4810-aeb9-18df0e85163c))
-    (instances
-      (project "homeWork2"
-        (path "/0dd285f0-5d03-432a-a2cf-fee3b00868c5"
-          (reference "#FLG0109") (unit 1)
         )
       )
     )
