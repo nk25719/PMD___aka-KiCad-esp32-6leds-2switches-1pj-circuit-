@@ -14,19 +14,19 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 * 6 leds are connected to the output pins of the Esp32
 * the voltage regulator supply the esp32 with a 5 V
 
-<img width="535" alt="image" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/654ed731-11bc-4bf3-9324-bcb3c00c4725">
-
-> 3D view of the PCB 
-
 ## Designs  
+ 
 * ### Esp32-6leds-2switches-1pj-circuit > Kicanvas live view of current schematic and PCB is found at:  
 
 >> [schematic Link](https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fnk25719%2FKiCad-esp32-6leds-2switches-1pj-circuit%2Fblob%2Fmain%2FhomeWork2.kicad_sch) & [PCB Link](https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Fnk25719%2FKiCad-esp32-6leds-2switches-1pj-circuit%2Fblob%2Fmain%2FhomeWork2.kicad_pcb)
 
 * ### Esp32-6leds-2switches-1pj-circuit > KiCad PCB Layers View:
+
+<img width="535" alt="image" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/654ed731-11bc-4bf3-9324-bcb3c00c4725">
+
+> 3D view of the PCB
   
 <img width="555" alt="Screenshot 2024-07-07 074220" src="https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/assets/133608369/896a5381-ad8e-4afd-be37-51b45ef2eafa">
-
 
 > All Layers View
 
