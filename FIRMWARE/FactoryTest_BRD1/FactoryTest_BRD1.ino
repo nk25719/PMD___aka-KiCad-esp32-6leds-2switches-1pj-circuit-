@@ -58,9 +58,22 @@ void setup() {
     lcd.setCursor(0, 0);
     lcd.print("Running setup...");
 
-    // Start DF player
-    startDFPlayer();
-    menuOptions();
+    // // Start DF player
+    // startDFPlayer();
+    // menuOptions();
+
+   delay(200);
+
+    // Turning off LEDs 
+    digitalWrite(lamp1Pin,  LOW);
+    digitalWrite(lamp2Pin,  LOW);
+    digitalWrite(lamp3Pin,  LOW);
+    digitalWrite(lamp4Pin,  LOW);
+    digitalWrite(lamp5Pin,  LOW);
+    digitalWrite(LED_PIN0,  LOW);
+    Serial.println("end of setup");
+
+  
 }
 
 void loop() {
@@ -142,6 +155,7 @@ void blinkLamp() {
     digitalWrite(lamp4Pin,  HIGH);
     digitalWrite(lamp5Pin,  HIGH);
     digitalWrite(LED_PIN0,  HIGH);
+    Serial.println("LEDs are On");
 
 delay (1000);
 
@@ -153,21 +167,26 @@ delay (1000);
     digitalWrite(lamp5Pin,  LOW);
     digitalWrite(LED_PIN0,  LOW);
 
+    Serial.println("LEDs are Off");
+
+
+    delay (200);
+
   }
 
 
 
 
-void menuOptions() {
-  Serial.println();
-  Serial.println("================================================================");
-  Serial.println("Commands:");
-  Serial.println(" [1-5] Select MP3 file");
-  Serial.println(" [p] Pause/resume");
-  Serial.println(" [vX] Set volume (0-30)");
-  Serial.println(" [+ or -] Increase or decrease volume");
-  Serial.println(" [r] Enable repeat mode");
-  Serial.println("================================================================");
+// void menuOptions() {
+//   Serial.println();
+//   Serial.println("================================================================");
+//   Serial.println("Commands:");
+//   Serial.println(" [1-5] Select MP3 file");
+//   Serial.println(" [p] Pause/resume");
+//   Serial.println(" [vX] Set volume (0-30)");
+//   Serial.println(" [+ or -] Increase or decrease volume");
+//   Serial.println(" [r] Enable repeat mode");
+//   Serial.println("================================================================");
 
 
-}
+// }
