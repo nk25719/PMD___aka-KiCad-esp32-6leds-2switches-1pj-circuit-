@@ -13,13 +13,14 @@ const int serverPort = 5500;
 const int analogPin = 32;
 const int MUTE_BUTTON_PIN = 36; // GPIO 36 for the mute button
 const int ON_OFF_BUTTON_PIN = 39; // GPIO 39 for the ON/OFF button
+#define LED_PIN0 23;// mute buttom  // D9 on PCB
+#define LED_PIN 2 // GPIO 2 for the blue LED // ON OFF LED // D4 on PCB
+const int lamp1Pin = 15; // lamp emergency L1 // D5 on PCB
+const int lamp2Pin = 4; //lamp emergency L2 // D3 on PCB
+const int lamp3Pin = 5; //lamp emergency L3 // D8 on PCB
+const int lamp4Pin = 18;//lamp emergency L4 // D7 on PCB
+const int lamp5Pin = 19;//lamp emergency L5 // D6 on PCB
 
-#define LED_PIN 2 // GPIO 2 for the blue LED // ON OFF LED
-const int lamp1Pin = 15; // lamp emergency L1
-const int lamp2Pin = 4; //lamp emergency L2
-const int lamp3Pin = 5; //lamp emergency L3
-const int lamp4Pin = 18;//lamp emergency L4
-const int lamp5Pin = 19;//lamp emergency L5
 // const int lamp6Pin = 23; // MUTE LED 
 
 const char* ssidAP = "ESP32-Access-Point";
@@ -65,7 +66,7 @@ void setup() {
     pinMode(MUTE_BUTTON_PIN, INPUT_PULLUP); // Set mute button pin as input with pull-up
     pinMode(ON_OFF_BUTTON_PIN, INPUT_PULLUP); // Set ON/OFF button pin as input with pull-up
     pinMode(LED_PIN, OUTPUT);          // Set LED pin as output
-    digitalWrite(LED_PIN, LOW);        // Initialize LED to off
+    digitalWrite(LED_PIN, HIGH);        // Initialize LED to ON
 
     // Initialize lamp pins
     pinMode(lamp1Pin, OUTPUT);
@@ -73,6 +74,8 @@ void setup() {
     pinMode(lamp3Pin, OUTPUT);
     pinMode(lamp4Pin, OUTPUT);
     pinMode(lamp5Pin, OUTPUT);
+    pinMode(LED_PIN0, OUTPUT);
+    
 
     // Set up as Access Point
     WiFi.softAP(ssidAP, passwordAP);
