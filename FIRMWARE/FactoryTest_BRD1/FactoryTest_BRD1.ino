@@ -5,8 +5,6 @@
 #include <LiquidCrystal_I2C.h>
 #include <Wire.h>
 
-
-
 const int MUTE_BUTTON_PIN = 36; // GPIO 36 for the mute button
 const int ON_OFF_BUTTON_PIN = 39; // GPIO 39 for the ON/OFF button
 
@@ -17,8 +15,6 @@ const int lamp2Pin = 4; //lamp emergency L2 // D3 on PCB
 const int lamp3Pin = 5; //lamp emergency L3 // D8 on PCB
 const int lamp4Pin = 18;//lamp emergency L4 // D7 on PCB
 const int lamp5Pin = 19;//lamp emergency L5 // D6 on PCB
-
-
 
 SoftwareSerial mySoftwareSerial(16, 17);  // RX, TX for DFPlayer
 DFRobotDFPlayerMini myDFPlayer;
@@ -62,7 +58,7 @@ void setup() {
     // startDFPlayer();
     // menuOptions();
 
-   delay(200);
+    delay(200);
 
     // Turning off LEDs 
     digitalWrite(lamp1Pin,  LOW);
