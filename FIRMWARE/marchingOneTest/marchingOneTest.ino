@@ -17,6 +17,11 @@ const int lamp3Pin = 5; //lamp emergency L3 // D8 on PCB
 const int lamp4Pin = 18;//lamp emergency L4 // D7 on PCB
 const int lamp5Pin = 19;//lamp emergency L5 // D6 on PCB
 
+unsigned long previousMillis = 0;
+const long interval = 500; // Time each lamp stays on (in milliseconds)
+int currentLamp = 1;
+bool allLampsOff = true;
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -40,43 +45,36 @@ void loop() {
   blinkLamp();// put your main code here, to run repeatedly:
 
 }
+
+
 void blinkLamp() {
-    const int delayTime = 500; // Time each lamp stays off (in milliseconds)
+    unsigned long currentMillis = millis();
+    
+    if (currentMillis - previousMillis >= interval) {
+        previousMillis = currentMillis;
 
-    // Turn all lamps on
-    digitalWrite(lamp1Pin, HIGH);
-    digitalWrite(lamp2Pin, HIGH);
-    digitalWrite(lamp3Pin, HIGH);
-    digitalWrite(lamp4Pin, HIGH);
-    digitalWrite(lamp5Pin, HIGH);
-    digitalWrite(LED_PIN0, HIGH);
-    Serial.println("All lamps are On");
-    delay(1000); // Wait for a second before starting the marching zero effect
+        // Turn off all lamps first
+        digitalWrite(lamp1Pin, LOW);
+        digitalWrite(lamp2Pin, LOW);
+        digitalWrite(lamp3Pin, LOW);
+        digitalWrite(lamp4Pin, LOW);
+        digitalWrite(lamp5Pin, LOW);
+        digitalWrite(LED_PIN0, LOW);
+        
+        // Turn on the current lamp
+        switch (currentLamp) {
+            case 1: digitalWrite(lamp1Pin, HIGH); Serial.println("Lamp 1 is On"); break;
+            case 2: digitalWrite(lamp2Pin, HIGH); Serial.println("Lamp 2 is On"); break;
+            case 3: digitalWrite(lamp3Pin, HIGH); Serial.println("Lamp 3 is On"); break;
+            case 4: digitalWrite(lamp4Pin, HIGH); Serial.println("Lamp 4 is On"); break;
+            case 5: digitalWrite(lamp5Pin, HIGH); Serial.println("Lamp 5 is On"); break;
+            case 6: digitalWrite(LED_PIN0, HIGH); Serial.println("LED_PIN0 is On"); break;
+        }
 
-    // Turn off each lamp one by one
-    digitalWrite(lamp1Pin, LOW);
-    Serial.println("Lamp 1 is Off");
-    delay(delayTime);
-
-    digitalWrite(lamp2Pin, LOW);
-    Serial.println("Lamp 2 is Off");
-    delay(delayTime);
-
-    digitalWrite(lamp3Pin, LOW);
-    Serial.println("Lamp 3 is Off");
-    delay(delayTime);
-
-    digitalWrite(lamp4Pin, LOW);
-    Serial.println("Lamp 4 is Off");
-    delay(delayTime);
-
-    digitalWrite(lamp5Pin, LOW);
-    Serial.println("Lamp 5 is Off");
-    delay(delayTime);
-
-    digitalWrite(LED_PIN0, LOW);
-    Serial.println("LED_PIN0 is Off");
-
-    delay(500); // Wait for a while before starting the next cycle
+        // Move to the next lamp
+        currentLamp++;
+        if (currentLamp > 6) {
+            currentLamp = 1; // Reset to the first lamp after the last one
+        }
+    }
 }
-
