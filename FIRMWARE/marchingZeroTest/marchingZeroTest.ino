@@ -1,8 +1,8 @@
-#include <HTTPClient.h>
-#include <SoftwareSerial.h>
-#include <DFRobotDFPlayerMini.h>
-#include <LiquidCrystal_I2C.h>
-#include <Wire.h>
+//#include <HTTPClient.h>
+//#include <SoftwareSerial.h>
+//#include <DFRobotDFPlayerMini.h>
+//#include <LiquidCrystal_I2C.h>
+//#include <Wire.h>
 
 unsigned long previousMillisZero = 0;
 const long intervalZero = 500; // Time each lamp stays off (in milliseconds)
@@ -76,4 +76,3 @@ void blinkLamp() {
         }
     }
 }
-

@@ -1,8 +1,8 @@
-#include <HTTPClient.h>
-#include <SoftwareSerial.h>
-#include <DFRobotDFPlayerMini.h>
-#include <LiquidCrystal_I2C.h>
-#include <Wire.h>
+//#include <HTTPClient.h>
+//#include <SoftwareSerial.h>
+//#include <DFRobotDFPlayerMini.h>
+//#include <LiquidCrystal_I2C.h>
+//#include <Wire.h>
 
 
 
