@@ -11,6 +11,7 @@
 #define ORIGIN "USA"
 
 #define BAUDRATE 115200
+#define BAUD_DFPLAYER 9600
 
 // Libraries
 #include <WiFi.h>
@@ -45,7 +46,7 @@ unsigned long previousMillis = 0;
 const long interval = 100;
 
 // LCD and DFPlayer Setup
-HardwareSerial mySerial1(2); // UART2
+HardwareSerial DFPlayerSerial(2); // DFPlaywer wired to UART2 pins. See above for pin numbers.
 DFRobotDFPlayerMini myDFPlayer;
 
 //LiquidCrystal_I2C lcd(0x27, 20, 4);
@@ -79,6 +80,30 @@ Password:<br><input type="password" name="password"><br><br>
 </body>
 </html>)rawliteral";
 
+//Functions
+
+void setupLCDandSplash(void){
+  Wire.begin();
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print(DEVICE_UNDER_TEST);
+  lcd.setCursor(0, 1);
+  lcd.print(PROG_NAME);
+  lcd.setCursor(0, 2);
+  lcd.print(VERSION);
+  lcd.setCursor(0, 3);
+  lcd.print(F(__DATE__ " " __TIME__) ); //compile date that is used for a unique identifier
+}
+
+void lcdReportWiFiConnected(void){
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("WiFi Connected"); 
+}
+
+
+
 // Setup Function
 void setup() {
   pinMode(LED_PIN, OUTPUT);
@@ -94,34 +119,24 @@ void setup() {
   Serial.print("Compiled at: ");
   Serial.println(F(__DATE__ " " __TIME__) ); //compile date that is used for a unique identifier
 
-//  digitalWrite(LED_PIN, LOW); //Start of setup make build in LED on.
+  setupLCDandSplash();
 
-//  mySerial1.begin(9600, SERIAL_8N1, 16, 17); // rx2,  tx2
-  Wire.begin();
-  lcd.init();
-  lcd.backlight();
-  lcd.setCursor(0, 0);
-  lcd.print(DEVICE_UNDER_TEST);
-  lcd.setCursor(0, 1);
-  lcd.print(PROG_NAME);
-  lcd.setCursor(0, 2);
-  lcd.print(VERSION);
-  lcd.setCursor(0, 3);
-  lcd.print(F(__DATE__ " " __TIME__) ); //compile date that is used for a unique identifier
+  //Setup DFPlayer
+  DFPlayerSerial.begin(BAUD_DFPLAYER, SERIAL_8N1, 16, 17); // rx2,  tx2
+  startDFPlayer();
 
-
+//Setup Buttons
   pinMode(MUTE_BUTTON_PIN, INPUT_PULLUP);
   pinMode(ON_OFF_BUTTON_PIN, INPUT_PULLUP);
-  pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, LOW);
 
+//Setup LEDs aka lamps
   for (int pin : lampPins) {
     pinMode(pin, OUTPUT);
   }
 
+//Setup WiFi, dnsServer for soft AP, web server
   WiFi.softAP(ssidAP, passwordAP);
   Serial.println("Access Point Created");
-
   dnsServer.start(DNS_PORT, "*", WiFi.softAPIP());
   server.on("/", handleRoot);
   server.on("/connect", HTTP_POST, handleConnect);
@@ -133,17 +148,11 @@ void setup() {
     Serial.println("Failed to connect");
     ESP.restart();
   }
-
   Serial.println("WiFi Connected");
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("WiFi Connected");
+  lcdReportWiFiConnected();
+  delay(1000);
 
-//Setup DFPlayer
-  mySerial1.begin(9600, SERIAL_8N1, 16, 17); // rx2,  tx2
-  startDFPlayer();
-
-//Display Menu on LCD
+  //Display Menu on LCD
   menuOptions();
 
   digitalWrite(LED_PIN, LOW); //End of setup make build in LED off.
@@ -334,7 +343,7 @@ void checkWiFiConnection() {
 void startDFPlayer() {
   Serial.println("Initializing DFPlayer...");
 
-  if (!myDFPlayer.begin(mySerial1)) {
+  if (!myDFPlayer.begin(DFPlayerSerial)) {
     Serial.println("DFPlayer Mini not detected:");
     Serial.println("1. Please check the wiring!");
     Serial.println("2. Please insert the SD card!");
