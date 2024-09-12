@@ -1,4 +1,4 @@
-#PMD
+# PMD
 
 ## Summary
 
@@ -28,13 +28,13 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 * Switches are linked to the input pins of the ESP32 with pull-up resistors.
 
 
-## Design Summary
+## PMD Design Summary
 
 * 4 switches connected to the input pins of the esp32
 * 6 leds are connected to the output pins of the Esp32
 * the voltage regulator supply the esp32 with a 5 V
 
-## PMD Design Details 
+## Design Details 
  
 * ### Esp32-6leds-2switches-1pj-circuit > Kicanvas live view of current schematic and PCB is found at:  
 
