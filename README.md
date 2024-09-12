@@ -1,3 +1,5 @@
+#PMD
+
 ## Summary
 
 This repository contains files which started as a KiCad home work project but which has evolved to become so usefull that in the summer of 2024 orders were placed for real hardware from JLCPCB for delivery in USA and from PCBWay for delivery in Lebanon.
@@ -32,7 +34,7 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 * 6 leds are connected to the output pins of the Esp32
 * the voltage regulator supply the esp32 with a 5 V
 
-## Designs Details
+## PMD Design Details 
  
 * ### Esp32-6leds-2switches-1pj-circuit > Kicanvas live view of current schematic and PCB is found at:  
 
