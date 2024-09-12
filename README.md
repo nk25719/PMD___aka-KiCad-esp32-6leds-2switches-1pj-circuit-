@@ -3,6 +3,7 @@
 This repository contains files which started as a KiCad home work project but which has evolved to become so usefull that in the summer of 2024 orders were placed for real hardware from JLCPCB for delivery in USA and from PCBWay for delivery in Lebanon.
 
 ## Status 
+As of 20240911 See the README.md with in the Firmware folder for descriptions of files there.
 As of 202709  
 Journal of assembly of PCBWay order in this issue:  https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/issues/33  
 Journal of assembly of JLCPCB order in this issue:  https://github.com/nk25719/KiCad-esp32-6leds-2switches-1pj-circuit/issues/32  
