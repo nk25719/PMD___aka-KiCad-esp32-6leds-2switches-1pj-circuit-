@@ -20,7 +20,10 @@ Several firmware "sketches" have been developed to assist in the verification of
 
 During brain storming we have discussed how this assembly might be used as a "PMD" Pesudo Medical Device. A device to control a Krake and the Mocking Krake. (See Krake: https://github.com/PubInv/krake)
 
-## The KiCad File "HOMEWORK 2"
+## The KiCad File "HOMEWORK 2" 
+
+The "HOMEWORK 2" PCB is designed around the ESP32 Devkit V1. Documentation for the devkit V1 can be found here.
+https://embedded-systems-design.github.io/overview-of-the-esp32-devkit-doit-v1/
 
 Valuable symbols and circuits have been acquired and deposited in this repository for the public use:
 * ESP32 symbol and footprint libraries.
