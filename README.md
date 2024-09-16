@@ -1,3 +1,5 @@
+# PMD
+
 ## Summary
 
 This repository contains files which started as a KiCad home work project but which has evolved to become so usefull that in the summer of 2024 orders were placed for real hardware from JLCPCB for delivery in USA and from PCBWay for delivery in Lebanon.
@@ -18,7 +20,10 @@ Several firmware "sketches" have been developed to assist in the verification of
 
 During brain storming we have discussed how this assembly might be used as a "PMD" Pesudo Medical Device. A device to control a Krake and the Mocking Krake. (See Krake: https://github.com/PubInv/krake)
 
-## The KiCad File "HOMEWORK 2"
+## The KiCad File "HOMEWORK 2" 
+
+The "HOMEWORK 2" PCB is designed around the ESP32 Devkit V1. Documentation for the devkit V1 can be found here.
+https://embedded-systems-design.github.io/overview-of-the-esp32-devkit-doit-v1/
 
 Valuable symbols and circuits have been acquired and deposited in this repository for the public use:
 * ESP32 symbol and footprint libraries.
@@ -26,13 +31,13 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 * Switches are linked to the input pins of the ESP32 with pull-up resistors.
 
 
-## Design Summary
+## PMD Design Summary
 
 * 4 switches connected to the input pins of the esp32
 * 6 leds are connected to the output pins of the Esp32
 * the voltage regulator supply the esp32 with a 5 V
 
-## Designs Details
+## Design Details 
  
 * ### Esp32-6leds-2switches-1pj-circuit > Kicanvas live view of current schematic and PCB is found at:  
 
