@@ -1,5 +1,5 @@
-x=60.88;//x +5 PCB Width
-y=30.685;//y +5 PCB Height
+x=60.88;//x +5PCB Width
+y=30.685;//y +5PCB Height
 z=0;//z
 x1= 65.88;
 y1= 35.685;
@@ -18,11 +18,41 @@ extend = 35; //Show inside Enclosure
 heightPCB = 111.7680;
 widthPCB = 53.370;
 
+heightPCBHole = 103.163;
+widthPCBHole = 43.4340;
+
+halfheightPCBHole = heightPCBHole/2;
+halfwidthPCBHole = widthPCBHole/2;
+
 
 //PCB BOARD
-translate([60.88,-26.685,20])
+color("Green")
+difference(){
+translate([55.88,-26.685,25])
 rotate([0,0,90])
 square ([widthPCB,heightPCB],0);
+//PCB HOLE 1
+translate([-halfheightPCBHole,halfwidthPCBHole,20])
+cylinder(h=20,d1=3.25,d2 =3.25,center = true);
+    
+ //PCB HOLE 2
+translate([halfheightPCBHole,halfwidthPCBHole,20])
+cylinder(h=20,d1=3.25,d2 =3.25,center = true);
+    
+//PCB HOLE 3
+translate([halfheightPCBHole,-halfwidthPCBHole,20])
+cylinder(h=20,d1=3.25,d2 =3.25,center = true);
+    
+//PCB HOLE 4
+translate([-halfheightPCBHole,-halfwidthPCBHole,20])
+cylinder(h=20,d1=3.25,d2 =3.25,center = true);
+}
+
+
+
+
+
+
 
 //THE TOP 
 difference(){
