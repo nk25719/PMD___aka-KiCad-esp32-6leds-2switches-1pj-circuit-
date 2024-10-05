@@ -1,5 +1,6 @@
+
 x=60.88;//x +5PCB Width
-y=30.685;//y +5PCB Height
+y=30.685;//y +4PCB Height
 z=0;//z
 x1= 65.88;
 y1= 35.685;
@@ -13,7 +14,7 @@ lid_thickness = 2;
 lid_lip = 2;
 lid_tolerance =0.5;
 
-extend = 35; //Show inside Enclosure
+extend = 35; //Show inside Enclosure [20 is closing enclosure number.]
 
 heightPCB = 111.7680;
 widthPCB = 53.370;
@@ -50,11 +51,8 @@ cylinder(h=20,d1=3.25,d2 =3.25,center = true);
 
 
 
-
-
-
-
 //THE TOP 
+color("Crimson")
 difference(){
  hull(){
     translate ([x,y,z]){
@@ -71,18 +69,6 @@ difference(){
 }
 }
 // NOTE THERE ARE ERRORS WITH THE HOLE 1-4 MEASUREMENTS THEY OUGHT TO BE SMALLER.
-//Hole 1
-translate([-55.88,26.685,0])
-cylinder(h=15,d1=hole_diameter,d2 = hole_diameter, center=true);
-//Hole 2
-translate([55.88,26.685,0])
-cylinder(h=15,d1=hole_diameter,d2 = hole_diameter, center=true);
-//Hole 3
-translate([55.88,-26.685,0])
-cylinder(h=15,d1=hole_diameter,d2 = hole_diameter, center=true);
-//Hole 4
-translate([-55.88,-26.685,0])
-cylinder(h=15,d1=hole_diameter,d2 = hole_diameter, center=true);
 
 //Top LED 1
 translate([36.83,26.685,0])
@@ -123,7 +109,8 @@ translate([-9.0333,1.935,0])
 cube([9.1967,7.20,15],center=true);
 
 }
-// 
+// THE HOLLOW SHAPE
+
 difference(){
 hull(){
     translate ([x1,y1,extend]){
@@ -140,6 +127,7 @@ hull(){
 }
 }
 
+
 hull(){
 translate ([55.88,25.658,extend]){
     cylinder (r=corner_radius, h=15.3, center=true);
@@ -153,47 +141,57 @@ translate ([55.88,25.658,extend]){
     translate ([55.88,-25.658,extend]){
     cylinder (r=corner_radius, h=15.3, center=true);
     }
-  
- //HOLE FOR POWER Source
-
 }
+//Small Hole for Enclosure
+translate([-halfheightPCBHole,halfwidthPCBHole,60])
+cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);  
+
+//Small Hole 2 for Enclosure
+translate([halfheightPCBHole,halfwidthPCBHole,60])
+cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
+
+//Small Hole 3 for Enclosure
+translate([halfheightPCBHole,-halfwidthPCBHole,60])
+cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
+//Hole 4 for Enclosure
+translate([-halfheightPCBHole,-halfwidthPCBHole,60])
+cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
 
 $fn=50;
-//
 
-//DIFFERENCE CODE NOT WORKING
+//THE 4 CYCLINDERS 
 difference(){
 //Big Cylinder 1
-translate([-58.88,25.88,5])
-cylinder(h=10,d1=13,d2 =13, center=true);
+translate([-halfheightPCBHole,halfwidthPCBHole,10])
+cylinder(h=20,d1=13,d2 =13, center=true);
  //Small Hole 1
-translate([-58.88,25.88,5])
-cylinder(h=12,d1=hole_diameter,d2 = hole_diameter, center=true);   
+translate([-halfheightPCBHole,halfwidthPCBHole,12])
+cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);   
 }   
 difference (){    
 //Screw Hole 2
-translate([58.88,25.88,5])
-cylinder(h=10,d1=13,d2 =13,center=true);
-//Hole 2
-translate([58.88,25.88,5])
-cylinder(h=12,d1=hole_diameter,d2 = hole_diameter, center=true);
+translate([halfheightPCBHole,halfwidthPCBHole,10])
+cylinder(h=20,d1=13,d2 =13,center=true);
+//Small Hole 2
+translate([halfheightPCBHole,halfwidthPCBHole,12])
+cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
 difference(){
 //Screw Hole 3
-translate([58.88,-25.88,5])
-cylinder(h=10,d1=13,d2 =13, center=true);
-    //Hole 3
-translate([58.88,-25.88,5])
-cylinder(h=12,d1=hole_diameter,d2 = hole_diameter, center=true);
+translate([halfheightPCBHole,-halfwidthPCBHole,10])
+cylinder(h=20,d1=13,d2 =13, center=true);
+    //Small Hole 3
+translate([halfheightPCBHole,-halfwidthPCBHole,12])
+cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
  difference(){   
     
 //Screw Hole 4
-translate([-58.88,-25.88,10])
+translate([-halfheightPCBHole,-halfwidthPCBHole,10])
 cylinder(h=20,d1=13,d2 =13,center=true);
 //Hole 4
-translate([-58.88,-25.88,10])
+translate([-halfheightPCBHole,-halfwidthPCBHole,12])
 cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);
  }
 
