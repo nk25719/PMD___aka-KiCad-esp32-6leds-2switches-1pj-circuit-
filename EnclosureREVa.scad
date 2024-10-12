@@ -2,8 +2,8 @@
 x=60.88;//x +5PCB Width
 y=30.685;//y +4PCB Height
 z=0;//z
-x1= 65.88;
-y1= 35.685;
+x1= 63.88;
+y1= 33.685;
 height_top = 3;
 corner_radius=5;
 wall_thick =5;
@@ -19,7 +19,7 @@ extend = 25; //Show inside Enclosure [20 is closing enclosure number.]
 power_surge_diameter =5.85;
 power_surge_location =extend+5;
 
-heightPCB = 111.7680;
+heightPCB = 113.0620;
 widthPCB = 53.370;
 
 heightPCBHole = 103.163;
@@ -109,7 +109,9 @@ cube([9.1967,7.20,15], center=true);
 //PUSH_BUTN 4
 translate([-9.0333,1.935,0])
 cube([9.1967,7.20,15],center=true);
-
+//TRANSISTOR HOLE
+translate([-10.76,-13.41,00])
+cube([10.5,4.641,15],center=true);
 }
 // THE HOLLOW SHAPE
 
