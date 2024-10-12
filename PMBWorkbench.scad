@@ -23,7 +23,6 @@ halfwidthPCBHole = widthPCBHole/2;
 
 
 difference(){
- color("Cyan")
  hull(){
     translate ([55.88,26.685,0]){
     cylinder (r=corner_radius, h=height_top);
@@ -88,9 +87,9 @@ cylinder(h=45,d1=hole_diameter,d2=hole_diameter, center = true);
    
 }    
    ///// UPPER TABLE
+ color("Khaki")
 difference(){
- hull(){
- //TRYING TO MAKE A CUBIC HOLE THROUGH THE SECOND LAYER  
+ hull(){ 
     translate ([55.88,-26.685,20]){
     cylinder (r=corner_radius, h=height_top);
 }
