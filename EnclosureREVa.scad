@@ -14,7 +14,10 @@ lid_thickness = 2;
 lid_lip = 2;
 lid_tolerance =0.5;
 
-extend = 35; //Show inside Enclosure [20 is closing enclosure number.]
+extend = 25; //Show inside Enclosure [20 is closing enclosure number.]
+
+power_surge_diameter =5.85;
+power_surge_location =extend+5;
 
 heightPCB = 111.7680;
 widthPCB = 53.370;
@@ -50,10 +53,9 @@ cylinder(h=20,d1=3.25,d2 =3.25,center = true);
 }
 
 
-
 //THE TOP 
-color("Crimson")
 difference(){
+    color("Khaki")
  hull(){
     translate ([x,y,z]){
     cylinder (r=corner_radius, h=height_top);
@@ -112,34 +114,34 @@ cube([9.1967,7.20,15],center=true);
 // THE HOLLOW SHAPE
 
 difference(){
+    color("Khaki")
 hull(){
     translate ([x1,y1,extend]){
-    cylinder (r=corner_radius, h=15.3);
+    cylinder (r=corner_radius, h=17.3);
 }
     translate ([-x1,y1,extend]){
-    cylinder (r=corner_radius, h=15.3);
+    cylinder (r=corner_radius, h=17.3);
 }
     translate ([-x1,-y1,extend]){
-    cylinder (r=corner_radius, h=15.3);
+    cylinder (r=corner_radius, h=17.3);
 }
     translate ([x1,-y1,extend]){
-    cylinder (r=corner_radius, h=15.3);
+    cylinder (r=corner_radius, h=17.3);
 }
 }
-
-
+//INSIDE HOLLOW
 hull(){
 translate ([55.88,25.658,extend]){
-    cylinder (r=corner_radius, h=15.3, center=true);
+    cylinder (r=corner_radius, h=17.3, center=true);
 }
     translate ([-55.88,25.658,extend]){
-    cylinder (r=corner_radius, h=15.3 , center=true);
+    cylinder (r=corner_radius, h=17.3 , center=true);
 }
     translate ([-55.88,-25.658,extend]){
-    cylinder (r=corner_radius, h=15.3, center=true);
+    cylinder (r=corner_radius, h=17.3, center=true);
 }
     translate ([55.88,-25.658,extend]){
-    cylinder (r=corner_radius, h=15.3, center=true);
+    cylinder (r=corner_radius, h=17.3, center=true);
     }
 }
 //Small Hole for Enclosure
@@ -156,13 +158,19 @@ cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
 //Hole 4 for Enclosure
 translate([-halfheightPCBHole,-halfwidthPCBHole,60])
 cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
+
+//POWER SURGE
+translate([-x1,-6.049,(extend+5)])
+rotate([0,90,0])
+cylinder (h=12,d1=power_surge_diameter,d2=power_surge_diameter, center=true);
 }
 
 $fn=50;
 
 //THE 4 CYCLINDERS 
 difference(){
-//Big Cylinder 1
+//Screw Cylinder 1
+    color("Khaki")
 translate([-halfheightPCBHole,halfwidthPCBHole,10])
 cylinder(h=20,d1=13,d2 =13, center=true);
  //Small Hole 1
@@ -170,7 +178,8 @@ translate([-halfheightPCBHole,halfwidthPCBHole,12])
 cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);   
 }   
 difference (){    
-//Screw Hole 2
+//Screw Cylinder 2
+    color("Khaki")
 translate([halfheightPCBHole,halfwidthPCBHole,10])
 cylinder(h=20,d1=13,d2 =13,center=true);
 //Small Hole 2
@@ -178,7 +187,8 @@ translate([halfheightPCBHole,halfwidthPCBHole,12])
 cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
 difference(){
-//Screw Hole 3
+//Screw Cylinder 3
+    color("Khaki")
 translate([halfheightPCBHole,-halfwidthPCBHole,10])
 cylinder(h=20,d1=13,d2 =13, center=true);
     //Small Hole 3
@@ -186,8 +196,8 @@ translate([halfheightPCBHole,-halfwidthPCBHole,12])
 cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
  difference(){   
-    
-//Screw Hole 4
+//Screw Cylinder 4
+     color("Khaki")
 translate([-halfheightPCBHole,-halfwidthPCBHole,10])
 cylinder(h=20,d1=13,d2 =13,center=true);
 //Hole 4
