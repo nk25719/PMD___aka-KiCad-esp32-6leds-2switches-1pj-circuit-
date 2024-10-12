@@ -14,7 +14,7 @@ lid_thickness = 2;
 lid_lip = 2;
 lid_tolerance =0.5;
 
-extend = 3; //Show inside Enclosure [20 is closing enclosure number.]
+extend = 40; //Show inside Enclosure [20 is closing enclosure number.]
 
 power_surge_diameter =5.85;
 power_surge_location =extend+5;
@@ -154,7 +154,7 @@ translate([-halfheightPCBHole,halfwidthPCBHole,13])
 cylinder(h=19.5,d1=13,d2 =13, center=true);
  //Small Hole 1
 translate([-halfheightPCBHole,halfwidthPCBHole,12])
-cylinder(h=20,d1=hole_diameter,d2 = hole_diameter, center=true);   
+cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);   
 }   
 difference (){    
 //Screw Cylinder 2
@@ -163,7 +163,7 @@ translate([halfheightPCBHole,halfwidthPCBHole,13])
 cylinder(h=19.5,d1=13,d2 =13,center=true);
 //Small Hole 2
 translate([halfheightPCBHole,halfwidthPCBHole,12])
-cylinder(h=20,d1=hole_diameter,d2 = hole_diameter, center=true);
+cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
 difference(){
 //Screw Cylinder 3
@@ -172,7 +172,7 @@ translate([halfheightPCBHole,-halfwidthPCBHole,13])
 cylinder(h=19.5,d1=13,d2 =13, center=true);
     //Small Hole 3
 translate([halfheightPCBHole,-halfwidthPCBHole,12])
-cylinder(h=20,d1=hole_diameter,d2 = hole_diameter, center=true);
+cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
  difference(){   
 //Screw Cylinder 4
@@ -181,7 +181,7 @@ translate([-halfheightPCBHole,-halfwidthPCBHole,13])
 cylinder(h=19.5,d1=13,d2 =13,center=true);
 //Hole 4
 translate([-halfheightPCBHole,-halfwidthPCBHole,12])
-cylinder(h=20,d1=hole_diameter,d2 = hole_diameter, center=true);
+cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
  }
 
 
