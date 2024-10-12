@@ -14,7 +14,7 @@ lid_thickness = 2;
 lid_lip = 2;
 lid_tolerance =0.5;
 
-extend = 25; //Show inside Enclosure [20 is closing enclosure number.]
+extend = 3; //Show inside Enclosure [20 is closing enclosure number.]
 
 power_surge_diameter =5.85;
 power_surge_location =extend+5;
@@ -28,29 +28,6 @@ widthPCBHole = 43.4340;
 halfheightPCBHole = heightPCBHole/2;
 halfwidthPCBHole = widthPCBHole/2;
 
-
-//PCB BOARD
-color("Green")
-difference(){
-translate([55.88,-26.685,25])
-rotate([0,0,90])
-square ([widthPCB,heightPCB],0);
-//PCB HOLE 1
-translate([-halfheightPCBHole,halfwidthPCBHole,20])
-cylinder(h=20,d1=3.25,d2 =3.25,center = true);
-    
- //PCB HOLE 2
-translate([halfheightPCBHole,halfwidthPCBHole,20])
-cylinder(h=20,d1=3.25,d2 =3.25,center = true);
-    
-//PCB HOLE 3
-translate([halfheightPCBHole,-halfwidthPCBHole,20])
-cylinder(h=20,d1=3.25,d2 =3.25,center = true);
-    
-//PCB HOLE 4
-translate([-halfheightPCBHole,-halfwidthPCBHole,20])
-cylinder(h=20,d1=3.25,d2 =3.25,center = true);
-}
 
 
 //THE TOP 
@@ -119,31 +96,31 @@ difference(){
     color("Khaki")
 hull(){
     translate ([x1,y1,extend]){
-    cylinder (r=corner_radius, h=17.3);
+    cylinder (r=corner_radius, h=22);
 }
     translate ([-x1,y1,extend]){
-    cylinder (r=corner_radius, h=17.3);
+    cylinder (r=corner_radius, h=22);
 }
     translate ([-x1,-y1,extend]){
-    cylinder (r=corner_radius, h=17.3);
+    cylinder (r=corner_radius, h=22);
 }
     translate ([x1,-y1,extend]){
-    cylinder (r=corner_radius, h=17.3);
+    cylinder (r=corner_radius, h=22);
 }
 }
 //INSIDE HOLLOW
 hull(){
-translate ([55.88,25.658,extend]){
-    cylinder (r=corner_radius, h=17.3, center=true);
+translate ([55.88,25.658,(extend+6.5)]){
+    cylinder (r=corner_radius, h=20.5, center=true);
 }
-    translate ([-55.88,25.658,extend]){
-    cylinder (r=corner_radius, h=17.3 , center=true);
+    translate ([-55.88,25.658,(extend+6.5)]){
+    cylinder (r=corner_radius, h=20.5, center=true);
 }
-    translate ([-55.88,-25.658,extend]){
-    cylinder (r=corner_radius, h=17.3, center=true);
+    translate ([-55.88,-25.658,(extend+6.5)]){
+    cylinder (r=corner_radius, h=20.5, center=true);
 }
-    translate ([55.88,-25.658,extend]){
-    cylinder (r=corner_radius, h=17.3, center=true);
+    translate ([55.88,-25.658,(extend+6.5)]){
+    cylinder (r=corner_radius, h=20.5, center=true);
     }
 }
 //Small Hole for Enclosure
@@ -173,38 +150,38 @@ $fn=50;
 difference(){
 //Screw Cylinder 1
     color("Khaki")
-translate([-halfheightPCBHole,halfwidthPCBHole,10])
-cylinder(h=20,d1=13,d2 =13, center=true);
+translate([-halfheightPCBHole,halfwidthPCBHole,13])
+cylinder(h=19.5,d1=13,d2 =13, center=true);
  //Small Hole 1
 translate([-halfheightPCBHole,halfwidthPCBHole,12])
-cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);   
+cylinder(h=20,d1=hole_diameter,d2 = hole_diameter, center=true);   
 }   
 difference (){    
 //Screw Cylinder 2
     color("Khaki")
-translate([halfheightPCBHole,halfwidthPCBHole,10])
-cylinder(h=20,d1=13,d2 =13,center=true);
+translate([halfheightPCBHole,halfwidthPCBHole,13])
+cylinder(h=19.5,d1=13,d2 =13,center=true);
 //Small Hole 2
 translate([halfheightPCBHole,halfwidthPCBHole,12])
-cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);
+cylinder(h=20,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
 difference(){
 //Screw Cylinder 3
     color("Khaki")
-translate([halfheightPCBHole,-halfwidthPCBHole,10])
-cylinder(h=20,d1=13,d2 =13, center=true);
+translate([halfheightPCBHole,-halfwidthPCBHole,13])
+cylinder(h=19.5,d1=13,d2 =13, center=true);
     //Small Hole 3
 translate([halfheightPCBHole,-halfwidthPCBHole,12])
-cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);
+cylinder(h=20,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
  difference(){   
 //Screw Cylinder 4
      color("Khaki")
-translate([-halfheightPCBHole,-halfwidthPCBHole,10])
-cylinder(h=20,d1=13,d2 =13,center=true);
+translate([-halfheightPCBHole,-halfwidthPCBHole,13])
+cylinder(h=19.5,d1=13,d2 =13,center=true);
 //Hole 4
 translate([-halfheightPCBHole,-halfwidthPCBHole,12])
-cylinder(h=22,d1=hole_diameter,d2 = hole_diameter, center=true);
+cylinder(h=20,d1=hole_diameter,d2 = hole_diameter, center=true);
  }
 
 
