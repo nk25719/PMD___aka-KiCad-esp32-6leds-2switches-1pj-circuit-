@@ -25,4 +25,4 @@ testSwitches, Test for switch press and held and reports our serial port.
 twoAtonce_jul16a, Flashes two LEDs with out using delay but does not use the Class solution.  
 
 ### Files which compile in MS Visual Studio:
-PMDtoKRake_KrakeV2. Although this compiles in the Aaruino IDE it has a template subfolder with HTML and PY code and so looks to stem from a MS Visual Studio template.
+PMDtoKRake_KrakeV2. Although this compiles in the Aaruino IDE it has a template subfolder with HTML and PY code and so looks to stem from a MS Visual Studio template. (FILE REMOVED)

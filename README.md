@@ -13,8 +13,16 @@ Journal of assembly of JLCPCB order in this issue:  https://github.com/nk25719/K
 To finish the assemblies LEDs were soldered to the PCB 
 Image of assembly with LEDs on the Public Inventino GPAD stand off spacers.    
 ![image](https://github.com/user-attachments/assets/ff2cf124-d601-4fc4-b69f-2300d63e25a9)
+
 Another view of the LEDs.  
 ![image](https://github.com/user-attachments/assets/7caf22b7-1025-4c08-a0a9-01e63282fd1c)
+
+PMD mounted to the workbench
+<img src="https://github.com/user-attachments/assets/21fc2465-29c3-45e0-9f70-c0dd6d872534" width="900px" height="450px">
+
+View of the workbench
+
+<img src="https://github.com/user-attachments/assets/f4dcb31e-5f27-4f46-9496-25603c884c55" width="600px" height="400px">
 
 Several firmware "sketches" have been developed to assist in the verification of the assemblies including a marching 1 and marching 0 test.
 
