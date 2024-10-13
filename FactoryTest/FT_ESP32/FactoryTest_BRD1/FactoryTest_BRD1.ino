@@ -81,55 +81,6 @@ void loop() {
 
     }
 
-// void handleONOFFButton() {
-
-//     bool reading = digitalRead(ON_OFF_BUTTON_PIN);
-    
-  
-//     if ((millis() - lastDebounceTime) > debounceDelay) {
-//         if (reading != buttonPressed) {
-//             buttonPressed = reading;
-//             if (buttonPressed == LOW) { // Button pressed (active low)
-           
-//                 digitalWrite(LED_PIN, ledState ? HIGH : LOW);
-//                 Serial.println(ledState ? "KRAKE ON" : "KRAKE OFF");
-                
-//                 // Turn off all GPIO pins when the ON/OFF button is pressed
-//                 if (ledState == LOW) {
-//                     for (int pin = 0; pin <= 39; ++pin) {
-//                         if (pin != MUTE_BUTTON_PIN && pin != ON_OFF_BUTTON_PIN && pin != LED_PIN) {
-//                             digitalWrite(pin, LOW);
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-    
-// }
-
-
-
-// void muteButton() {
-//     int currentState = digitalRead(MUTE_BUTTON_PIN);
-    
-//         Serial.println("Mute Button released");
-//         if (trackPlaying) {
-//             myDFPlayer.pause();
-//             trackPlaying = false;
-//             delay(600000);  // Alarm paused for 10 minutes
-//             lcd.clear();
-//             lcd.setCursor(0, 0);
-//             lcd.print("Alarm Paused");
-//         } else {
-//             myDFPlayer.start();
-//             trackPlaying = true;
-//             lcd.clear();
-//             lcd.setCursor(0, 0);
-//             lcd.print("Alarm Resumed");
-//         }
-//      }
-
 
 
 void startDFPlayer() {
@@ -172,17 +123,3 @@ delay (1000);
 
 
 
-
-// void menuOptions() {
-//   Serial.println();
-//   Serial.println("================================================================");
-//   Serial.println("Commands:");
-//   Serial.println(" [1-5] Select MP3 file");
-//   Serial.println(" [p] Pause/resume");
-//   Serial.println(" [vX] Set volume (0-30)");
-//   Serial.println(" [+ or -] Increase or decrease volume");
-//   Serial.println(" [r] Enable repeat mode");
-//   Serial.println("================================================================");
-
-
-// }
