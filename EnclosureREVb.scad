@@ -1,3 +1,12 @@
+//EnclosureREVb.scad
+//This is an Enclosure for the homework printed circuit assembly 20240421.
+// Draw by Oyindamola Adeniran
+// Date started - October 13th 2024
+//GNU AFFERO GENERAL PUBLIC LICENSE
+//Version 3, 19 November 2007
+
+//Copyright Â© 2007 Free Software Foundation, Inc. <https://fsf.org/>
+//Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 
 x=60.88;//x +5PCB Width
 y=30.685;//y +4PCB Height
@@ -47,7 +56,7 @@ difference(){
     cylinder (r=corner_radius, h=height_top);
 }
 }
-// NOTE THERE ARE ERRORS WITH THE HOLE 1-4 MEASUREMENTS THEY OUGHT TO BE SMALLER.
+
 
 //Top LED 1
 translate([36.83,26.685,0])
