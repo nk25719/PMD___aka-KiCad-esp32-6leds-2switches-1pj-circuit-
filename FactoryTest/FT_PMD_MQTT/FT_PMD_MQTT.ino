@@ -3,13 +3,14 @@
 // Date: 20241006
 // Update 20241008 with WINK and toggle D9 when sending MQTT on line message.
 // Manage LEDS. Add serial splash.
+// Update 20241015 Reports IP address on serial port.
 
 //Set your device Model_Serial on line 12. 
 // This will be the subscription topic to which the devices listens. 
 // It must match the device list for which the MQTT_PMD_DAT_TOPIC or other publisher sends.
 // Example devices include: PMD_LB4, PMD_Austin1.  
 // No spaces.
-#define MODEL_SERIAL "PMD_USA1" 
+#define MODEL_SERIAL "20240421_USA4" 
 
 
 // This example uses an ESP32 Development Board
@@ -23,7 +24,7 @@
 
 
 #define PROG_NAME "MQTT_ESP32DevelopmentBoard "
-#define VERSION "V0.2 "
+#define VERSION "V0.3 "
 #define DEVICE_UNDER_TEST "PMD SN: USA1"  //A PMD model  and Serial Number
 #define LICENSE "GNU Affero General Public License, version 3 "
 #define ORIGIN "USA"
@@ -31,8 +32,14 @@
 //Setup for your WiFi router here
 //const char ssid[] = "ssid";
 //const char pass[] = "pass";
-const char ssid[] = "ADT";
-const char pass[] = "adt@12345";
+
+////LB network
+//const char ssid[] = "ADT";
+//const char pass[] = "adt@12345";
+
+//Maryville network
+const char ssid[] = "VRX";
+const char pass[] = "textinsert";
 
 // Some PMD Hardware
 // Pins for switches
@@ -68,10 +75,10 @@ const int LAMP5 = 19;    // D6 lost sock
 
 
 //Choose only one PMD Device to which to subscribe
-#define PMD_DTA_TOPIC "PMD_DTA_TOPIC_USA1" //Subscribe to a unique PMD device in USA
+//#define PMD_DTA_TOPIC "PMD_DTA_TOPIC_USA1" //Subscribe to a unique PMD device in USA
 //#define PMD_DTA_TOPIC "PMD_DTA_TOPIC_USA2" //Subscribe to a unique PMD device in USA
 //#define PMD_DTA_TOPIC "PMD_DTA_TOPIC_USA3" //Subscribe to a unique PMD device in USA
-//#define PMD_DTA_TOPIC "PMD_DTA_TOPIC_USA4" //Subscribe to a unique PMD device in USA
+#define PMD_DTA_TOPIC "PMD_DTA_TOPIC_USA4" //Subscribe to a unique PMD device in USA
 //#define PMD_DTA_TOPIC "PMD_DTA_TOPIC_USA5" //Subscribe to a unique PMD device in USA
 
 //#define PMD_DTA_TOPIC "PMD_LB1_DTA_TOPIC" //Subscribe to a unique PMD device in Lebanon
@@ -108,6 +115,9 @@ void connect() {
     Serial.print(".");
     delay(1000);
   }
+
+  Serial.print("Connected at IP: ");
+  Serial.println(WiFi.localIP().toString());
 
   Serial.print("\nconnecting...");
   while (!client.connect("arduino", "public", "public")) {
