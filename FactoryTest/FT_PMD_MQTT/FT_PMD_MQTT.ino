@@ -1,9 +1,9 @@
-// File name: MQTT_ESP32DevelopmentBoard
+// File name: FT_PMD_MQTT  (was MQTT_ESP32DevelopmentBoard)
 // Author: Forrest Lee Erickson
 // Date: 20241006
 // Update 20241008 with WINK and toggle D9 when sending MQTT on line message.
 // Manage LEDS. Add serial splash.
-// Update 20241015 Reports IP address on serial port.
+// Update 20241015 Reports IP address on serial port. Change file name.
 
 //Set your device Model_Serial on line 12. 
 // This will be the subscription topic to which the devices listens. 
@@ -23,8 +23,8 @@
 // https://github.com/256dpi/arduino-mqtt
 
 
-#define PROG_NAME "MQTT_ESP32DevelopmentBoard "
-#define VERSION "V0.3 "
+#define PROG_NAME "FT_PMD_MQTT "
+#define VERSION "V0.4 "
 #define DEVICE_UNDER_TEST "PMD SN: USA1"  //A PMD model  and Serial Number
 #define LICENSE "GNU Affero General Public License, version 3 "
 #define ORIGIN "USA"
