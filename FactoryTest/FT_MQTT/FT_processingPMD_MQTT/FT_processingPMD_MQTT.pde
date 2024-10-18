@@ -1,6 +1,8 @@
-// File: MQTT_PMD_DAT_TOPIC 
+// File: FT_processingPMD_MQTT 
 // Author: Forrest Lee Erickson
 // Date: 20241006
+// Date: 20241016 Background change color on send and receive MQTT. Subscribe to 20240421_USA4.
+// Date: 20241017 Set title on window.
 
 // Pseude Medical Device in Processing. 
 // This example sketch connects to the public shiftr.io instance and sends a message on every keystroke.
@@ -12,10 +14,23 @@
 // by Joël Gähwiler
 // https://github.com/256dpi/processing-mqtt
 
+
+/*
+#define PROG_NAME "FT_PMD_MQTT "
+#define VERSION "V0.4 "
+#define DEVICE_UNDER_TEST "PMD SN: USA1"  //A PMD model  and Serial Number
+#define LICENSE "GNU Affero General Public License, version 3 "
+#define ORIGIN "USA"
+*/
+
+String PROG_NAME = "FT_processingPMD_MQTT";
+String VERSION = "V0.0 ";
 // Set the topic for the Pseude Medical Device in Processing.
 String PMD_DTA_TOPIC = "PROCESSING_PMD_USA1_DTA_TOPIC_USA_MARYVILLE";
 //String PMD_DTA_TOPIC = "PROCESSING_PMD_DTA_TOPIC_LB";
 
+
+String thePayload = "";
 
 import mqtt.*;
 
@@ -40,13 +55,17 @@ class Adapter implements MQTTListener {
     client.subscribe("PMD_USA2");
     client.subscribe("PMD_USA3");
     client.subscribe("PMD_USA4");
+    client.subscribe("20240421_USA4");    
     client.subscribe("PMD_USA5");
 
     //    client.subscribe("KRAKE_DTA_TOPIC");
   }
 
   void messageReceived(String topic, byte[] payload) {
-    println("new message: " + topic + " - " + new String(payload));
+    thePayload = "Received message: " + topic + " - " + new String(payload);
+//    println("new message: " + topic + " - " + new String(payload));
+    println(thePayload);
+    background(0); //Set background on messageReceived.
   }
 
   void connectionLost() {
@@ -57,6 +76,10 @@ class Adapter implements MQTTListener {
 Adapter adapter;
 
 void setup() {
+  //surface.setTitle("Hello World!");
+  surface.setTitle(PROG_NAME + " Ver:" + VERSION);
+  
+  
   adapter = new Adapter();
   client = new MQTTClient(this, adapter);
   //  client.connect("mqtt://public:public@public.cloud.shiftr.io", "processing");
@@ -87,6 +110,8 @@ void draw() {
   text("Press digits 0-9", 10, 60);
   fill(252, 10, 55);
   text(MessageFromProcessing_PMD, 10, 80);
+  fill(55, 10, 252);
+  text(thePayload, 10, 100);
 }//end draw()
 
 
@@ -103,8 +128,7 @@ void keyPressed() {
     client.publish(PMD_DTA_TOPIC, MessageFromProcessing_PMD);
     //     println(key);
     println(MessageFromProcessing_PMD);
-    background(0);
-  } else { 
+    background(0, 16, 0); //Set background on sent message.  } else { 
     // It's a letter key, fill a rectangle
     //fill(millis() % 255,64,64);
     //float x = map(keyIndex, 0, 25, 0, width - rectWidth);
