@@ -8,8 +8,8 @@
 //Copyright Â© 2007 Free Software Foundation, Inc. <https://fsf.org/>
 //Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 
-x=60.88;//x +5PCB Width
-y=30.685;//y +4PCB Height
+x=55.884;//x +5PCB Width
+y=26.67;//y +4PCB Height
 z=0;//z
 x1= 63.88;
 y1= 33.685;
@@ -37,6 +37,10 @@ widthPCBHole = 43.4340;
 halfheightPCBHole = heightPCBHole/2;
 halfwidthPCBHole = widthPCBHole/2;
 
+//PCB BOARD
+%translate([55.88,-26.67,-1])
+rotate([0,0,90])
+square ([widthPCB,heightPCB],0);
 
 
 //THE TOP 
@@ -59,44 +63,44 @@ difference(){
 
 
 //Top LED 1
-translate([36.83,26.685,0])
+translate([-36.83,21.685,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 2
-translate([36.83,19.3352,0])
+translate([-36.83,14.3352,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 3
-translate([36.83,11.9854,0])
+translate([-36.83,6.9854,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 4
-translate([36.83,4.6356,0])
+translate([-36.83,-0.3644,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 5
-translate([36.83,-2.7142,0])
+translate([-36.83,-7.7142,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 6
-translate([-26.6618,25.0228,0])
+translate([26.6618,20.0228,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 7
-translate([-26.6618,17.6568,0])
+translate([26.6618,12.6568,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 8
-translate([-54.0263,8.0028,0])
+translate([51.8498,11.654,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 
 //PUSH_BUTN 1
-translate([-9.0333,26.685,0])
+translate([9.0333,21.685,0])
 cube([9.1967,7.20,15], center=true);
 //PUSH_BUTN 2
-translate([-9.0333,18.435,0])
+translate([9.0333,13.435,0])
 cube([9.1967,7.20,15], center=true);
 //PUSH_BUTN 3
-translate([-9.0333,10.185,0])
+translate([9.0333,5.185,0])
 cube([9.1967,7.20,15], center=true);
 //PUSH_BUTN 4
-translate([-9.0333,1.935,0])
+translate([9.0333,-3.065,0])
 cube([9.1967,7.20,15],center=true);
 //TRANSISTOR HOLE
-translate([-10.76,-13.41,00])
+translate([10.76,-13.41,00])
 cube([10.5,4.641,15],center=true);
 }
 // THE HOLLOW SHAPE
@@ -192,7 +196,6 @@ cylinder(h=19.5,d1=13,d2 =13,center=true);
 translate([-halfheightPCBHole,-halfwidthPCBHole,12])
 cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
  }
+// ISSUES
+ //The distance between the edge of board and LED is 0.4mm but might not be an issue.
 
-
- 
-  
