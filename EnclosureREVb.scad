@@ -37,10 +37,7 @@ widthPCBHole = 43.4340;
 halfheightPCBHole = heightPCBHole/2;
 halfwidthPCBHole = widthPCBHole/2;
 
-//PCB BOARD
-%translate([55.88,-26.67,-1])
-rotate([0,0,90])
-square ([widthPCB,heightPCB],0);
+
 
 
 //THE TOP 
@@ -152,7 +149,7 @@ translate([-halfheightPCBHole,-halfwidthPCBHole,60])
 cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
 
 //POWER SURGE
-translate([-x1,-6.049,(extend+5)])
+translate([x1,-6.049,(extend+5)])
 rotate([0,90,0])
 cylinder (h=12,d1=power_surge_diameter,d2=power_surge_diameter, center=true);
 }
