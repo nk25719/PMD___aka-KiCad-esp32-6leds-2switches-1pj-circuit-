@@ -4,9 +4,21 @@
 // Date started - October 13th 2024
 //GNU AFFERO GENERAL PUBLIC LICENSE
 //Version 3, 19 November 2007
-
 //Copyright Â© 2007 Free Software Foundation, Inc. <https://fsf.org/>
 //Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+
+// <EnclosureREVb.scad>
+  //  Copyright (C) <year>  <name of author>
+  //  This program is free software: you can redistribute it and/or modify
+  //  it under the terms of the GNU Affero General Public License as
+  //  published by the Free Software Foundation, either version 3 of the
+  //  License, or (at your option) any later version.
+  //  This program is distributed in the hope that it will be useful,
+ //   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  //  GNU Affero General Public License for more details.
+   // You should have received a copy of the GNU Affero General Public License
+    //along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 x=55.884;//x +5PCB Width
 y=26.67;//y +4PCB Height
@@ -25,7 +37,7 @@ lid_tolerance =0.5;
 
 extend = 40; //Show inside Enclosure [20 is closing enclosure number.]
 
-power_surge_diameter =5.85;
+power_surge_diameter =17;
 power_surge_location =extend+5;
 
 heightPCB = 113.0620;
@@ -37,12 +49,33 @@ widthPCBHole = 43.4340;
 halfheightPCBHole = heightPCBHole/2;
 halfwidthPCBHole = widthPCBHole/2;
 
+//PCB BOARD
+color("Green")
+difference(){
+translate([55.88,-26.67,54])
+rotate([0,0,90])
+square ([widthPCB,heightPCB],0);
 
-
+//PCB HOLE 1
+translate([-halfheightPCBHole,halfwidthPCBHole,45])
+cylinder(h=20,d1=3.25,d2 =3.25,center = true);
+    
+ //PCB HOLE 2
+translate([halfheightPCBHole,halfwidthPCBHole,45])
+cylinder(h=20,d1=3.25,d2 =3.25,center = true);
+    
+//PCB HOLE 3
+translate([halfheightPCBHole,-halfwidthPCBHole,45])
+cylinder(h=20,d1=3.25,d2 =3.25,center = true);
+    
+//PCB HOLE 4
+translate([-halfheightPCBHole,-halfwidthPCBHole,45])
+cylinder(h=20,d1=3.25,d2 =3.25,center = true);  
+}
 
 //THE TOP 
 difference(){
-    color("Khaki")
+    color("DarkGrey")
  hull(){
     translate ([x,y,z]){
     cylinder (r=corner_radius, h=height_top);
@@ -103,7 +136,7 @@ cube([10.5,4.641,15],center=true);
 // THE HOLLOW SHAPE
 
 difference(){
-    color("Khaki")
+    color("DarkGrey")
 hull(){
     translate ([x1,y1,extend]){
     cylinder (r=corner_radius, h=22);
@@ -149,9 +182,10 @@ translate([-halfheightPCBHole,-halfwidthPCBHole,60])
 cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
 
 //POWER SURGE
-translate([x1,-6.049,(extend+5)])
+translate([x1,-6.049,(extend+10)])
 rotate([0,90,0])
 cylinder (h=12,d1=power_surge_diameter,d2=power_surge_diameter, center=true);
+//The barrel jack is sticking out at 2.8mm
 }
 
 $fn=50;
@@ -159,7 +193,7 @@ $fn=50;
 //THE 4 CYCLINDERS 
 difference(){
 //Screw Cylinder 1
-    color("Khaki")
+    color("DarkGrey")
 translate([-halfheightPCBHole,halfwidthPCBHole,13])
 cylinder(h=19.5,d1=13,d2 =13, center=true);
  //Small Hole 1
@@ -168,7 +202,7 @@ cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
 }   
 difference (){    
 //Screw Cylinder 2
-    color("Khaki")
+    color("DarkGrey")
 translate([halfheightPCBHole,halfwidthPCBHole,13])
 cylinder(h=19.5,d1=13,d2 =13,center=true);
 //Small Hole 2
@@ -177,7 +211,7 @@ cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
 difference(){
 //Screw Cylinder 3
-    color("Khaki")
+    color("DarkGrey")
 translate([halfheightPCBHole,-halfwidthPCBHole,13])
 cylinder(h=19.5,d1=13,d2 =13, center=true);
     //Small Hole 3
@@ -186,7 +220,7 @@ cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
 }
  difference(){   
 //Screw Cylinder 4
-     color("Khaki")
+     color("DarkGrey")
 translate([-halfheightPCBHole,-halfwidthPCBHole,13])
 cylinder(h=19.5,d1=13,d2 =13,center=true);
 //Hole 4
@@ -195,4 +229,5 @@ cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
  }
 // ISSUES
  //The distance between the edge of board and LED is 0.4mm but might not be an issue.
+ //Elevate the PCB board 2mm
 
