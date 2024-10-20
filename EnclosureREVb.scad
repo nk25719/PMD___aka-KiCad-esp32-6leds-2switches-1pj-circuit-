@@ -49,29 +49,6 @@ widthPCBHole = 43.4340;
 halfheightPCBHole = heightPCBHole/2;
 halfwidthPCBHole = widthPCBHole/2;
 
-//PCB BOARD
-color("Green")
-difference(){
-translate([55.88,-26.67,54])
-rotate([0,0,90])
-square ([widthPCB,heightPCB],0);
-
-//PCB HOLE 1
-translate([-halfheightPCBHole,halfwidthPCBHole,45])
-cylinder(h=20,d1=3.25,d2 =3.25,center = true);
-    
- //PCB HOLE 2
-translate([halfheightPCBHole,halfwidthPCBHole,45])
-cylinder(h=20,d1=3.25,d2 =3.25,center = true);
-    
-//PCB HOLE 3
-translate([halfheightPCBHole,-halfwidthPCBHole,45])
-cylinder(h=20,d1=3.25,d2 =3.25,center = true);
-    
-//PCB HOLE 4
-translate([-halfheightPCBHole,-halfwidthPCBHole,45])
-cylinder(h=20,d1=3.25,d2 =3.25,center = true);  
-}
 
 //THE TOP 
 difference(){
