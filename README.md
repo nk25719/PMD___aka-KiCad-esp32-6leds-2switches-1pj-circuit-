@@ -64,6 +64,28 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 
 > All Layers View
 
+## PMD ESP32 Pin Mapping 
+
+| GPIO number 	| Function               	| ESP32_DEVKITV1 pin number 	|
+|-------------	|------------------------	|---------------------------	|
+| 2           	| LED_BUILTIN            	| 27                        	|
+| 34          	| S3                     	| 12                        	|
+| 35          	| S4                     	| 11                        	|
+| 39          	| S2 / ON_OFF_BUTTON_PIN 	| 13                        	|
+| 36          	| S1 / MUTE_BUTTON_PIN   	| 14                        	|
+| 23          	| LED_PIN_M              	| 1                         	|
+| 15          	| D5                     	| 28                        	|
+| 4           	| D3                     	| 26                        	|
+| 5           	| D8                     	| 23                        	|
+| 18          	| D7                     	| 22                        	|
+| 19          	| D6                     	| 21                        	|
+| 21          	| SDA                    	| 19                        	|
+| 22          	| SCL                    	| 17                        	|
+| 17          	| TX2                    	| 24                        	|
+| 16          	| RX2                    	| 25                        	|
+|             	|                        	|                           	|
+
+
 
 ## Facts
 
