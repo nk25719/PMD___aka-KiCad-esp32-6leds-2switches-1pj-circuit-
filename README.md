@@ -1,8 +1,11 @@
 # PMD
+A "Pseudo Medical Device" and more
 
 ## Summary
-
-This repository contains files which started as a KiCad home work project but which has evolved to become so usefull that in the summer of 2024 orders were placed for real hardware from JLCPCB for delivery in USA and from PCBWay for delivery in Lebanon.
+An ESP32 microcontroller project with a printed cirucit designed by nagham.kheir25.  
+This repository contains files which started as a KiCad home work project but which has evolved to become so usefull that in the summer of 2024 orders were placed for real hardware from JLCPCB for delivery in USA and from PCBWay for delivery in Lebanon.  
+Begun as Homework 2, by late 2024 we began refering to it as a "Pseudo Medical Device" akd **PMD**.  
+At times the PMD approximates the Krake hardware of the Public Invention project Krake. See: https://github.com/PubInv/krake  
 
 ## Status 
 As of 20240911 See the README.md with in the Firmware folder for descriptions of files there.
@@ -20,7 +23,7 @@ Another view of the LEDs.
 PMD mounted to the workbench
 <img src="https://github.com/user-attachments/assets/21fc2465-29c3-45e0-9f70-c0dd6d872534" width="900px" height="450px">
 
-View of the workbench
+View of the PMD on the workbench. Workbench designed by Oyindamola Adeniran 
 
 <img src="https://github.com/user-attachments/assets/f4dcb31e-5f27-4f46-9496-25603c884c55" width="600px" height="400px">
 
@@ -88,7 +91,7 @@ Named after Augustus De Morgan, a 19th-century British mathematician.
 ## Credits
 I would like to express my gratitude to the developers and maintainers of several platforms. Firstly, GitHub, for its project management features, issues tracking, and project board, which have consistently proven useful during our usage. Additionally, I extend my thanks to KiCAD for providing the tools necessary for schematic capture and PCB design. I also appreciate the inventors and developers of the Arduino ecosystem, whose tools and hardware have had a profoundly positive impact on many individuals.
 
-Furthermore, I am grateful for the Public Invention platform, which has facilitated communication and collaboration. Special recognition goes to my exceptional mentors, Mr. Forrest Lee Ereckson and Mr. Robert Reed. Their guidance has been invaluable in navigating these projects, fostering skill development, and providing ongoing support. Their mentorship has empowered me to apply my knowledge to projects that benefit public invention.
+Furthermore, I am grateful for the Public Invention platform, which has facilitated communication and collaboration. Special recognition goes to my exceptional mentors and colleague Oyindamola Adeniran, Mr. Forrest Lee Ereckson and Mr. Robert Reed. Their guidance has been invaluable in navigating these projects, fostering skill development, and providing ongoing support. Their mentorship has empowered me to apply my knowledge to projects that benefit public invention.
 
 ## License
 
