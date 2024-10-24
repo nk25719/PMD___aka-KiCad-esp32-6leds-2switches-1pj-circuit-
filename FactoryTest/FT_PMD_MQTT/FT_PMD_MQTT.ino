@@ -5,6 +5,8 @@
 // Manage LEDS. Add serial splash.
 // Update 20241015 Reports IP address on serial port. Change file name.
 // Add conditional display of the splash screen with a DEBUG level
+// Update 20241024 Subscribe as if a Krake of Model_SerialNumber for data.
+// Works with #define PROG_NAME "FT_PMD_MQTT "  #define VERSION "V0.5
 
 //Set your device Model_Serial on line 12.
 // This will be the subscription topic to which the devices listens.
@@ -13,6 +15,11 @@
 // No spaces.
 #define MODEL_SERIAL "20240421_USA4"
 
+// Krake data and command channels.
+// Krake subscribes to Data and Commands, and reports Status
+String KrakeModelSerialData = String("Krake_") + String(MODEL_SERIAL) + "_Data"; //Alarm data to the Krake
+String KrakeModelSerialCommands = String("Krake_") + String(MODEL_SERIAL) + "_Commands";  // Commands to Krake
+String KrakeModelSerialStatus = String("Krake_") + String(MODEL_SERIAL) + "_Status"; //Publish Krake status
 
 // This example uses an ESP32 Development Board
 // to connect to shiftr.io.
@@ -25,7 +32,7 @@
 
 
 #define PROG_NAME "FT_PMD_MQTT "
-#define VERSION "V0.6 "
+#define VERSION "V0.7 "
 #define DEVICE_UNDER_TEST "PMD SN: USA1"  //A PMD model  and Serial Number
 #define LICENSE "GNU Affero General Public License, version 3 "
 #define ORIGIN "USA"
@@ -73,6 +80,7 @@ const int LAMP5 = 19;    // D6 lost sock
 //A Processinge PMD Device to which to subscribe
 #define PROCESSING_PMD_DTA_TOPIC_USA "PROCESSING_PMD_USA1_DTA_TOPIC_USA_MARYVILLE" //Subscribe to a unique PMD device in USA
 #define PROCESSING_PMD_DTA_TOPIC_LB "PROCESSING_PMD_DTA_TOPIC_LB" //Subscribe to a unique PMD device in USA
+#define PROCESSING_PMD_DTA_TOPIC_AUSTIN "PROCESSING_PMD_DTA_TOPIC_USA_AUSTIN" //Subscribe to a unique PMD device in USA
 
 
 //Choose only one PMD Device to which to subscribe
@@ -119,10 +127,16 @@ void connect() {
   Serial.println("\nWiFi connected!");
 
   // Setup up MQTT services to which this device (KRAKE) subscribes
-  client.subscribe(PROCESSING_PMD_DTA_TOPIC_USA);    //Subscribes to a Processing PMD data channel from USA
+  client.subscribe(PROCESSING_PMD_DTA_TOPIC_USA);    //Subscribes to a Processing PMD data channel
+  client.subscribe(PROCESSING_PMD_DTA_TOPIC_AUSTIN); //Subscribes to a Processing PMD data channel
   client.subscribe(PROCESSING_PMD_DTA_TOPIC_LB);    //Subscribes to a Processing PMD data channel from LB
-  //client.subscribe(KRAKE_CTL_TOPIC);  //Listens to self
   client.subscribe(PMD_DTA_TOPIC);    //Subscribes to a PMD data channel
+
+// As a Krake  
+  client.subscribe(KrakeModelSerialData);    //Subscribes as a Krake to data
+  client.subscribe(KrakeModelSerialCommands);//Subscribes as a Krake to commands
+
+  
 
 }//end connect()
 
@@ -135,7 +149,27 @@ void messageReceived(String &topic, String &payload) {
   // sending and receiving acknowledgments. Instead, change a global variable,
   // or push to a queue and handle it in the loop after calling `client.loop()`.
 
-  proccessPayloadOnLamps(payload);  // Change LAMPS baised on the payload
+
+  // Process requst for "KrakeModelSerialStatus"
+  // Parse the topic to determin how to handel the payload
+  // If KrakeModelSerialData then we have an alarm
+  // if KrakeModelSerialCommands then we have a command
+  // else we have the old MessageFromProcessing_PMD: form of command
+
+  if(topic ==  KrakeModelSerialData) {
+    // = String("Krake_") + String(MODEL_SERIAL) + "_Data"; //Alarm data to the Krake
+    //Process as GPAD API alarm
+    Serial.println("Got KrakeModelSerialData");
+  } else if (topic == KrakeModelSerialCommands){
+    //Process command to Krake //= String("Krake_") + String(MODEL_SERIAL) + "_Commands";  // Commands to Krake   
+    Serial.println("Got KrakeModelSerialCommands");
+  //}else if (topic == PROCESSING_PMD_DTA_TOPIC_USA || topic == PROCESSING_PMD_DTA_TOPIC_AUSTIN || topic == PROCESSING_PMD_DTA_TOPIC_LB ){
+  }else if (topic == PROCESSING_PMD_DTA_TOPIC_USA ){
+    Serial.println("Got MessageFromProcessing_PMD");
+    proccessPayloadOnLamps(payload);  // Change LAMPS baised on the payload  
+  }
+  
+
 
 }//end message received
 
@@ -178,11 +212,11 @@ void proccessPayloadOnLamps(String &payload) {
 
   if (payload < "1") {
     //Turn off all LAMPS
-    digitalWrite(LAMP1, LOW);
-    digitalWrite(LAMP2, LOW);
-    digitalWrite(LAMP3, LOW);
-    digitalWrite(LAMP4, LOW);
-    digitalWrite(LAMP5, LOW);
+//    digitalWrite(LAMP1, LOW);
+//    digitalWrite(LAMP2, LOW);
+//    digitalWrite(LAMP3, LOW);
+//    digitalWrite(LAMP4, LOW);
+//    digitalWrite(LAMP5, LOW);
   } else if (payload == "MessageFromProcessing_PMD: 1") {
     //Turn on only LAMP 1
     digitalWrite(LAMP1, HIGH);
@@ -284,5 +318,7 @@ void loop() {
     connect();
   }
   publishOnLineMsg();
+
+  // Publish status String KrakeModelSerialStatus = String("Krake_") + String(MODEL_SERIAL) + "_Status"; //Publish Krake status
   wink();
 }//end loop()
