@@ -52,12 +52,12 @@ class Adapter implements MQTTListener {
 
     client.subscribe("PMD_Austin1");    
 
-    client.subscribe("PMD_USA1");
-    client.subscribe("PMD_USA2");
-    client.subscribe("PMD_USA3");
-    client.subscribe("PMD_USA4");
+    client.subscribe("20240421_USA1");    
+    client.subscribe("20240421_USA2");    
+    client.subscribe("20240421_USA3");    
     client.subscribe("20240421_USA4");    
-    client.subscribe("PMD_USA5");
+    client.subscribe("20240421_USA5");    
+    
 
     //    client.subscribe("KRAKE_DTA_TOPIC");
   }
