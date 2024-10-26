@@ -23,8 +23,8 @@
 x=55.884;//x +5PCB Width
 y=26.67;//y +4PCB Height
 z=0;//z
-x1= 63.88;
-y1= 33.685;
+x1= 60.88;
+y1= 30.685;
 height_top = 3;
 corner_radius=5;
 wall_thick =5;
@@ -35,7 +35,7 @@ lid_thickness = 2;
 lid_lip = 2;
 lid_tolerance =0.5;
 
-extend = 40; //Show inside Enclosure [20 is closing enclosure number.]
+extend = 0; //Show inside Enclosure [20 is closing enclosure number.]
 
 power_surge_diameter =17;
 power_surge_location =extend+5;
@@ -67,7 +67,9 @@ difference(){
     cylinder (r=corner_radius, h=height_top);
 }
 }
-
+//ESP32 HOLE
+translate([-15.195,-0.416,0])
+cube([32,54,7],center=true);
 
 //Top LED 1
 translate([-36.83,21.685,0])
@@ -113,34 +115,34 @@ cube([10.5,4.641,15],center=true);
 // THE HOLLOW SHAPE
 
 difference(){
-    color("DarkGrey")
+color("DarkGrey")
 hull(){
     translate ([x1,y1,extend]){
-    cylinder (r=corner_radius, h=22);
+    cylinder (r=corner_radius, h=27);
 }
     translate ([-x1,y1,extend]){
-    cylinder (r=corner_radius, h=22);
+    cylinder (r=corner_radius, h=27);
 }
     translate ([-x1,-y1,extend]){
-    cylinder (r=corner_radius, h=22);
+    cylinder (r=corner_radius, h=27);
 }
     translate ([x1,-y1,extend]){
-    cylinder (r=corner_radius, h=22);
+    cylinder (r=corner_radius, h=27);
 }
 }
 //INSIDE HOLLOW
 hull(){
-translate ([55.88,25.658,(extend+6.5)]){
-    cylinder (r=corner_radius, h=20.5, center=true);
+translate ([55.88,25.658,(extend+11.5)]){
+    cylinder (r=corner_radius, h=25.5, center=true);
 }
-    translate ([-55.88,25.658,(extend+6.5)]){
-    cylinder (r=corner_radius, h=20.5, center=true);
+    translate ([-55.88,25.658,(extend+11.5)]){
+    cylinder (r=corner_radius, h=25.5, center=true);
 }
-    translate ([-55.88,-25.658,(extend+6.5)]){
-    cylinder (r=corner_radius, h=20.5, center=true);
+    translate ([-55.88,-25.658,(extend+11.5)]){
+    cylinder (r=corner_radius, h=25.5, center=true);
 }
-    translate ([55.88,-25.658,(extend+6.5)]){
-    cylinder (r=corner_radius, h=20.5, center=true);
+    translate ([55.88,-25.658,(extend+11.5)]){
+    cylinder (r=corner_radius, h=25.5, center=true);
     }
 }
 //Small Hole for Enclosure
@@ -159,10 +161,15 @@ translate([-halfheightPCBHole,-halfwidthPCBHole,60])
 cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
 
 //POWER SURGE
-translate([x1,-6.049,(extend+10)])
+translate([x1,-6.049,(extend+15)])
 rotate([0,90,0])
-cylinder (h=12,d1=power_surge_diameter,d2=power_surge_diameter, center=true);
+cylinder (h=12,d1=power_surge_diameter,d2=power_surge_diameter,center=true);
 //The barrel jack is sticking out at 2.8mm
+
+//ESP32 USB A-HOLE
+translate([-18,-35,extend+10])
+rotate([0,0,90])
+cube([10,20,15],center=true);
 }
 
 $fn=50;
