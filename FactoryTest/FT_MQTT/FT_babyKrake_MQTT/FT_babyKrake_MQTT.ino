@@ -10,7 +10,7 @@
 // It must match the device list for which the MQTT_PMD_DAT_TOPIC or other publisher sends.
 // Example devices include: PMD_LB4, PMD_Austin1.  
 // No spaces.
-#define MODEL_SERIAL "20240421_USA4" 
+#define MODEL_SERIAL "20240421_LEB1" 
 
 
 // This example uses an ESP32 Development Board
@@ -34,12 +34,12 @@
 //const char pass[] = "pass";
 
 ////LB network
-//const char ssid[] = "ADT";
-//const char pass[] = "adt@12345";
+const char ssid[] = "ADT";
+const char pass[] = "adt@12345";
 
 //Maryville network
-const char ssid[] = "VRX";
-const char pass[] = "textinsert";
+// const char ssid[] = "VRX";
+// const char pass[] = "textinsert";
 
 // Some PMD Hardware
 // Pins for switches
