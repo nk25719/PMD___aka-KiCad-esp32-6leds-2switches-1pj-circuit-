@@ -1,4 +1,4 @@
-//EnclosureREVb.scad
+//EnclosureREVc.scad
 //This is an Enclosure for the homework printed circuit assembly 20240421.
 // Draw by Oyindamola Adeniran
 // Date started - October 13th 2024
@@ -7,7 +7,7 @@
 //Copyright Â© 2007 Free Software Foundation, Inc. <https://fsf.org/>
 //Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 
-// <EnclosureREVb.scad>
+// <EnclosureREVc.scad>
   //  Copyright (C) <year>  <name of author>
   //  This program is free software: you can redistribute it and/or modify
   //  it under the terms of the GNU Affero General Public License as
@@ -20,8 +20,8 @@
    // You should have received a copy of the GNU Affero General Public License
     //along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-x=54.5;//x +5PCB Width
-y=26.67;//y +4PCB Height
+x=54.9;//x +5PCB Width
+y=26.9;//y +4PCB Height
 z=0;//z
 x1= 57.88;
 y1= 30.685;
@@ -134,18 +134,20 @@ hull(){
 //INSIDE HOLLOW
 hull(){
 translate ([55.88,27.658,(extend+11.5)]){
-    cylinder (r=corner_radiusb, h=24, center=true);
+    cylinder (r=corner_radiusb, h=26.5, center=true);
 }
     translate ([-55.88,27.658,(extend+11.5)]){
-    cylinder (r=corner_radiusb, h=24, center=true);
+    cylinder (r=corner_radiusb, h=26.5, center=true);
 }
     translate ([-55.88,-27.658,(extend+11.5)]){
-    cylinder (r=corner_radiusb, h=24, center=true);
+    cylinder (r=corner_radiusb, h=26.5, center=true);
 }
     translate ([55.88,-27.658,(extend+11.5)]){
-    cylinder (r=corner_radiusb, h=24, center=true);
+    cylinder (r=corner_radiusb, h=26.5, center=true);
     }
 }
+
+
 //Small Hole for Enclosure
 translate([-halfheightPCBHole,halfwidthPCBHole,60])
 cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);  
