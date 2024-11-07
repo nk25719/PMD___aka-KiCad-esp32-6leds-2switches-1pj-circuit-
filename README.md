@@ -95,6 +95,7 @@ Valuable symbols and circuits have been acquired and deposited in this repositor
 * The ESP32 antenna should be positioned at the edge of the PCB.
 * The anular ring between the inner and outer diameters of the through holes in the ESP32 footprint is 0.7 mm.
 * the pins of the Esp32 are numberred counter clockwise
+* Fun Fact, LED_BUILTIN Not Defined for ESP32 Dev Module but is defined for ESP32S2 Dev Module
 
 ## Do Not Tell
 
