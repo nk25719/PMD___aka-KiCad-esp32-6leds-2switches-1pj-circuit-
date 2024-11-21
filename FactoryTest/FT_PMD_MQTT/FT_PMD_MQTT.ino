@@ -46,8 +46,8 @@ String KrakeModelSerialStatus = String("Krake_") + String(MODEL_SERIAL) + "_Stat
 //const char pass[] = "adt@12345";
 
 //Maryville network
-const char ssid[] = "VRX";
-const char pass[] = "textinsert";
+const char ssid[] = "Home";
+const char pass[] = "adt@1963#";
 
 // Some PMD Hardware
 // Pins for switches

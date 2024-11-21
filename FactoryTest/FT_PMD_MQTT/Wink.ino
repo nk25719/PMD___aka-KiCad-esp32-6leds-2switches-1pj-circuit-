@@ -3,12 +3,8 @@
 // Date: 20241013
 // LICENSE "GNU Affero General Public License, version 3 "
 
-
-
 // Heart beat aka activity indicator LED.
 //Set LED for Uno or ESP32 Dev Kit on board blue LED.
-
-
 
 //Wink the LED
 void wink(void) {
