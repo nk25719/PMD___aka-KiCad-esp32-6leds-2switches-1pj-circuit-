@@ -41,11 +41,37 @@ const long intervalZero = 500; // Time each lamp stays off (in milliseconds)
 int currentLampZero = 1;
 
 
+#define PROG_NAME "fourSwitches"
+#define FIRMWARE_VERSION "0.2_20241122"
+//#define HARDWARE_VERSION "V0.0.1 "
+#define MODEL_NAME "Homework2"
+ 
+#define LICENSE "GNU Affero General Public License, version 3 "
+#define ORIGIN "LEB"
+
+ 
+void serialSplash() {
+  //Serial splash
+  Serial.println(F("==================================="));
+  Serial.println(MODEL_NAME);
+  Serial.print(PROG_NAME);
+  Serial.println(FIRMWARE_VERSION);
+  Serial.print(F("Compiled at: "));
+  Serial.println(F(__DATE__ " " __TIME__));  //compile date that is used for a unique identifier
+  Serial.println(LICENSE);
+  Serial.println(ORIGIN);
+  Serial.println(F("==================================="));
+  Serial.println();
+}
+
+
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   pinMode(LED_PIN, OUTPUT);          // Set LED pin as output
   digitalWrite(LED_PIN, HIGH);        // Initialize LED to ON
+  serialSplash();
 
   // Switch pins for input
   pinMode(S1_morseCodeDanger1, INPUT_PULLUP); //
@@ -68,6 +94,8 @@ void setup() {
 }//end setup()
 
 void loop() {
+
+
   // put your main code here, to run repeatedly:
   //  blinkLamp();
   if (digitalRead(S1_morseCodeDanger1)) {

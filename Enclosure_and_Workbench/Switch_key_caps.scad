@@ -2,7 +2,7 @@
 //outter_radius = 2.5;
 
 inner_cylinder_height = 4.5;
-inner_radius = 1.5;
+inner_radius = 1.75;
 
 //outter_z = outter_cylinder_height/2;
 //top_z = outter_cylinder_height;
@@ -10,9 +10,9 @@ inner_radius = 1.5;
 difference(){
     
 //OUTTER BODY
-translate([0,0,(12.5)])
+translate([0,0,(10.5)])
     rotate([0,0,0])
-cube([8.7,6.7,25], center=true);
+cube([8.7,6.7,21], center=true);
 
 //INNER BODY
     translate([0,0,2])
