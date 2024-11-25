@@ -36,7 +36,7 @@ lid_thickness = 2;
 lid_lip = 2;
 lid_tolerance =0.5;
 
-extend = 30; //Show inside Enclosure [20 is closing enclosure number.]
+extend = 3; //Show inside Enclosure [20 is closing enclosure number.]
 
 power_surge_diameter =17;
 power_surge_location =extend+5;
