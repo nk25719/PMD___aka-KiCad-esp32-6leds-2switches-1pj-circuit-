@@ -63,8 +63,6 @@ module topPlate() {
 
 module AlarmLed_holes(){
     LED_Xposition = -36.83;
-    
-    
     //Top LED 1
     translate([LED_Xposition,21.685,0])
     cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
@@ -82,43 +80,46 @@ module AlarmLed_holes(){
     cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 }
 
-
-module topPlateHoles() {
-    
-AlarmLed_holes();
-    
+module topPlateHoles() {    
+AlarmLed_holes();    
 //ESP32 HOLE
 translate([-15.195,-0.416,0])
 cube([32,54,7],center=true);
+    
+LED_onx = 26.6618;
 
 //Top LED 6
-translate([26.6618,20.0228,0])
+translate([LED_onx,20.0228,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 7
-translate([26.6618,12.6568,0])
+translate([LED_onx,12.6568,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 8
 translate([51.8498,11.654,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 
+X_Pushbutton = 9.0333;
+PushbuttonCube_x = 9.1967;
+PushbuttonCube_y = 7.20;
+PushbuttonCube_z = 15;
+
 //PUSH_BUTN 1
-translate([9.0333,21.685,0])
-cube([9.1967,7.20,15], center=true);
+translate([X_Pushbutton,21.685,0])
+cube([PushbuttonCube_x,PushbuttonCube_y,PushbuttonCube_z], center=true);
 //PUSH_BUTN 2
-translate([9.0333,13.435,0])
-cube([9.1967,7.20,15], center=true);
+translate([X_Pushbutton,13.435,0])
+cube([PushbuttonCube_x,PushbuttonCube_y,PushbuttonCube_z], center=true);
 //PUSH_BUTN 3
-translate([9.0333,5.185,0])
-cube([9.1967,7.20,15], center=true);
+translate([X_Pushbutton,5.185,0])
+cube([PushbuttonCube_x,PushbuttonCube_y,PushbuttonCube_z], center=true);
 //PUSH_BUTN 4
-translate([9.0333,-3.065,0])
-cube([9.1967,7.20,15],center=true);
+translate([X_Pushbutton,-3.065,0])
+cube([PushbuttonCube_x,PushbuttonCube_y,PushbuttonCube_z],center=true);
+
 //TRANSISTOR HOLE
 translate([10.76,-13.41,00])
 cube([10.5,4.641,15],center=true);
 }
-
-
 
 
 module caseShape() {
