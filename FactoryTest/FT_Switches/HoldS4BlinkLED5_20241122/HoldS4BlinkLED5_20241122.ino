@@ -15,7 +15,7 @@ const unsigned long fastOffTime = 100;
 unsigned long onTime = normalOnTime;  // Current on time
 unsigned long offTime = normalOffTime;  // Current off time
 
-bool ledState = LOW;  // Initial LED state
+bool ledState = HIGH;  // Initial LED state
 bool buttonState;     // Current button state
 bool lastButtonState = HIGH;  // Last button state (assuming pull-up)
 
