@@ -2,7 +2,7 @@
 difference(){
 //Big Cylinder
 translate([0,0,0])
-cylinder(19.5,2.5,2.5);
+cylinder(11.5,2.5,2.5);
 
 //Small cylinder 1
 translate ([1.5,0,12])
