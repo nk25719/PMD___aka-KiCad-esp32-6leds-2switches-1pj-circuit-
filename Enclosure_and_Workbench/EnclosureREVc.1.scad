@@ -1,7 +1,7 @@
-//EnclosureREVd.scad
+//EnclosureREVc.scad
 //This is an Enclosure for the homework printed circuit assembly 20240421.
 // Draw by Oyindamola Adeniran
-// Date started - November 17th 2024.
+// Date started - October 13th 2024
 //GNU AFFERO GENERAL PUBLIC LICENSE
 //Version 3, 19 November 2007
 //Copyright Â© 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -25,8 +25,6 @@ y=26.9;//y +4PCB Height
 z=0;//z
 x1= 57.88;
 y1= 30.685;
-LCD_x = 98;
-LCD_y = 60;
 height_top = 3;
 corner_radius=4.5;
 corner_radiusb=4.5;
@@ -38,9 +36,9 @@ lid_thickness = 2;
 lid_lip = 2;
 lid_tolerance =0.5;
 
-extend = 30; //Show inside Enclosure [20 is closing enclosure number.]
+extend = -6; //Show inside Enclosure [20 is closing enclosure number.]
 
-power_surge_diameter =17;
+power_surge_diameter =12;
 power_surge_location =extend+5;
 
 heightPCB = 113.0620;
@@ -52,6 +50,9 @@ widthPCBHole = 43.4340;
 halfheightPCBHole = heightPCBHole/2;
 halfwidthPCBHole = widthPCBHole/2;
 
+
+h_hollow = 19.5;
+h_inside = 19.5;
 
 //THE TOP 
 difference(){
@@ -71,8 +72,8 @@ difference(){
 }
 }
 //ESP32 HOLE
-translate([-15.195,-0.416,0])
-cube([32,54,7],center=true);
+translate([-16.695,-0.416,0])
+cube([30,54,7],center=true);
 
 //Top LED 1
 translate([-36.83,21.685,0])
@@ -95,8 +96,8 @@ cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 7
 translate([26.6618,12.6568,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
-//Top LED 8
-translate([51.8498,11.654,0])
+#//Top LED 8
+translate([51.8498,10.5,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 
 //PUSH_BUTN 1
@@ -117,36 +118,35 @@ cube([10.5,4.641,15],center=true);
 }
 // THE HOLLOW SHAPE
 
-//OUTSIDE HOLLOW
 difference(){
 color("DarkGrey")
 hull(){
-translate([x1,39,extend]){
-    cylinder (r=corner_radius, h=25);
+    translate ([x1,y1,extend+5]){
+    cylinder (r=corner_radius, h=h_hollow);
 }
-    translate ([-x1,39,extend]){
-    cylinder (r=corner_radius, h=25);
+    translate ([-x1,y1,extend+5]){
+    cylinder (r=corner_radius, h=h_hollow);
 }
-    translate ([-x1,-y1,extend]){
-    cylinder (r=corner_radius, h=25);
+    translate ([-x1,-y1,extend+5]){
+    cylinder (r=corner_radius, h=h_hollow);
 }
-    translate ([x1,-y1,extend]){
-    cylinder (r=corner_radius, h=25);
+    translate ([x1,-y1,extend+5]){
+    cylinder (r=corner_radius, h=h_hollow);
 }
 }
 //INSIDE HOLLOW
 hull(){
-translate([55.88,27.658,(extend+11.5)]){
-    cylinder (r=corner_radiusb, h=26.5, center=true);
+translate ([55.88,27.658,(extend+13)]){
+    cylinder (r=corner_radiusb, h= h_inside, center=true);
 }
-    translate ([-55.88,27.658,(extend+11.5)]){
-    cylinder (r=corner_radiusb, h=26.5, center=true);
+    translate ([-55.88,27.658,(extend+13)]){
+    cylinder (r=corner_radiusb, h=h_inside, center=true);
 }
-    translate ([-55.88,-27.658,(extend+11.5)]){
-    cylinder (r=corner_radiusb, h=26.5, center=true);
+    translate ([-55.88,-27.658,(extend+13.5)]){
+    cylinder (r=corner_radiusb, h=h_inside, center=true);
 }
-    translate ([55.88,-27.658,(extend+11.5)]){
-    cylinder (r=corner_radiusb, h=26.5, center=true);
+    translate ([55.88,-27.658,(extend+13.5)]){
+    cylinder (r=corner_radiusb, h=h_inside, center=true);
     }
 }
 
@@ -166,52 +166,40 @@ cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
 translate([-halfheightPCBHole,-halfwidthPCBHole,60])
 cylinder(h=102,d1=hole_diameter,d2 = hole_diameter, center=true);
 
-//LCD HOLE
-translate ([25,30,(extend+15)])
-rotate ([0,90,90])
-cube([9,50,30]);
-
-///issues
-
-/// CUBE HOLE
-#translate ([-40,40,(extend+15)])
-rotate ([0,90,90])
-cube([8,8,8]);
- 
- /// CUBE HOLE 2
-#translate ([40,40,(extend+15)])
-rotate ([0,90,90])
-cube([8,8,8]);
-
 //POWER SURGE
-translate([x1,-6.049,(extend+15)])
+translate([x1,-4.049,(extend+14)])
 rotate([0,90,0])
 cylinder (h=12,d1=power_surge_diameter,d2=power_surge_diameter,center=true);
 //The barrel jack is sticking out at 2.8mm
 
 //ESP32 USB A-HOLE
-translate([-18,-35,extend+10])
+translate([-18,-35,extend+14])
 rotate([0,0,90])
-cube([10,20,15],center=true);
+cube([10,13,10],center=true);
 }
 
 $fn=50;
 
 //THE 4 CYCLINDERS 
+
+h_bosses = 15;
+z_boss = 7.5;
+
 difference(){
 //Screw Cylinder 1
     color("DarkGrey")
-translate([-halfheightPCBHole,halfwidthPCBHole,13])
-cylinder(h=19.5,d1=13,d2 =13, center=true);
- //Small Hole 1
+translate([-halfheightPCBHole,halfwidthPCBHole,z_boss])
+cylinder(h=h_bosses,d1=13,d2 =13, center=true);
+ 
+    //Small Hole 1
 translate([-halfheightPCBHole,halfwidthPCBHole,12])
 cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);   
 }   
 difference (){    
 //Screw Cylinder 2
     color("DarkGrey")
-translate([halfheightPCBHole,halfwidthPCBHole,13])
-cylinder(h=19.5,d1=13,d2 =13,center=true);
+translate([halfheightPCBHole,halfwidthPCBHole,z_boss])
+cylinder(h=h_bosses,d1=13,d2 =13,center=true);
 //Small Hole 2
 translate([halfheightPCBHole,halfwidthPCBHole,12])
 cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
@@ -219,8 +207,8 @@ cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
 difference(){
 //Screw Cylinder 3
     color("DarkGrey")
-translate([halfheightPCBHole,-halfwidthPCBHole,13])
-cylinder(h=19.5,d1=13,d2 =13, center=true);
+translate([halfheightPCBHole,-halfwidthPCBHole,z_boss])
+cylinder(h=h_bosses,d1=13,d2 =13, center=true);
     //Small Hole 3
 translate([halfheightPCBHole,-halfwidthPCBHole,12])
 cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
@@ -228,8 +216,8 @@ cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
  difference(){   
 //Screw Cylinder 4
      color("DarkGrey")
-translate([-halfheightPCBHole,-halfwidthPCBHole,13])
-cylinder(h=19.5,d1=13,d2 =13,center=true);
+translate([-halfheightPCBHole,-halfwidthPCBHole,z_boss])
+cylinder(h=h_bosses,d1=13,d2 =13,center=true);
 //Hole 4
 translate([-halfheightPCBHole,-halfwidthPCBHole,12])
 cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
@@ -237,3 +225,4 @@ cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
 // ISSUES
  //The distance between the edge of board and LED is 0.4mm but might not be an issue.
  //Elevate the PCB board 2mm
+
