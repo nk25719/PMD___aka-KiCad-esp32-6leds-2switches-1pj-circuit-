@@ -36,7 +36,7 @@ lid_thickness = 2;
 lid_lip = 2;
 lid_tolerance =0.5;
 
-extend = -6; //Show inside Enclosure [20 is closing enclosure number.]
+extend = 10; //Show inside Enclosure [20 is closing enclosure number.]
 
 power_surge_diameter =12;
 power_surge_location =extend+5;
@@ -96,7 +96,7 @@ cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 //Top LED 7
 translate([26.6618,12.6568,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
-#//Top LED 8
+//Top LED 8
 translate([51.8498,10.5,0])
 cylinder(h=15,d1=LED_diameter,d2 = LED_diameter, center=true);
 
@@ -115,7 +115,19 @@ cube([9.1967,7.20,15],center=true);
 //TRANSISTOR HOLE
 translate([10.76,-13.41,00])
 cube([10.5,4.641,15],center=true);
-}
+
+textFileName();
+}  
+module textFileName(){
+    //Text for file name
+    rotate([180,0,180])
+    translate([-40, -27,-1.5]) {
+    linear_extrude(3)
+    text("EnclosureREVc.1", size=3, font = "Liberation Sans");
+ }
+ }
+//textFileName();
+ 
 // THE HOLLOW SHAPE
 
 difference(){
@@ -222,7 +234,7 @@ cylinder(h=h_bosses,d1=13,d2 =13,center=true);
 translate([-halfheightPCBHole,-halfwidthPCBHole,12])
 cylinder(h=25,d1=hole_diameter,d2 = hole_diameter, center=true);
  }
-// ISSUES
- //The distance between the edge of board and LED is 0.4mm but might not be an issue.
- //Elevate the PCB board 2mm
+
+
+    
 
