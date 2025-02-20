@@ -174,12 +174,12 @@ cube([9,50,30]);
 ///issues
 
 /// CUBE HOLE
-#translate ([-40,40,(extend+15)])
+#translate ([-34,40,(extend+15)])
 rotate ([0,90,90])
 cube([8,8,8]);
  
  /// CUBE HOLE 2
-#translate ([40,40,(extend+15)])
+#translate ([42,40,(extend+15)])
 rotate ([0,90,90])
 cube([8,8,8]);
 
@@ -190,9 +190,9 @@ cylinder (h=12,d1=power_surge_diameter,d2=power_surge_diameter,center=true);
 //The barrel jack is sticking out at 2.8mm
 
 //ESP32 USB A-HOLE
-translate([-18,-35,extend+10])
+translate([-18,-35,extend])
 rotate([0,0,90])
-cube([10,20,15],center=true);
+cube([12,18,12],center=true);
 }
 
 $fn=50;

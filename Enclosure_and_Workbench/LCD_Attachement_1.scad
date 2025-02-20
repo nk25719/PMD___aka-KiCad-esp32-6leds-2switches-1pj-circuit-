@@ -88,10 +88,10 @@ cube([9,50,3]);
 }
 
 
-translate ([30,-40,7])
+translate ([34,-40,7.5])
 cube([8,8,8]);
 
-translate ([-38,-40,7])
+translate ([-41.5,-40,7.5])
 cube([8,8,8]);
 
 //Trying to make a lip (Not working)
