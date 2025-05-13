@@ -24,10 +24,10 @@ PMD=1 ;
 // Export Options
 ////////////////////////////////////////////////////////////////////
 
-GPAD_TShell          = 0;
+GPAD_TShell          = 1;
 GPAD_TShellWithVESA  = 0;
 GPAD_BShell          = 1;
-GPAD_FPanL           = 0;
+GPAD_FPanL           = 1;
 GPAD_BPanL           = 1;
 BButton              = 0 ;
 RotaryEncoder        = 0;  // change to a real rotary encoder 
@@ -135,6 +135,29 @@ DCOn      = Krake ? 1 : 1;
 //DE9SquareHole      = Krake ? 1 : 0;
 
 DCOn      =  1;
+ 
+
+// OLED PCB dimensions (you can adjust as needed)
+oled_width = 27.2;
+oled_height = 27.2;
+oled_thickness = 2.6; // PCB thickness
+
+// OLED Design parameters
+wall = 2;             // Side and bottom wall thickness
+back_thickness = 1.5; // Back cover thickness
+clearance = 0.4;      // Fit tolerance
+pin_diameter = 2;
+pin_height = 2.5;
+hole_offset_x = 2.5;
+hole_offset_y = 2.5;
+
+// OLED Cutout parameters
+cutout_width = 12;
+cutout_height = 5;
+back_cutout_sizeX=19;
+back_cutout_sizeY = 27;
+
+ 
 
 if (Krake + GPAD > 1)
 echo("WARNING: More than one project mode active!!!");
@@ -360,73 +383,6 @@ cylinder(h = base_thickness , r = (speaker_diameter/2) + flexure_gap  + flexure_
 }
 }
 
-
-
-if (OLED==1) {
-
-
-// OLED PCB dimensions (you can adjust as needed)
-oled_width = 27.2;
-oled_height = 27.2;
-oled_thickness = 2.6; // PCB thickness
-
-// OLED Design parameters
-wall = 2;             // Side and bottom wall thickness
-back_thickness = 1.5; // Back cover thickness
-clearance = 0.4;      // Fit tolerance
-pin_diameter = 2;
-pin_height = 2.5;
-hole_offset_x = 2.5;
-hole_offset_y = 2.5;
-
-// OLED Cutout parameters
-cutout_width = 12;
-cutout_height = 5;
-back_cutout_sizeX=19;
-back_cutout_sizeY = 27;
-
-//module oled() {
-    // Main enclosure body with cutouts
-    difference() {
-        // Solid block
-        cube([
-            oled_width + 2 * wall,
-            oled_height + wall,
-            oled_thickness + back_thickness
-        ]);
-
-        // Slot for OLED body
-        translate([wall, wall, back_thickness])
-            cube([
-                oled_width,
-                oled_height,
-                oled_thickness + 0.2
-            ]);
-
-        // Side cutout for header pins (bottom edge center)
-        translate([
-            (oled_width + 2 * wall - cutout_width) / 2,
-            0,
-            back_thickness
-        ])
-            cube([cutout_width, wall + 0.1, cutout_height]);
-
-        // Back square hole (centered on the back face)
-        translate([
-            (oled_width + 2 * wall - back_cutout_sizeY) / 2,
-            (oled_height+ 2 + wall - back_cutout_sizeX) / 2,
-            0
-        ])
-            cube([back_cutout_sizeY, back_cutout_sizeX, back_thickness + 0.1]);
-    }
-
-    // Alignment pins (4 total)
-    for (x = [hole_offset_x, oled_width - hole_offset_x])
-    for (y = [hole_offset_y, oled_height - hole_offset_y])
-        translate([x + wall, y + wall, back_thickness])
-            cylinder(d = pin_diameter, h = pin_height, $fn = 24);
-    
-    }
 
 //    // Build the model
 //    speaker_clamp();
@@ -916,7 +872,6 @@ Feet();
 }
 }}
 
-
 color( Couleur1,1){
 translate( [3*Thick+2,Thick+5,0]){         //([-.5,0,0]){
 //(On/Off, Xpos, Ypos, Diameter)
@@ -948,6 +903,7 @@ translate([48,5,0])
 cube([7,6,8.25],center=true);
 
 
+
 /*
 //(On/Off, Xpos,Ypos,Length,Width,Filet)
 SquareHole(1,DisplayXpos,DisplayYpos,DisplayLenght,DisplayWidth,DisplayFilet,Ccenter=true);   //Display
@@ -977,7 +933,8 @@ CylinderHole(1,PCBLength-46.99,PCBWidth-FootPosX,5); //LED6 power
 
 
 
-// OLED 
+// 
+
 
 //SquareHole(1,DisplayXpos,DisplayYpos,DisplayLenght,DisplayWidth,DisplayFilet,Ccenter=true);   //Display
 

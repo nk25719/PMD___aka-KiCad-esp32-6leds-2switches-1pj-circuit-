@@ -1,14 +1,14 @@
 // OLED PCB dimensions (you can adjust as needed)
 oled_width = 28;
-oled_height = 28.8;
-oled_thickness = 2.6; // PCB thickness
+oled_height = 28.5;
+oled_thickness = 4.2; // PCB thickness
 
 // Design parameters
 wall = 1;             // Side and bottom wall thickness
 back_thickness = 1; // Back cover thickness
 clearance = 0.5;      // Fit tolerance
 pin_diameter = 2;
-pin_height = 2.8;
+pin_height = 5.2;
 hole_offset_x = 2;
 hole_offset_y = 2.2;
 
