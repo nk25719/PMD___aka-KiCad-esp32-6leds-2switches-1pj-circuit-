@@ -45,6 +45,7 @@ HEAT_SET_INSERTS     = 0;
 speaker_clamp        = 0;
 switch_module        = 0;
 OLED                 = 1;
+OLED_testfit         = 1;
 ////////////////////////////////////////////////////////////////////
 // Common Parameters - Base settings shared by all configurations
 ////////////////////////////////////////////////////////////////////
@@ -973,6 +974,12 @@ if(GPAD_BShell==1){
         color("white")
         translate([OLEDPosX,OLEDPosY,0])
         oled();
+        if (OLED_testfit) {
+            translate([40,40,20])
+            color("green")
+//            import("OLED Display 0.96_.stl");
+            ;
+        }
     }
 }
 

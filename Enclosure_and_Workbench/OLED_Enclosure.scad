@@ -1,24 +1,25 @@
-// OLED PCB dimensions (you can adjust as needed)
-oled_width = 28;
-oled_height = 28.5;
-oled_thickness = 4.2; // PCB thickness
 
-// Design parameters
-wall = 1;             // Side and bottom wall thickness
-back_thickness = 1; // Back cover thickness
-clearance = 0.5;      // Fit tolerance
-pin_diameter = 2;
-pin_height = 5.2;
-hole_offset_x = 2;
-hole_offset_y = 2.2;
-
-// Cutout parameters
-cutout_width = 12;
-cutout_height = 5;
-back_cutout_sizeX=16.5;
-back_cutout_sizeY = 27;
 
 module oled() {
+    // OLED PCB dimensions (you can adjust as needed)
+    oled_width = 28;
+    oled_height = 28.5;
+    oled_thickness = 4.2; // PCB thickness
+    
+    // Design parameters
+    wall = 1;             // Side and bottom wall thickness
+    back_thickness = 1; // Back cover thickness
+    clearance = 0.5;      // Fit tolerance
+    pin_diameter = 2;
+    pin_height = 5.2;
+    hole_offset_x = 2;
+    hole_offset_y = 2.2;
+    
+    // Cutout parameters
+    cutout_width = 12;
+    cutout_height = 5;
+    back_cutout_sizeX=16.5;
+    back_cutout_sizeY = 27;
     // Main enclosure body with cutouts
     difference() {
         // Solid block
@@ -60,4 +61,3 @@ module oled() {
             cylinder(d = pin_diameter, h = pin_height, $fn = 24);
 }
 
-oled();
