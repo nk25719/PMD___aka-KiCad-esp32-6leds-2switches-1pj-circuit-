@@ -30,7 +30,7 @@ GPAD_BShell          = 1;
 GPAD_FPanL           = 1;
 GPAD_BPanL           = 1;
 BButton              = 0 ;
-RotaryEncoder        = 0;  // change to a real rotary encoder 
+RotaryEncoder        = 0;  // change to a real rotary encoder
 T_BShellScrew        = 0;
 BOSSScrew            = 0;
 PCB_SIMPLE           = 0;
@@ -49,9 +49,9 @@ OLED                 = 1;
 // Common Parameters - Base settings shared by all configurations
 ////////////////////////////////////////////////////////////////////
 
-Length         = 113 + 13;       
-Width          = 53 + 13;                     
-Height         = 25;  
+Length         = 113 + 13;
+Width          = 53 + 13;
+Height         = 25;
 Thick          = 2;                    // Wall thickness
 Filet          = 2;                    // Corner rounding
 Resolution     = 50;                   // Filet smoothness
@@ -71,7 +71,7 @@ PCBWidth       = 53.370;
 PCBThick       = 1.6;
 
 ////////////////////////////////////////////////////////////////////
-// BOSS/Foot Parameters 
+// BOSS/Foot Parameters
 ////////////////////////////////////////////////////////////////////
 
 FootHeight     = 16;
@@ -135,7 +135,7 @@ DCOn      = Krake ? 1 : 1;
 //DE9SquareHole      = Krake ? 1 : 0;
 
 DCOn      =  1;
- 
+
 
 // OLED PCB dimensions (you can adjust as needed)
 oled_width = 27.2;
@@ -157,157 +157,157 @@ cutout_height = 5;
 back_cutout_sizeX=19;
 back_cutout_sizeY = 27;
 
- 
+
 
 if (Krake + GPAD > 1)
-echo("WARNING: More than one project mode active!!!");
+    echo("WARNING: More than one project mode active!!!");
 
 //For instructions on mute Button inscription go to line 594.
 
 // Import 3mm Plastite Screw
 if(BOSSScrew ==1){
-translate ([PCBLength-70.74,12.24,25])
-//translate ([0,0,FootHeight+ScrewLenght+1])
-import("MCMaster_Carr_Pan_Head_Screw_99461a941.stl");
+    translate ([PCBLength-70.74,12.24,25])
+    //translate ([0,0,FootHeight+ScrewLenght+1])
+    import("MCMaster_Carr_Pan_Head_Screw_99461a941.stl");
 }
 /*
-if(PWAKrake ==1){ 
-translate([-10,-50,10])
-rotate ([0,0,90])
-color([1, 0, 0]) {
-import("KRAKE_PWArev1.stl");
-}}
+  if(PWAKrake ==1){
+  translate([-10,-50,10])
+  rotate ([0,0,90])
+  color([1, 0, 0]) {
+  import("KRAKE_PWArev1.stl");
+  }}
 */
 
 /////////// - Boitier générique bord arrondis - Generic rounded box - //////////
 
 module RoundBox($a=Length, $b=Width, $c=Height){// Cube bords arrondis
-$fn=Resolution;            
-translate([0,Filet,Filet]){  
-minkowski (){                                              
-cube ([$a-(Length/2),$b-(2*Filet),$c-(2*Filet)], center = false);
-rotate([0,90,0]){    
-cylinder(r=Filet,h=Length/2, center = false);
-} 
-}
-}
+    $fn=Resolution;
+    translate([0,Filet,Filet]){
+        minkowski (){
+            cube ([$a-(Length/2),$b-(2*Filet),$c-(2*Filet)], center = false);
+            rotate([0,90,0]){
+                cylinder(r=Filet,h=Length/2, center = false);
+            }
+        }
+    }
 }// End of RoundBox Module
 
 
-////////////////////////////////// - Module Coque/Shell - //////////////////////////////////         
+////////////////////////////////// - Module Coque/Shell - //////////////////////////////////
 
-module Coque(){//Coque - Shell  
-Thick = Thick*2;  
-difference(){    
-difference(){//sides decoration
-union(){    
-difference() {//soustraction de la forme centrale - Substraction Fileted box
-difference(){//soustraction cube median - Median cube slicer
-union() {//union               
-difference(){//Coque    
-RoundBox();
-translate([Thick/2,Thick/2,Thick/2]){     
-RoundBox($a=Length-Thick, $b=Width-Thick, $c=Height-Thick);
-}
-}//Fin diff Coque                            
-difference(){//largeur Rails        
-translate([Thick+m,Thick/2,Thick/2]){// Rails
-RoundBox($a=Length-((2*Thick)+(2*m)), $b=Width-Thick, $c=Height                             -(Thick*2));
-}//fin Rails
-translate([((Thick+m/2)*1.55),Thick/2,Thick/2+0.1]){ // +0.1 added to avoid the artefact
-RoundBox($a=Length-((Thick*3)+2*m), $b=Width-Thick, $c=Height-Thick);
-}           
-}//Fin largeur Rails
-}//Fin union                                   
-translate([-Thick,-Thick,Height/2]){// Cube à soustraire
-cube ([Length+100, Width+100, Height], center=false);
-}                                            
-}//fin soustraction cube median - End Median cube slicer
-translate([-Thick/2,Thick,Thick]){// Forme de soustraction centrale 
-RoundBox($a=Length+Thick, $b=Width-Thick*2, $c=Height-Thick);       
-}                          
-}                                          
-
-
-difference(){// wall fixation box legs
-union(){
-translate([3*Thick +5,Thick,Height/2]){
-rotate([90,0,0]){
-$fn=6;
-cylinder(d=16,Thick/2);
-}   
-}
-
-translate([Length-((3*Thick)+5),Thick,Height/2]){
-rotate([90,0,0]){
-$fn=6;
-cylinder(d=16,Thick/2);
-}   
-}
-
-}
-translate([4,Thick+Filet,Height/2-57]){   
-rotate([45,0,0]){
-cube([Length,40,40]);    
-}
-}
-translate([0,-(Thick*1.46),Height/2]){
-cube([Length,Thick*2,10]);
-}
-} //Fin fixation box legs
-}
-
-union(){// outbox sides decorations
-
-for(i=[0:Thick:Length/4]){
-
-// Ventilation holes part code submitted by Ettie - Thanks ;) 
-translate([10+i,-Dec_Thick+Dec_size,1]){
-cube([Vent_width,Dec_Thick,Height/4]);
-}
-translate([(Length-10) - i,-Dec_Thick+Dec_size,1]){
-cube([Vent_width,Dec_Thick,Height/4]);
-}
-translate([(Length-10) - i,Width-Dec_size,1]){
-cube([Vent_width,Dec_Thick,Height/4]);
-}
-translate([10+i,Width-Dec_size,1]){
-cube([Vent_width,Dec_Thick,Height/4]);
-}
+module Coque(){//Coque - Shell
+    Thick = Thick*2;
+    difference(){
+        difference(){//sides decoration
+            union(){
+                difference() {//soustraction de la forme centrale - Substraction Fileted box
+                    difference(){//soustraction cube median - Median cube slicer
+                        union() {//union
+                            difference(){//Coque
+                                RoundBox();
+                                translate([Thick/2,Thick/2,Thick/2]){
+                                    RoundBox($a=Length-Thick, $b=Width-Thick, $c=Height-Thick);
+                                }
+                            }//Fin diff Coque
+                            difference(){//largeur Rails
+                                translate([Thick+m,Thick/2,Thick/2]){// Rails
+                                    RoundBox($a=Length-((2*Thick)+(2*m)), $b=Width-Thick, $c=Height                             -(Thick*2));
+                                }//fin Rails
+                                translate([((Thick+m/2)*1.55),Thick/2,Thick/2+0.1]){ // +0.1 added to avoid the artefact
+                                    RoundBox($a=Length-((Thick*3)+2*m), $b=Width-Thick, $c=Height-Thick);
+                                }
+                            }//Fin largeur Rails
+                        }//Fin union
+                        translate([-Thick,-Thick,Height/2]){// Cube à soustraire
+                            cube ([Length+100, Width+100, Height], center=false);
+                        }
+                    }//fin soustraction cube median - End Median cube slicer
+                    translate([-Thick/2,Thick,Thick]){// Forme de soustraction centrale
+                        RoundBox($a=Length+Thick, $b=Width-Thick*2, $c=Height-Thick);
+                    }
+                }
 
 
-}// fin de for
-// }
-}//fin union decoration
-}//fin difference decoration
+                difference(){// wall fixation box legs
+                    union(){
+                        translate([3*Thick +5,Thick,Height/2]){
+                            rotate([90,0,0]){
+                                $fn=6;
+                                cylinder(d=16,Thick/2);
+                            }
+                        }
+
+                        translate([Length-((3*Thick)+5),Thick,Height/2]){
+                            rotate([90,0,0]){
+                                $fn=6;
+                                cylinder(d=16,Thick/2);
+                            }
+                        }
+
+                    }
+                    translate([4,Thick+Filet,Height/2-57]){
+                        rotate([45,0,0]){
+                            cube([Length,40,40]);
+                        }
+                    }
+                    translate([0,-(Thick*1.46),Height/2]){
+                        cube([Length,Thick*2,10]);
+                    }
+                } //Fin fixation box legs
+            }
+
+            union(){// outbox sides decorations
+
+                for(i=[0:Thick:Length/4]){
+
+                    // Ventilation holes part code submitted by Ettie - Thanks ;)
+                    translate([10+i,-Dec_Thick+Dec_size,1]){
+                        cube([Vent_width,Dec_Thick,Height/4]);
+                    }
+                    translate([(Length-10) - i,-Dec_Thick+Dec_size,1]){
+                        cube([Vent_width,Dec_Thick,Height/4]);
+                    }
+                    translate([(Length-10) - i,Width-Dec_size,1]){
+                        cube([Vent_width,Dec_Thick,Height/4]);
+                    }
+                    translate([10+i,Width-Dec_size,1]){
+                        cube([Vent_width,Dec_Thick,Height/4]);
+                    }
 
 
-union(){ //sides holes
-$fn=50;
-translate([3*Thick+5,20,Height/2+4]){
-rotate([90,0,0]){
-cylinder(d=2,20);
-}
-}
-translate([Length-((3*Thick)+5),20,Height/2+4]){
-rotate([90,0,0]){
-cylinder(d=2,20);
-}
-}
-translate([3*Thick+5,Width+5,Height/2-4]){
-rotate([90,0,0]){
-cylinder(d=2,20);
-}
-}
-translate([Length-((3*Thick)+5),Width+5,Height/2-4]){
-rotate([90,0,0]){
-cylinder(d=2,20);
-}
-}
-}//fin de sides holes
+                }// fin de for
+                // }
+            }//fin union decoration
+        }//fin difference decoration
 
-}//fin de difference holes
-}// fin coque 
+
+        union(){ //sides holes
+            $fn=50;
+            translate([3*Thick+5,20,Height/2+4]){
+                rotate([90,0,0]){
+                    cylinder(d=2,20);
+                }
+            }
+            translate([Length-((3*Thick)+5),20,Height/2+4]){
+                rotate([90,0,0]){
+                    cylinder(d=2,20);
+                }
+            }
+            translate([3*Thick+5,Width+5,Height/2-4]){
+                rotate([90,0,0]){
+                    cylinder(d=2,20);
+                }
+            }
+            translate([Length-((3*Thick)+5),Width+5,Height/2-4]){
+                rotate([90,0,0]){
+                    cylinder(d=2,20);
+                }
+            }
+        }//fin de sides holes
+
+    }//fin de difference holes
+}// fin coque
 
 ////////////////////////////// - Experiment - ///////////////////////////////////////////
 
@@ -315,72 +315,72 @@ cylinder(d=2,20);
 //Speaker Grill//
 
 if(SPK==1){
-color(c=[0,0,2.8])
-translate([PCBLength*.91,PCBWidth*.82,3])
+    color(c=[0,0,2.8])
+    translate([PCBLength*.91,PCBWidth*.82,3])
 
-import("Speaker2W-SpeakerOutline.stl");
+    import("Speaker2W-SpeakerOutline.stl");
 }
 
 
 
 /*
-module SpeakerHole(OnOff,Cx,Cy,Cdia,Ccenter=false){
-//difference(){
-if(OnOff==1)
+  module SpeakerHole(OnOff,Cx,Cy,Cdia,Ccenter=false){
+  //difference(){
+  if(OnOff==1)
 
-translate([Cx ,Cy ,-1]){
-for(j = [1  : 3]){
+  translate([Cx ,Cy ,-1]){
+  for(j = [1  : 3]){
 
-rotate(a = 360*j/3,v = [0,0,1])
-for(i = [1.8 : Cdia/60 : Cdia/1.5]){
-rotate(a = 1*(i/Cdia)*360,v = [0,0,1])
-translate([i,i,0])
+  rotate(a = 360*j/3,v = [0,0,1])
+  for(i = [1.8 : Cdia/60 : Cdia/1.5]){
+  rotate(a = 1*(i/Cdia)*360,v = [0,0,1])
+  translate([i,i,0])
 
-cylinder(d=i*.65,h = 10, $fn=100,center=Ccenter);
-//echo(i);
-
-
-}
-}
-}}
+  cylinder(d=i*.65,h = 10, $fn=100,center=Ccenter);
+  //echo(i);
 
 
-*/ 
+  }
+  }
+  }}
+
+
+*/
 {// Parameters
-speaker_diameter = 25.5; // mm
-speaker_thickness = 5; // mm (adjust if needed)
-clamp_width = 6;       // Hieght of clamp ring
-flexure_thickness = 1; // Thickness of flexure arms
-flexure_gap = 1.5;     // Gap to allow flex movement
-base_thickness = 0;    // Base plate thickness
-overlap = -1;           // Small overlap to hold speaker
-clamp_Z = 1.7 ; // Zpos of the clamp, interesecting with the enclosure shell
-$fn = 100; // Smoothness
-if (speaker_clamp==1) {
-difference() {
-// Outer clamp ring
-translate([PCBLength*.91,PCBWidth*.82,clamp_Z])
-#cylinder(h = clamp_width-.001, r = (speaker_diameter/2) + flexure_gap + flexure_thickness);
+    speaker_diameter = 25.5; // mm
+    speaker_thickness = 5; // mm (adjust if needed)
+    clamp_width = 6;       // Hieght of clamp ring
+    flexure_thickness = 1; // Thickness of flexure arms
+    flexure_gap = 1.5;     // Gap to allow flex movement
+    base_thickness = 0;    // Base plate thickness
+    overlap = -1;           // Small overlap to hold speaker
+    clamp_Z = 1.7 ; // Zpos of the clamp, interesecting with the enclosure shell
+    $fn = 100; // Smoothness
+    if (speaker_clamp==1) {
+        difference() {
+            // Outer clamp ring
+            translate([PCBLength*.91,PCBWidth*.82,clamp_Z])
+    #cylinder(h = clamp_width-.001, r = (speaker_diameter/2) + flexure_gap + flexure_thickness);
 
-// Inner clearance for speaker
-translate([PCBLength*.91,PCBWidth*.82,clamp_Z])
-translate([0,0,overlap])
-#cylinder(h = clamp_width +0.2 - overlap, r = (speaker_diameter/2) + flexure_gap);
+            // Inner clearance for speaker
+            translate([PCBLength*.91,PCBWidth*.82,clamp_Z])
+            translate([0,0,overlap])
+    #cylinder(h = clamp_width +0.2 - overlap, r = (speaker_diameter/2) + flexure_gap);
 
-// Create flexure cuts
-translate([PCBLength*.91,PCBWidth*.82,clamp_Z])
-for (angle = [0,90,180,270]) {
-rotate([0,0,angle])
-translate([speaker_diameter/2, -flexure_thickness/2, 0])
-#cube([flexure_gap*2, flexure_thickness +7, clamp_width +4]);
-}
-}
+            // Create flexure cuts
+            translate([PCBLength*.91,PCBWidth*.82,clamp_Z])
+            for (angle = [0,90,180,270]) {
+                rotate([0,0,angle])
+                translate([speaker_diameter/2, -flexure_thickness/2, 0])
+    #cube([flexure_gap*2, flexure_thickness +7, clamp_width +4]);
+            }
+        }
 
-// Base platform
-translate([PCBLength*.87,PCBWidth*.82,clamp_Z])
-translate([0,0,-base_thickness])
-cylinder(h = base_thickness , r = (speaker_diameter/2) + flexure_gap  + flexure_thickness + 3);
-}
+        // Base platform
+        translate([PCBLength*.87,PCBWidth*.82,clamp_Z])
+        translate([0,0,-base_thickness])
+        cylinder(h = base_thickness , r = (speaker_diameter/2) + flexure_gap  + flexure_thickness + 3);
+    }
 }
 
 
@@ -390,151 +390,151 @@ cylinder(h = base_thickness , r = (speaker_diameter/2) + flexure_gap  + flexure_
 
 
 //LED Spacer
-module LedSpacer(OnOff,Cx,Cy,Cdia,Cpitch,Cheight,Ccenter=false){ 
+module LedSpacer(OnOff,Cx,Cy,Cdia,Cpitch,Cheight,Ccenter=false){
 
-translate([Cx,Cy,0])
-difference(){
-cylinder(d=Cdia,Cheight, $fn=50,center=Ccenter); //spacer body
-union(){
-hull(){
-translate([Cpitch/2,0,-0.5])
-cylinder(d=1.3,h=Cheight+1, $fn=50,center=Ccenter); //leg1
-translate([Cdia/2,0,-0.5])
-cylinder(d=1.3,h=Cheight+1, $fn=50,center=Ccenter); //leg2
-}
-hull(){
-translate([-Cpitch/2,0,-0.5])
-cylinder(d=1.3,h=Cheight+1, $fn=50,center=Ccenter); //leg1
-translate([-Cdia/2,0,-0.5])
-cylinder(d=1.3,h=Cheight+1, $fn=50,center=Ccenter); //leg2
-}
-}
-}
+    translate([Cx,Cy,0])
+    difference(){
+        cylinder(d=Cdia,Cheight, $fn=50,center=Ccenter); //spacer body
+        union(){
+            hull(){
+                translate([Cpitch/2,0,-0.5])
+                cylinder(d=1.3,h=Cheight+1, $fn=50,center=Ccenter); //leg1
+                translate([Cdia/2,0,-0.5])
+                cylinder(d=1.3,h=Cheight+1, $fn=50,center=Ccenter); //leg2
+            }
+            hull(){
+                translate([-Cpitch/2,0,-0.5])
+                cylinder(d=1.3,h=Cheight+1, $fn=50,center=Ccenter); //leg1
+                translate([-Cdia/2,0,-0.5])
+                cylinder(d=1.3,h=Cheight+1, $fn=50,center=Ccenter); //leg2
+            }
+        }
+    }
 }
 
 //Speaker Holder
-module SpeakerHolder(OnOff,Cx,Cy,Cdia,Ccenter=false){ 
-if(OnOff==1){
-translate([Cx,Cy,-Thick])
-difference(){
-cylinder(d=Cdia+Thick,10, $fn=50,center=Ccenter);
-cylinder(d=Cdia,10, $fn=50,center=Ccenter);
-}
-}
+module SpeakerHolder(OnOff,Cx,Cy,Cdia,Ccenter=false){
+    if(OnOff==1){
+        translate([Cx,Cy,-Thick])
+        difference(){
+            cylinder(d=Cdia+Thick,10, $fn=50,center=Ccenter);
+            cylinder(d=Cdia,10, $fn=50,center=Ccenter);
+        }
+    }
 }
 //Button
 module ButtonSwitch(OnOff,Cx,Cy,Cdia,Ccenter=false){
-//difference(){
-if(OnOff==1)
-translate([Cx,Cy,-1]){
-//rotate([180,0,0])
+    //difference(){
+    if(OnOff==1)
+        translate([Cx,Cy,-1]){
+            //rotate([180,0,0])
 
 
 
-ThreadThick = 0.20;
-//ThreadWidth = 0.40;
+            ThreadThick = 0.20;
+            //ThreadWidth = 0.40;
 
-Protrusion = 0.9;
+            Protrusion = 0.9;
 
-HoleWindage = 0.25;
+            HoleWindage = 0.25;
 
-//------
-// Dimensions
+            //------
+            // Dimensions
 
-Post = [3.86,3.86,3.0];
+            Post = [3.86,3.86,3.0];
 
-OD = 0;
-HEIGHT =  FootHeight;
-DOMEHEIGHT = 1;
+            OD = 0;
+            HEIGHT =  FootHeight;
+            DOMEHEIGHT = 1;
 
-Button = [12,0+Post[2],6*ThreadThick];
+            Button = [12,0+Post[2],6*ThreadThick];
 
-NumSides = 8*4;
+            NumSides = 8*4;
 
-//----------------------
-//- Build it
+            //----------------------
+            //- Build it
 
-difference() {
-union() {
-//retension ring
-translate([0,0,4*Thick])
-cylinder(d=Cdia+Thick,h=Thick,$fn=NumSides);
-//dome 
-translate([0,0,0])
-resize([0,0,2*Button[DOMEHEIGHT]])
-sphere(d=(Cdia-m/2)/cos(180/NumSides),$fn=NumSides);
-//Post
-cylinder(d=Cdia-m/2,h=FootHeight,$fn=NumSides);
+            difference() {
+                union() {
+                    //retension ring
+                    translate([0,0,4*Thick])
+                    cylinder(d=Cdia+Thick,h=Thick,$fn=NumSides);
+                    //dome
+                    translate([0,0,0])
+                    resize([0,0,2*Button[DOMEHEIGHT]])
+                    sphere(d=(Cdia-m/2)/cos(180/NumSides),$fn=NumSides);
+                    //Post
+                    cylinder(d=Cdia-m/2,h=FootHeight,$fn=NumSides);
 
-}
-//retension hole
-translate([0,0,(FootHeight-Post[2]/2) ]){
-cube(Post + [HoleWindage,HoleWindage,Protrusion],center=true);
-}
-}
-}
+                }
+                //retension hole
+                translate([0,0,(FootHeight-Post[2]/2) ]){
+                    cube(Post + [HoleWindage,HoleWindage,Protrusion],center=true);
+                }
+            }
+        }
 }
 
 
 /////////////////////// - Foot with base filet - /////////////////////////////
 module foot(FootDia,FootHole,FootHeight){
-Filet=2;
-color(Couleur1)   
-// translate([3*Thick+2,Thick+5,0]+[-FootPosX,-FootPosY,Filet])
-difference(){
+    Filet=2;
+    color(Couleur1)
+    // translate([3*Thick+2,Thick+5,0]+[-FootPosX,-FootPosY,Filet])
+    difference(){
 
-difference(){
-translate ([0,0,0.1]){
-cylinder(d=FootDia+Filet,FootHeight+Thick, $fn=100,center=true);
-}
-rotate_extrude($fn=100){
-translate([(FootDia+Filet*2)/2,Filet,0]){
-minkowski(){
-square(10);
-circle(Filet, $fn=100);
-}
-}
-}
-}
-cylinder(d=FootHole,FootHeight+1, $fn=100);
-}          
+        difference(){
+            translate ([0,0,0.1]){
+                cylinder(d=FootDia+Filet,FootHeight+Thick, $fn=100,center=true);
+            }
+            rotate_extrude($fn=100){
+                translate([(FootDia+Filet*2)/2,Filet,0]){
+                    minkowski(){
+                        square(10);
+                        circle(Filet, $fn=100);
+                    }
+                }
+            }
+        }
+        cylinder(d=FootHole,FootHeight+1, $fn=100);
+    }
 }// Fin module foot
 
-module Feet(){     
+module Feet(){
 
-////////////////////////////// - 4 Feet - //////////////////////////////////////////   
-//    
-//    translate([3*Thick+7,Thick+10,Thick/2]){
-//        foot(FootDia,FootHole,FootHeight);
-//    }
-//    translate([(3*Thick)+PCBLength+7,Thick+10,Thick/2]){
-//        foot(FootDia,FootHole,FootHeight);
-//        }
-//    translate([(3*Thick)+PCBLength+7,(Thick)+PCBWidth+10,Thick/2]){
-//        foot(FootDia,FootHole,FootHeight);
-//        }        
-//    translate([3*Thick+7,(Thick)+PCBWidth+10,Thick/2]){
-//        foot(FootDia,FootHole,FootHeight);
-//    }   
+    ////////////////////////////// - 4 Feet - //////////////////////////////////////////
+    //
+    //    translate([3*Thick+7,Thick+10,Thick/2]){
+    //        foot(FootDia,FootHole,FootHeight);
+    //    }
+    //    translate([(3*Thick)+PCBLength+7,Thick+10,Thick/2]){
+    //        foot(FootDia,FootHole,FootHeight);
+    //        }
+    //    translate([(3*Thick)+PCBLength+7,(Thick)+PCBWidth+10,Thick/2]){
+    //        foot(FootDia,FootHole,FootHeight);
+    //        }
+    //    translate([3*Thick+7,(Thick)+PCBWidth+10,Thick/2]){
+    //        foot(FootDia,FootHole,FootHeight);
+    //    }
 
 
-translate([3*Thick+2,Thick+5,Thick/2-.01]){
-translate([FootPosX,FootPosY,FootHeight/2]){
-foot(FootDia,FootHole,FootHeight);
-}
-translate([(PCBLength-FootPosX),FootPosY,FootHeight/2]){
-foot(FootDia,FootHole,FootHeight);
-}
-translate([(PCBLength-FootPosX),(PCBWidth-FootPosY),FootHeight/2]){
-foot(FootDia,FootHole,FootHeight);
-}        
-translate([FootPosX,PCBWidth-(FootPosY),FootHeight/2]){
-foot(FootDia,FootHole,FootHeight);
-}
-//  translate([(PCBLength-FootPosX),(PCBWidth-68.58),FootHeight/2]){
-//   foot(FootDia,FootHole,FootHeight);
-// }
-}
+    translate([3*Thick+2,Thick+5,Thick/2-.01]){
+        translate([FootPosX,FootPosY,FootHeight/2]){
+            foot(FootDia,FootHole,FootHeight);
+        }
+        translate([(PCBLength-FootPosX),FootPosY,FootHeight/2]){
+            foot(FootDia,FootHole,FootHeight);
+        }
+        translate([(PCBLength-FootPosX),(PCBWidth-FootPosY),FootHeight/2]){
+            foot(FootDia,FootHole,FootHeight);
+        }
+        translate([FootPosX,PCBWidth-(FootPosY),FootHeight/2]){
+            foot(FootDia,FootHole,FootHeight);
+        }
+        //  translate([(PCBLength-FootPosX),(PCBWidth-68.58),FootHeight/2]){
+        //   foot(FootDia,FootHole,FootHeight);
+        // }
+    }
 } // Fin du module Feet
 
 
@@ -544,451 +544,451 @@ foot(FootDia,FootHole,FootHeight);
 ////////////////////// <- Holes Panel Manager -> ///////////////////////
 ////////////////////////////////////////////////////////////////////////
 
-//                           <- Panel ->  
+//                           <- Panel ->
 module Panel(Length,Width,Thick,Filet){
-scale([0.5,1,1])
-minkowski(){
-cube([Thick,Width-(Thick*2+Filet*2+m),Height-(Thick*2+Filet*2+m)]);
-translate([0,Filet,Filet])
-rotate([0,90,0])
-cylinder(r=Filet,h=Thick, $fn=100);
+    scale([0.5,1,1])
+    minkowski(){
+        cube([Thick,Width-(Thick*2+Filet*2+m),Height-(Thick*2+Filet*2+m)]);
+        translate([0,Filet,Filet])
+        rotate([0,90,0])
+        cylinder(r=Filet,h=Thick, $fn=100);
+    }
 }
-}
-//                          <- Circle Spacer -> 
+//                          <- Circle Spacer ->
 // Cx=Cylinder X position | Cy=Cylinder Y position | Cdia= Cylinder dia | Cheight=Cyl height
 module CylinderSpacer(OnOff,Cx,Cy,Cdia,Ccenter=false){
-if(OnOff==1)
-translate([Cx,Cy,Thick])
-cylinder(d=Cdia,10, $fn=50,center=Ccenter);
+    if(OnOff==1)
+        translate([Cx,Cy,Thick])
+    cylinder(d=Cdia,10, $fn=50,center=Ccenter);
 }
 
 //This is for all the circular holes.
-//                          <- Circle hole -> 
+//                          <- Circle hole ->
 // Cx=Cylinder X position | Cy=Cylinder Y position | Cdia= Cylinder dia | Cheight=Cyl height
 module CylinderHole(OnOff,Cx,Cy,Cdia,Ccenter=true){
-if(OnOff==1)
-translate([Cx,Cy,-1])
-cylinder(d=Cdia,10, $fn=50,center=Ccenter);
+    if(OnOff==1)
+        translate([Cx,Cy,-1])
+    cylinder(d=Cdia,10, $fn=50,center=Ccenter);
 }
-//                          <- Square hole ->  
+//                          <- Square hole ->
 // Sx=Square X position | Sy=Square Y position | Sl= Square Length | Sw=Square Width | Filet = Round corner
 module USBbSquareHole(OnOff,Sx,Sy,Sl,Sw,Filet,Ccenter=false){
-if(OnOff==1)
-minkowski(){
-translate([Sx+Filet/2,Sy+Filet/2,-1])
-cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
-cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
-}
+    if(OnOff==1)
+        minkowski(){
+            translate([Sx+Filet/2,Sy+Filet/2,-1])
+            cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
+            cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
+        }
 }
 module USBcSquareHole(OnOff,Sx,Sy,Sl,Sw,Filet,Ccenter=false){
-if(OnOff==1)
-minkowski(){
-translate([Sx+Filet/2,Sy+Filet/2,-1])
-cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
-cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
-}
+    if(OnOff==1)
+        minkowski(){
+            translate([Sx+Filet/2,Sy+Filet/2,-1])
+            cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
+            cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
+        }
 }
 module I2CSquareHole(OnOff,Sx,Sy,Sl,Sw,Filet,Ccenter=false){
-if(OnOff==1)
-minkowski(){
-translate([Sx+Filet/2,Sy+Filet/2,-1])
-cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
-cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
-}
+    if(OnOff==1)
+        minkowski(){
+            translate([Sx+Filet/2,Sy+Filet/2,-1])
+            cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
+            cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
+        }
 }
 
 module DE9SquareHole(OnOff,Sx,Sy,Sl,Sw,Filet,Ccenter=false){
-if(OnOff==1)
-minkowski(){
-translate([Sx+Filet/2,Sy+Filet/2,-1])
-cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
-cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
-}
+    if(OnOff==1)
+        minkowski(){
+            translate([Sx+Filet/2,Sy+Filet/2,-1])
+            cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
+            cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
+        }
 }
 
 module RJ12SquareHole(OnOff,Sx,Sy,Sl,Sw,Filet,Ccenter=false){
-if(OnOff==1)
-minkowski(){
-translate([Sx+Filet/2,Sy+Filet/2,-1])
-cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
-cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
-}
+    if(OnOff==1)
+        minkowski(){
+            translate([Sx+Filet/2,Sy+Filet/2,-1])
+            cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
+            cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
+        }
 }
 module DCSquareHole(OnOff,Sx,Sy,Sl,Sw,Filet,Ccenter=true){
-if(OnOff==1)
-minkowski(){
-translate([Sx+Filet/2,Sy+Filet/2,-1])
-cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
-cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
-}
+    if(OnOff==1)
+        minkowski(){
+            translate([Sx+Filet/2,Sy+Filet/2,-1])
+            cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
+            cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
+        }
 }
 
 module SquareHole(OnOff,Sx,Sy,Sl,Sw,Filet,Ccenter=false){
-if(OnOff==1)
-minkowski(){
-translate([Sx+Filet/2,Sy+Filet/2,-1])
-cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
-cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
+    if(OnOff==1)
+        minkowski(){
+            translate([Sx+Filet/2,Sy+Filet/2,-1])
+            cube([Sl-Filet,Sw-Filet,10],center=Ccenter);
+            cylinder(d=Filet,h=10, $fn=100,center=Ccenter);
+        }
 }
-}
-//                      <- Linear text panel -> 
+//                      <- Linear text panel ->
 module LText(OnOff,Tx,Ty,Font,Size,Content,_valign="baseline",_halign="left"){
 
-if(OnOff==1)
-translate([Tx,Ty,Thick+.5])
-linear_extrude(height =0.7){
-text(Content, size=Size, font=Font, halign = _halign,valign=_valign);
+    if(OnOff==1)
+        translate([Tx,Ty,Thick+.5])
+    linear_extrude(height =0.7){
+        text(Content, size=Size, font=Font, halign = _halign,valign=_valign);
+    }
 }
-}
-//                     <- Circular text panel->  
-module CText(OnOff,Tx,Ty,Font,Size,TxtRadius,Angl,Turn,Content,_valign="baseline",_halign="center"){ 
-if(OnOff==1) {
-Angle = -Angl / len(Content);
-translate([Tx,Ty,Thick+.5])
-for (i= [0:len(Content)-1] ){   
-rotate([0,0,i*Angle+90+Turn])
-translate([0,TxtRadius,0]) {
-linear_extrude(height = 0.7){
-text(Content[i], font = Font, size = Size,   halign = _halign,valign=_valign);
-}
-}   
-}
-}
+//                     <- Circular text panel->
+module CText(OnOff,Tx,Ty,Font,Size,TxtRadius,Angl,Turn,Content,_valign="baseline",_halign="center"){
+    if(OnOff==1) {
+        Angle = -Angl / len(Content);
+        translate([Tx,Ty,Thick+.5])
+        for (i= [0:len(Content)-1] ){
+            rotate([0,0,i*Angle+90+Turn])
+            translate([0,TxtRadius,0]) {
+                linear_extrude(height = 0.7){
+                    text(Content[i], font = Font, size = Size,   halign = _halign,valign=_valign);
+                }
+            }
+        }
+    }
 }
 
 include <dsub.scad>
-////////////////////// <- New module Panel -> //////////////////////
+    ////////////////////// <- New module Panel -> //////////////////////
 module FPanL(){
 
-centerDB9X = -25;
-centerDB9Y = -80;
-centerDB9Z = -5;
+    centerDB9X = -25;
+    centerDB9Y = -80;
+    centerDB9Z = -5;
 
-difference(){
-color(Couleur2)
-Panel(Length,Width,Thick,Filet);
+    difference(){
+        color(Couleur2)
+        Panel(Length,Width,Thick,Filet);
 
-rotate([90,0,90]){
+        rotate([90,0,90]){
 
-color(Couleur2){
-
-
-//                     <- Cutting shapes from here ->  
-//(On/Off, Xpos,Ypos,Length,Width,Filet)3*Thick+2,Thick+5
-echo((Width - PCBWidth)/2-3*Thick+1);
-echo(Thick+1.2);
-translate([((Width - PCBWidth)/2), 0, 0] - [3*Thick+2, 0, 0]){
-if (DE9On ==1) {
-rotate([0,180,90]) translate([centerDB9X,centerDB9Y,centerDB9Z])
-dsub (1.2,17.04,10);
-}
-USBbSquareHole(USBbOn, 54.61+1.2, FootHeight+PCBThick, 9, 5, 1, Ccenter=false);//USBb
-USBcSquareHole(USBcOn, 51+1.45, FootHeight-0.5+PCBThick-1, 11, 6, 1, Ccenter=false);//USBc
-I2CSquareHole(I2COn, 81.28-1.2, FootHeight+PCBThick, 14, 9, 1, Ccenter=false);//I2C
-//DE9SquareHole(DE9On, 74-9.5, FootHeight+PCBThick, 30, 13.2, 1, Ccenter=false);//DE9
-
-RJ12SquareHole(RJ12On, 98.425-1.3, FootHeight+PCBThick, 14, 13, 1, Ccenter=false);//SPI
+            color(Couleur2){
 
 
-}}}
-//FootHeight+PCBThick
-//                            <- To here -> 
+                //                     <- Cutting shapes from here ->
+                //(On/Off, Xpos,Ypos,Length,Width,Filet)3*Thick+2,Thick+5
+                echo((Width - PCBWidth)/2-3*Thick+1);
+                echo(Thick+1.2);
+                translate([((Width - PCBWidth)/2), 0, 0] - [3*Thick+2, 0, 0]){
+                    if (DE9On ==1) {
+                        rotate([0,180,90]) translate([centerDB9X,centerDB9Y,centerDB9Z])
+                        dsub (1.2,17.04,10);
+                    }
+                    USBbSquareHole(USBbOn, 54.61+1.2, FootHeight+PCBThick, 9, 5, 1, Ccenter=false);//USBb
+                    USBcSquareHole(USBcOn, 51+1.45, FootHeight-0.5+PCBThick-1, 11, 6, 1, Ccenter=false);//USBc
+                    I2CSquareHole(I2COn, 81.28-1.2, FootHeight+PCBThick, 14, 9, 1, Ccenter=false);//I2C
+                    //DE9SquareHole(DE9On, 74-9.5, FootHeight+PCBThick, 30, 13.2, 1, Ccenter=false);//DE9
 
-// placing text for the front panel 
-//translate ([-.5,0,0])
-//rotate([90,0,90])        
-//translate([-((Width + PCBWidth)/2) ,0,0]+[-2.3,0,0])
-color(Couleur1){
-//translate ([-.5,0,0])
-translate ([-0.9, 4,-3])
-// module LText(OnOff,Tx,Ty,Font,Size,Content,_valign="baseline",_halign="left")
-rotate([-90,0,-90])    
-// module LText(OnOff,Tx,Ty,Font,Size,Content,_valign="baseline",_halign="left")
-{
-Fontsize = 3; 
-TextBaseLine = - FootHeight * .92 ; 
-//                      <- Adding text from here ->   
+                    RJ12SquareHole(RJ12On, 98.425-1.3, FootHeight+PCBThick, 14, 13, 1, Ccenter=false);//SPI
 
-LText(USBbOn,-55,TextBaseLine,"Arial Black",Fontsize,"USB",_halign = "center",_valign="top");
-LText(USBcOn,-53,TextBaseLine,"Arial Black",Fontsize,"USB",_halign = "center",_valign="top");
-LText(I2COn, -81.28,TextBaseLine,"Arial Black",Fontsize,"I2C",_halign = "center",_valign="top");
-LText(DE9On, -74.44,TextBaseLine,"Arial Black",Fontsize,"COM",_halign = "center",_valign="top");
-LText(RJ12On,-98.425,TextBaseLine,"Arial Black",Fontsize,"Remote",_halign = "center",_valign="top");
-LText(DCOn,-119.9 ,TextBaseLine,"Arial Black",Fontsize,"DC",_halign = "center",_valign="top");    
 
-//                            <- To here ->
-}
-}
-}
+                }}}
+        //FootHeight+PCBThick
+        //                            <- To here ->
+
+        // placing text for the front panel
+        //translate ([-.5,0,0])
+        //rotate([90,0,90])
+        //translate([-((Width + PCBWidth)/2) ,0,0]+[-2.3,0,0])
+        color(Couleur1){
+            //translate ([-.5,0,0])
+            translate ([-0.9, 4,-3])
+            // module LText(OnOff,Tx,Ty,Font,Size,Content,_valign="baseline",_halign="left")
+            rotate([-90,0,-90])
+            // module LText(OnOff,Tx,Ty,Font,Size,Content,_valign="baseline",_halign="left")
+            {
+                Fontsize = 3;
+                TextBaseLine = - FootHeight * .92 ;
+                //                      <- Adding text from here ->
+
+                LText(USBbOn,-55,TextBaseLine,"Arial Black",Fontsize,"USB",_halign = "center",_valign="top");
+                LText(USBcOn,-53,TextBaseLine,"Arial Black",Fontsize,"USB",_halign = "center",_valign="top");
+                LText(I2COn, -81.28,TextBaseLine,"Arial Black",Fontsize,"I2C",_halign = "center",_valign="top");
+                LText(DE9On, -74.44,TextBaseLine,"Arial Black",Fontsize,"COM",_halign = "center",_valign="top");
+                LText(RJ12On,-98.425,TextBaseLine,"Arial Black",Fontsize,"Remote",_halign = "center",_valign="top");
+                LText(DCOn,-119.9 ,TextBaseLine,"Arial Black",Fontsize,"DC",_halign = "center",_valign="top");
+
+                //                            <- To here ->
+            }
+        }
+    }
 }
 
 
 /////////////////////////// <- Main part -> /////////////////////////
 
 module VESAmount75(stud_height_mm,h_offset_mm) {
-// A VESA mount for D 75mm
-// from Wikipedia https://en.wikipedia.org/wiki/Flat_Display_Mounting_Interface
-// D 75mm	MIS-D, 75, C	75	75
+    // A VESA mount for D 75mm
+    // from Wikipedia https://en.wikipedia.org/wiki/Flat_Display_Mounting_Interface
+    // D 75mm	MIS-D, 75, C	75	75
 
-// First, I will create the 4 studs in the correct
-// (square) pattern
-stud_distance_mm = 75;
-sd = stud_distance_mm;
-half_stud_distance_mm = sd/2;
-hsd = half_stud_distance_mm;
+    // First, I will create the 4 studs in the correct
+    // (square) pattern
+    stud_distance_mm = 75;
+    sd = stud_distance_mm;
+    half_stud_distance_mm = sd/2;
+    hsd = half_stud_distance_mm;
 
-sh = stud_height_mm;
-translate([0,0,sh-h_offset_mm])
-union() {
-rotate([180,0,0])
-translate([hsd,hsd,0])
-m4_stud(0,0,sh,0);
-rotate([180,0,0])
-translate([hsd,-hsd,0])
-m4_stud(0,0,sh,0);
-rotate([180,0,0])
-translate([-hsd,hsd,0])
-m4_stud(0,0,sh,0);
-rotate([180,0,0])
-translate([-hsd,-hsd,0])
-m4_stud(0,0,sh,0);
-}
+    sh = stud_height_mm;
+    translate([0,0,sh-h_offset_mm])
+    union() {
+        rotate([180,0,0])
+        translate([hsd,hsd,0])
+        m4_stud(0,0,sh,0);
+        rotate([180,0,0])
+        translate([hsd,-hsd,0])
+        m4_stud(0,0,sh,0);
+        rotate([180,0,0])
+        translate([-hsd,hsd,0])
+        m4_stud(0,0,sh,0);
+        rotate([180,0,0])
+        translate([-hsd,-hsd,0])
+        m4_stud(0,0,sh,0);
+    }
 }
 module VESApunch75(stud_height_mm,h_offset_mm) {
-sh = stud_height_mm +2; // addin length for cutting
-radius = 4.5; // just a guess!
+    sh = stud_height_mm +2; // addin length for cutting
+    radius = 4.5; // just a guess!
 
-stud_distance_mm = 75;
-sd = stud_distance_mm;
-half_stud_distance_mm = sd/2;
-hsd = half_stud_distance_mm;
-translate([0,0,sh-h_offset_mm])
-union() {
-rotate([180,0,0])
-translate([hsd,hsd,0])
-cylinder(h=sh,r=radius,center = false);
-rotate([180,0,0])
-translate([hsd,-hsd,0])
-cylinder(h=sh,r=radius,center = false);
-rotate([180,0,0])
-translate([-hsd,hsd,0])
-cylinder(h=sh,r=radius,center = false);
-rotate([180,0,0])
-translate([-hsd,-hsd,0])
-cylinder(h=sh,r=radius,center = false);
-}
+    stud_distance_mm = 75;
+    sd = stud_distance_mm;
+    half_stud_distance_mm = sd/2;
+    hsd = half_stud_distance_mm;
+    translate([0,0,sh-h_offset_mm])
+    union() {
+        rotate([180,0,0])
+        translate([hsd,hsd,0])
+        cylinder(h=sh,r=radius,center = false);
+        rotate([180,0,0])
+        translate([hsd,-hsd,0])
+        cylinder(h=sh,r=radius,center = false);
+        rotate([180,0,0])
+        translate([-hsd,hsd,0])
+        cylinder(h=sh,r=radius,center = false);
+        rotate([180,0,0])
+        translate([-hsd,-hsd,0])
+        cylinder(h=sh,r=radius,center = false);
+    }
 }
 module TShellWithVESA() {
-stud_height_mm = 7.8;
-h_offset_mm = 1;
-// Coque haut - Top Shell
-difference() {
-translate([0,Width,Height+0.2]){
-color( Couleur1,1){
-rotate([0,180,180]){
-Coque();
-}
-}
-}
-translate([Length/2,Width/2,Height+0.2]) 
-VESApunch75(stud_height_mm,h_offset_mm);
-}
+    stud_height_mm = 7.8;
+    h_offset_mm = 1;
+    // Coque haut - Top Shell
+    difference() {
+        translate([0,Width,Height+0.2]){
+            color( Couleur1,1){
+                rotate([0,180,180]){
+                    Coque();
+                }
+            }
+        }
+        translate([Length/2,Width/2,Height+0.2])
+        VESApunch75(stud_height_mm,h_offset_mm);
+    }
 
-// Note: The Coque is not centered on the origin,
-// so we have to do some math for that....
-translate([Length/2,Width/2,Height+0.2]) 
-color("green"){
-VESAmount75(stud_height_mm,h_offset_mm);
-}
+    // Note: The Coque is not centered on the origin,
+    // so we have to do some math for that....
+    translate([Length/2,Width/2,Height+0.2])
+    color("green"){
+        VESAmount75(stud_height_mm,h_offset_mm);
+    }
 
-// #VESApunch75(stud_height_mm);
+    // #VESApunch75(stud_height_mm);
 }
 
 if(GPAD_TShellWithVESA==1){
-TShellWithVESA();
+    TShellWithVESA();
 }
 
 if(GPAD_TShell==1){
-// Coque haut - Top Shell
-translate([0,Width,Height+0.2]){
-color( Couleur1,1){
-rotate([0,180,180]){
-Coque();
-}
-}
-}
+    // Coque haut - Top Shell
+    translate([0,Width,Height+0.2]){
+        color( Couleur1,1){
+            rotate([0,180,180]){
+                Coque();
+            }
+        }
+    }
 }
 
 module centeredHeatSetInsert() {
-translate([0,-60.05,0])
-import( "flanged insert M4 D7.1 H9.11.stl",convexity=1);
+    translate([0,-60.05,0])
+    import( "flanged insert M4 D7.1 H9.11.stl",convexity=1);
 }
 
 if(HEAT_SET_INSERTS==1){
 
-stud_distance_mm = 75;
-sd = stud_distance_mm;
-half_stud_distance_mm = sd/2;
-hsd = half_stud_distance_mm;
-insert_height = 6;
-#color("gray")
-translate([Length/2,Width/2,Height+0.2]) 
-translate([0,0,insert_height/2+1])
-union() {
-rotate([180,0,0])
-translate([hsd,hsd,0])
-centeredHeatSetInsert();
-rotate([180,0,0])
-translate([hsd,-hsd,0])
-centeredHeatSetInsert();
-rotate([180,0,0])
-translate([-hsd,hsd,0])
-centeredHeatSetInsert();
-rotate([180,0,0])
-translate([-hsd,-hsd,0])
-centeredHeatSetInsert();
-}
+    stud_distance_mm = 75;
+    sd = stud_distance_mm;
+    half_stud_distance_mm = sd/2;
+    hsd = half_stud_distance_mm;
+    insert_height = 6;
+    #color("gray")
+    translate([Length/2,Width/2,Height+0.2])
+    translate([0,0,insert_height/2+1])
+    union() {
+        rotate([180,0,0])
+        translate([hsd,hsd,0])
+        centeredHeatSetInsert();
+        rotate([180,0,0])
+        translate([hsd,-hsd,0])
+        centeredHeatSetInsert();
+        rotate([180,0,0])
+        translate([-hsd,hsd,0])
+        centeredHeatSetInsert();
+        rotate([180,0,0])
+        translate([-hsd,-hsd,0])
+        centeredHeatSetInsert();
+    }
 
 }
 if(GPAD_BShell==1){
-// Coque bas - Bottom shell
-i=0;
+    // Coque bas - Bottom shell
+    i=0;
 
-speaker_clamp();
+    speaker_clamp();
 
-difference(){
-color(Couleur1,1){
-union(){ 
-Coque();
-translate( [3*Thick+2,Thick+5,5])SpeakerHolder(0,SpeakerHoleX,PCBWidth-FootPosX,11,Ccenter=true); //Speaker holder
-// Pied support PCB - PCB feet
+    difference(){
+        color(Couleur1,1){
+            union(){
+                Coque();
+                translate( [3*Thick+2,Thick+5,5])SpeakerHolder(0,SpeakerHoleX,PCBWidth-FootPosX,11,Ccenter=true); //Speaker holder
+                // Pied support PCB - PCB feet
 
-if (PCBFeet==1){// Feet
-// Pieds PCB - PCB feet (x4) 
-translate([PCBPosX,PCBPosY,0]){ 
-Feet();
-}   
+                if (PCBFeet==1){// Feet
+                    // Pieds PCB - PCB feet (x4)
+                    translate([PCBPosX,PCBPosY,0]){
+                        Feet();
+                    }
 
-}
-}}
+                }
+            }}
 
-color( Couleur1,1){
-translate( [3*Thick+2,Thick+5,0]){         //([-.5,0,0]){
-//(On/Off, Xpos, Ypos, Diameter)
-
-
-for ( i = [0 : 4] ){ 
-rotate([0,0,90])
-CylinderHole(1,PCBLength-(LEDXposOffset+LEDspacing*i),LEDYposOffset,5.2); //LED1  
-}
-
-CylinderHole(1,PCBLength-107.5,PCBWidth-34.5,5); //LED6 power
-CylinderHole(1,PCBLength-83,PCBWidth-41.5,5); //LED6 power
-CylinderHole(1,PCBLength-83,PCBWidth-48.5,5); //LED6 power
-
-//translate([35.5,9-PCBThick,-113 ]) 
-//DCSquareHole (DCOn, 0,0 , 10, 12, 1, Ccenter=true);//DC barrel
-
-//PUSH_BUTN 1
-translate([48,29,0])
-cube([7,6,8.25], center=true);
-//PUSH_BUTN 2
-translate([48,21,0])
-cube([7,6,8.25], center=true);
-//PUSH_BUTN 3
-translate([48,13,0])
-cube([7,6,8.25], center=true);
-//PUSH_BUTN 4
-translate([48,5,0])
-cube([7,6,8.25],center=true);
+        color( Couleur1,1){
+            translate( [3*Thick+2,Thick+5,0]){         //([-.5,0,0]){
+                //(On/Off, Xpos, Ypos, Diameter)
 
 
+                for ( i = [0 : 4] ){
+                    rotate([0,0,90])
+                    CylinderHole(1,PCBLength-(LEDXposOffset+LEDspacing*i),LEDYposOffset,5.2); //LED1
+                }
 
-/*
-//(On/Off, Xpos,Ypos,Length,Width,Filet)
-SquareHole(1,DisplayXpos,DisplayYpos,DisplayLenght,DisplayWidth,DisplayFilet,Ccenter=true);   //Display
-CylinderHole(1,SpeakerHoleX,68.58,2); //reset hole
-//(On/Off, Xpos, Ypos, "Font", Size, Diameter, Arc(Deg), Starting Angle(Deg),"Text",_halign = "center",_valign="top") 
+                CylinderHole(1,PCBLength-107.5,PCBWidth-34.5,5); //LED6 power
+                CylinderHole(1,PCBLength-83,PCBWidth-41.5,5); //LED6 power
+                CylinderHole(1,PCBLength-83,PCBWidth-48.5,5); //LED6 power
 
-// RotaryEncoder
-CylinderHole(1,RotaryEncoderXpos,RotaryEncoderYpos,RotaryEncoderDiameter); //RotaryEncoder
-CylinderSpacer(1,RotaryEncoderXpos,RotaryEncoderYpos,RotaryEncoderDiameter+Thick+m/2); //cutout for RotaryEncoder
+                //translate([35.5,9-PCBThick,-113 ])
+                //DCSquareHole (DCOn, 0,0 , 10, 12, 1, Ccenter=true);//DC barrel
 
-}}
-color( Couleur1,1){
-translate( [3*Thick+2,Thick+5,0]){         //([-.5,0,0]){
+                //PUSH_BUTN 1
+                translate([48,29,0])
+                cube([7,6,8.25], center=true);
+                //PUSH_BUTN 2
+                translate([48,21,0])
+                cube([7,6,8.25], center=true);
+                //PUSH_BUTN 3
+                translate([48,13,0])
+                cube([7,6,8.25], center=true);
+                //PUSH_BUTN 4
+                translate([48,5,0])
+                cube([7,6,8.25],center=true);
 
 
 
-/* //(On/Off, Xpos, Ypos, Diameter)
-SpeakerHole(1,SpeakerHoleX,SpeakerHoleY,11,Ccenter=true); //Buzzer
-for ( i = [0 : 4] ){
+                /*
+                //(On/Off, Xpos,Ypos,Length,Width,Filet)
+                SquareHole(1,DisplayXpos,DisplayYpos,DisplayLenght,DisplayWidth,DisplayFilet,Ccenter=true);   //Display
+                CylinderHole(1,SpeakerHoleX,68.58,2); //reset hole
+                //(On/Off, Xpos, Ypos, "Font", Size, Diameter, Arc(Deg), Starting Angle(Deg),"Text",_halign = "center",_valign="top")
 
-CylinderHole(1,PCBLength-(27.94+12.7*i),15.24,5); //LED1  
-}
-CylinderHole(1,PCBLength-46.99,PCBWidth-FootPosX,5); //LED6 power
+                // RotaryEncoder
+                CylinderHole(1,RotaryEncoderXpos,RotaryEncoderYpos,RotaryEncoderDiameter); //RotaryEncoder
+                CylinderSpacer(1,RotaryEncoderXpos,RotaryEncoderYpos,RotaryEncoderDiameter+Thick+m/2); //cutout for RotaryEncoder
 
-//(On/Off, Xpos,Ypos,Length,Width,Filet)
-*/ 
-
-
-
-// 
-
-
-//SquareHole(1,DisplayXpos,DisplayYpos,DisplayLenght,DisplayWidth,DisplayFilet,Ccenter=true);   //Display
+                }}
+                color( Couleur1,1){
+                translate( [3*Thick+2,Thick+5,0]){         //([-.5,0,0]){
 
 
 
+                /* //(On/Off, Xpos, Ypos, Diameter)
+                SpeakerHole(1,SpeakerHoleX,SpeakerHoleY,11,Ccenter=true); //Buzzer
+                for ( i = [0 : 4] ){
+
+                CylinderHole(1,PCBLength-(27.94+12.7*i),15.24,5); //LED1
+                }
+                CylinderHole(1,PCBLength-46.99,PCBWidth-FootPosX,5); //LED6 power
+
+                //(On/Off, Xpos,Ypos,Length,Width,Filet)
+                */
 
 
-CylinderHole(1,SpeakerHoleX,68.58,2); //reset hole
-/*
-//(On/Off, Xpos, Ypos, "Font", Size, Diameter, Arc(Deg), Starting Angle(Deg),"Text",_halign = "center",_valign="top") 
-rotate([0,180,0])translate( [0,0,-(Thick+.99)])CText(1,-(muteButtonXpos),muteButtonYpos,"Arial Black",4,9,110,270,"MUTE")color(Couleur3);
 
-CylinderHole(1,muteButtonXpos,muteButtonYpos,muteButtonDiameter); //Mute Button
-CylinderSpacer(1,muteButtonXpos,muteButtonYpos,muteButtonDiameter+Thick+m/2); //cutout for mute button
-*/ 
+                //
 
-//SquareHole(1,PCBLength-63.87,33.12,1,1,0,Ccenter=true);  //testing 
-}
-}
 
-}
+                //SquareHole(1,DisplayXpos,DisplayYpos,DisplayLenght,DisplayWidth,DisplayFilet,Ccenter=true);   //Display
+
+
+
+
+
+                CylinderHole(1,SpeakerHoleX,68.58,2); //reset hole
+                /*
+                //(On/Off, Xpos, Ypos, "Font", Size, Diameter, Arc(Deg), Starting Angle(Deg),"Text",_halign = "center",_valign="top")
+                rotate([0,180,0])translate( [0,0,-(Thick+.99)])CText(1,-(muteButtonXpos),muteButtonYpos,"Arial Black",4,9,110,270,"MUTE")color(Couleur3);
+
+                CylinderHole(1,muteButtonXpos,muteButtonYpos,muteButtonDiameter); //Mute Button
+                CylinderSpacer(1,muteButtonXpos,muteButtonYpos,muteButtonDiameter+Thick+m/2); //cutout for mute button
+                */
+
+                //SquareHole(1,PCBLength-63.87,33.12,1,1,0,Ccenter=true);  //testing
+            }
+        }
+
+    }
 }
 
 
 if (switch_module==1){
-translate( [3*Thick+2,Thick+5,0]){
-//PUSH_BUTN 1
-translate([48,29,13])rotate([180,0,90]){
-include <Switch_key_caps.scad>}
+    translate( [3*Thick+2,Thick+5,0]){
+        //PUSH_BUTN 1
+        translate([48,29,13])rotate([180,0,90]){
+            include <Switch_key_caps.scad>}
 
-//PUSH_BUTN 2
-translate([48,21,13 ])rotate([180,0,90]){
-include <Switch_key_caps.scad>}
+        //PUSH_BUTN 2
+        translate([48,21,13 ])rotate([180,0,90]){
+            include <Switch_key_caps.scad>}
 
-//PUSH_BUTN 3
-translate([48,13,13 ])rotate([180,0,90]){
-include <Switch_key_caps.scad>}
+        //PUSH_BUTN 3
+        translate([48,13,13 ])rotate([180,0,90]){
+            include <Switch_key_caps.scad>}
 
-//PUSH_BUTN 4
-translate([48,5,13])rotate([180,0,90]){
-include <Switch_key_caps.scad>}
-}
+        //PUSH_BUTN 4
+        translate([48,5,13])rotate([180,0,90]){
+            include <Switch_key_caps.scad>}
+    }
 
 }
 
 if(RotaryEncoder ==1){
-//RotaryEncoder
-translate( [3*Thick+2,Thick+5,0])     
-ButtonSwitch(1,RotaryEncoderXpos,RotaryEncoderYpos,RotaryEncoderDiameter); //RotaryEncoder  
+    //RotaryEncoder
+    translate( [3*Thick+2,Thick+5,0])
+    ButtonSwitch(1,RotaryEncoderXpos,RotaryEncoderYpos,RotaryEncoderDiameter); //RotaryEncoder
 }
 if(BButton ==1){
-//button
-translate( [3*Thick+2,Thick+5,0])     
-ButtonSwitch(1,muteButtonXpos,muteButtonYpos,muteButtonDiameter); //Mute Button
+    //button
+    translate( [3*Thick+2,Thick+5,0])
+    ButtonSwitch(1,muteButtonXpos,muteButtonYpos,muteButtonDiameter); //Mute Button
 }
 
 
@@ -997,146 +997,145 @@ ButtonSwitch(1,muteButtonXpos,muteButtonYpos,muteButtonDiameter); //Mute Button
 //LEDXposOffset = 79
 
 if(LED_Standoff == 1){
-//(OnOff,Cx,Cy,Cdia,Cpitch,Cheight,Ccenter=false){ 
-translate( [79,-93,7.5])rotate([0,0,90]){//([-.5,0,0]){
-LedSpacer(1,PCBLength+20.94,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED1      
-LedSpacer(1,PCBLength+13 ,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED2
-LedSpacer(1,PCBLength+6 ,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED3
-LedSpacer(1,PCBLength-2 ,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED4
-LedSpacer(1,PCBLength-9 ,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED5
-LedSpacer(1,PCBLength+5.5 ,65.5,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED6 power
-LedSpacer(1,PCBLength-8.5 ,40.5,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED7 heartbeat
-LedSpacer(1,PCBLength-1.2,40.5,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED8 BPM Sensor
-}
+    //(OnOff,Cx,Cy,Cdia,Cpitch,Cheight,Ccenter=false){
+    translate( [79,-93,7.5])rotate([0,0,90]){//([-.5,0,0]){
+        LedSpacer(1,PCBLength+20.94,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED1
+        LedSpacer(1,PCBLength+13 ,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED2
+        LedSpacer(1,PCBLength+6 ,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED3
+        LedSpacer(1,PCBLength-2 ,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED4
+        LedSpacer(1,PCBLength-9 ,-22.24,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED5
+        LedSpacer(1,PCBLength+5.5 ,65.5,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED6 power
+        LedSpacer(1,PCBLength-8.5 ,40.5,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED7 heartbeat
+        LedSpacer(1,PCBLength-1.2,40.5,5,2.54,Thick+FootHeight+PCBThick/2+.1-6,false); //LED8 BPM Sensor
+    }
 }
 
 if(PCB_SIMPLE==1){
-//////////////////// - PCB only visible in the preview mode - /////////////////////    
-translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2+.1]){
+    //////////////////// - PCB only visible in the preview mode - /////////////////////
+    translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2+.1]){
 
-rotate([0,0,90])translate([0,0,PCBThick-0.2]);//import("General Alarm Device Enclosure-GeneralPurposeAlarmDevicePCB 1.stl", convexity=3);
-%cube ([PCBLength,PCBWidth,PCBThick]);
-translate([PCBLength/2,PCBWidth/2,0]){ 
-color("Olive")
-rotate([0,0,90])
-%text("SIMPLE PCB", halign="center", valign="center", font="Arial black") ;
+        rotate([0,0,90])translate([0,0,PCBThick-0.2]);//import("General Alarm Device Enclosure-GeneralPurposeAlarmDevicePCB 1.stl", convexity=3);
+            %cube ([PCBLength,PCBWidth,PCBThick]);
+        translate([PCBLength/2,PCBWidth/2,0]){
+            color("Olive")
+            rotate([0,0,90])
+                %text("SIMPLE PCB", halign="center", valign="center", font="Arial black") ;
 
-}
-} // Fin PCB 
+        }
+    } // Fin PCB
 }
 if(PWA_GPAD==1){
-//////////////////// - PCB only visible in the preview mode - /////////////////////    
-translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2+.1]){
+    //////////////////// - PCB only visible in the preview mode - /////////////////////
+    translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2+.1]){
 
-rotate([0,0,90])translate([0,0,PCBThick-0.2])import("General Alarm Device Enclosure-GeneralPurposeAlarmDevicePCB 1.stl", convexity=3);
-%cube ([PCBLength,PCBWidth,PCBThick]);
-translate([PCBLength/2,PCBWidth/2,0]){ 
-color("Olive")
-%text("PCB", halign="center", valign="center", font="Arial black");
-}
-} // Fin PCB 
+        rotate([0,0,90])translate([0,0,PCBThick-0.2])import("General Alarm Device Enclosure-GeneralPurposeAlarmDevicePCB 1.stl", convexity=3);
+            %cube ([PCBLength,PCBWidth,PCBThick]);
+        translate([PCBLength/2,PCBWidth/2,0]){
+            color("Olive")
+                %text("PCB", halign="center", valign="center", font="Arial black");
+        }
+    } // Fin PCB
 }
 
 if(PWA_PMD==1){
-//////////////////// - PCB only visible in the preview mode - /////////////////////    
-translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2+.9]){
+    //////////////////// - PCB only visible in the preview mode - /////////////////////
+    translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2+.9]){
 
-rotate([0,180,180])translate([170/2,-98,PCBThick-0.2])import("homeWork2.stl", convexity=3);
-//%cube ([PCBLength,PCBWidth,PCBThick]);
-//translate([PCBLength/2,PCBWidth/2,0]){ 
-//color("Olive")
-//%text("PCB", halign="center", valign="center", font="Arial black");
-//}
-} // Fin PCB 
+        rotate([0,180,180])translate([170/2,-98,PCBThick-0.2])import("homeWork2.stl", convexity=3);
+        //%cube ([PCBLength,PCBWidth,PCBThick]);
+        //translate([PCBLength/2,PCBWidth/2,0]){
+        //color("Olive")
+        //%text("PCB", halign="center", valign="center", font="Arial black");
+        //}
+    } // Fin PCB
 }
 
 if(PWA_KRAKE==1){
-//////////////////// - PCB only visible in the preview mode - /////////////////////    
-translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2-.1]){
-rotate([0,0,90])translate([0,0,PCBThick-0.2]);
-rotate([0,0,90])translate([-55.88,17.78,0])
-color(Couleur3)
-import("KRAKE_PWArev1.stl", convexity=3);
-//%cube ([PCBLength,PCBWidth,PCBThick]);
-//translate([PCBLength/2,PCBWidth/2,0]){ 
-//color("Olive")
-//%text("PCB", halign="center", valign="center", font="Arial black");
-}}
+    //////////////////// - PCB only visible in the preview mode - /////////////////////
+    translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2-.1]){
+        rotate([0,0,90])translate([0,0,PCBThick-0.2]);
+        rotate([0,0,90])translate([-55.88,17.78,0])
+        color(Couleur3)
+        import("KRAKE_PWArev1.stl", convexity=3);
+        //%cube ([PCBLength,PCBWidth,PCBThick]);
+        //translate([PCBLength/2,PCBWidth/2,0]){
+        //color("Olive")
+        //%text("PCB", halign="center", valign="center", font="Arial black");
+    }}
 //}
 /*
-translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2+.1]){
+  translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2+.1]){
 
-rotate([0,0,90])translate([0,0,PCBThick-0.2])import("General Alarm Device Enclosure-GeneralPurposeAlarmDevicePCB 1.stl", convexity=3);
-%cube ([PCBLength,PCBWidth,PCBThick]);
-translate([PCBLength/2,PCBWidth/2,0]){ 
-color("Olive")
-%text("PCB", halign="center", valign="center", font="Arial black");
-}
-} // Fin PCB 
-}
+  rotate([0,0,90])translate([0,0,PCBThick-0.2])import("General Alarm Device Enclosure-GeneralPurposeAlarmDevicePCB 1.stl", convexity=3);
+  %cube ([PCBLength,PCBWidth,PCBThick]);
+  translate([PCBLength/2,PCBWidth/2,0]){
+  color("Olive")
+  %text("PCB", halign="center", valign="center", font="Arial black");
+  }
+  } // Fin PCB
+  }
 */
 
 // Panneau avant - Front panel  <<<<<< Text and holes only on this one.
-//rotate([0,-90,-90]) 
+//rotate([0,-90,-90])
 if(GPAD_FPanL==1){
-translate([Length-(Thick*2+m/2),Thick+m/2,Thick+m/2])
-FPanL();
+    translate([Length-(Thick*2+m/2),Thick+m/2,Thick+m/2])
+    FPanL();
 }
 //Panneau arrière - Back panel
 if(GPAD_BPanL==1){
-color(Couleur2)
-difference(){
-translate([Thick+m/2,Thick+m/2,Thick+m/2])
-Panel(Length,Width,Thick,Filet);
-translate([12,36.5,12 ]) rotate([0,90,0]) {
-DCSquareHole (DCOn, 0,0 , 12, 10, 1, Ccenter=true);//DC barrel
-}
-}
+    color(Couleur2)
+    difference(){
+        translate([Thick+m/2,Thick+m/2,Thick+m/2])
+        Panel(Length,Width,Thick,Filet);
+        translate([12,36.5,12 ]) rotate([0,90,0]) {
+            DCSquareHole (DCOn, 0,0 , 12, 10, 1, Ccenter=true);//DC barrel
+        }
+    }
 }
 
 
 // Module Section
 // RoundBox(length = 100, width = 50, height = 30, radius = 10, resolution = 50);
 module frontPanel(){
-difference() {
-Coque();
-SpeakerHole(OnOff = 1, Cx = 30, Cy = 20, Cdia = 20, Ccenter = true);
-}
+    difference() {
+        Coque();
+        SpeakerHole(OnOff = 1, Cx = 30, Cy = 20, Cdia = 20, Ccenter = true);
+    }
 }
 
 //This is the purchased part.
 
 // This is a 2mm screw that connects the BShell to the TShell.
 if (T_BShellScrew==1){
-//translate([3*Thick+11,-1,Height/2+4]){
-// rotate([90,0,0])
-// import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
-//}
+    //translate([3*Thick+11,-1,Height/2+4]){
+    // rotate([90,0,0])
+    // import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
+    //}
 
 
-union(){ //sides holes
-$fn=50;
-translate([3*Thick+11,0,Height/2+4]){
-rotate([90,0,0]){
-import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
-}
-}
-translate([Length-((3*Thick)+11),0,Height/2+4]){
-rotate([90,0,0]){
-import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
-}
-}
-translate([3*Thick+11,Width-5,Height/2-4]){
-rotate([90,0,0]){
-import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
-}
-}
-translate([Length-((3*Thick)+11),Width-5,Height/2-4]){
-rotate([90,0,0]){
-import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
-}
-}
-}
+    union(){ //sides holes
+        $fn=50;
+        translate([3*Thick+11,0,Height/2+4]){
+            rotate([90,0,0]){
+                import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
+            }
+        }
+        translate([Length-((3*Thick)+11),0,Height/2+4]){
+            rotate([90,0,0]){
+                import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
+            }
+        }
+        translate([3*Thick+11,Width-5,Height/2-4]){
+            rotate([90,0,0]){
+                import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
+            }
+        }
+        translate([Length-((3*Thick)+11),Width-5,Height/2-4]){
+            rotate([90,0,0]){
+                import("MCMaster_Carr_Torx_Roundhead_Screw_99397A324.stl");
+            }
+        }
+    }
 }//fin de sides holes
-
 
