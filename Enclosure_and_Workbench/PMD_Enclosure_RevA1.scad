@@ -11,7 +11,7 @@
 // https://www.thingiverse.com/thing:5849866
 include <StudModules.scad>
 
-
+include <OLED_Enclosure.scad>
 
 
 PMDEnclosureVersion = 0.1; // change this with each rev
@@ -24,11 +24,11 @@ PMD=1 ;
 // Export Options
 ////////////////////////////////////////////////////////////////////
 
-GPAD_TShell          = 1;
+GPAD_TShell          = 0;
 GPAD_TShellWithVESA  = 0;
 GPAD_BShell          = 1;
-GPAD_FPanL           = 1;
-GPAD_BPanL           = 1;
+GPAD_FPanL           = 0;
+GPAD_BPanL           = 0;
 BButton              = 0 ;
 RotaryEncoder        = 0;  // change to a real rotary encoder
 T_BShellScrew        = 0;
@@ -850,8 +850,8 @@ if(HEAT_SET_INSERTS==1){
     }
 
 }
-if(GPAD_BShell==1){
-    // Coque bas - Bottom shell
+module BShell() {
+       // Coque bas - Bottom shell
     i=0;
 
     speaker_clamp();
@@ -955,6 +955,24 @@ if(GPAD_BShell==1){
             }
         }
 
+    }
+
+}
+if(GPAD_BShell==1){
+    OLEDPosX = 18;
+    OLEDPosY = 30;
+    union() {
+        difference() {
+            BShell();
+        
+            color("pink")
+            translate([OLEDPosX,OLEDPosY,-1])
+            hull()
+            oled(); 
+        }
+        color("white")
+        translate([OLEDPosX,OLEDPosY,0])
+        oled();
     }
 }
 

@@ -18,7 +18,7 @@ cutout_height = 5;
 back_cutout_sizeX=16.5;
 back_cutout_sizeY = 27;
 
-//module oled() {
+module oled() {
     // Main enclosure body with cutouts
     difference() {
         // Solid block
@@ -58,5 +58,6 @@ back_cutout_sizeY = 27;
     for (y = [hole_offset_y, oled_height - hole_offset_y])
         translate([x + wall, y + wall, back_thickness])
             cylinder(d = pin_diameter, h = pin_height, $fn = 24);
-//}
-//oled();
+}
+
+oled();
