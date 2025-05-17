@@ -14,7 +14,7 @@ include <StudModules.scad>
 include <OLED_Enclosure.scad>
 
 
-PMDEnclosureVersion = 0.1; // change this with each rev
+PMDEnclosureVersion = 0.2; // change this with each rev
 
 /* Project Selector */
 Krake = 1;      // [0:Off, 1:On]
@@ -24,11 +24,11 @@ PMD=1 ;
 // Export Options
 ////////////////////////////////////////////////////////////////////
 
-GPAD_TShell          = 0;
+GPAD_TShell          = 1;
 GPAD_TShellWithVESA  = 0;
 GPAD_BShell          = 1;
-GPAD_FPanL           = 0;
-GPAD_BPanL           = 0;
+GPAD_FPanL           = 1;
+GPAD_BPanL           = 1;
 BButton              = 0 ;
 RotaryEncoder        = 0;  // change to a real rotary encoder
 T_BShellScrew        = 0;
@@ -36,7 +36,7 @@ BOSSScrew            = 0;
 PCB_SIMPLE           = 0;
 PWA_GPAD             = 0;
 PWA_KRAKE            = 0;
-PWA_PMD              = 0;
+PWA_PMD              = 1;
 LED_Standoff         = 0;
 LED_Standoff_Single  = 0;
 PWA                  = 0;
@@ -52,7 +52,7 @@ OLED_testfit         = 1;
 
 Length         = 113 + 13;
 Width          = 53 + 13;
-Height         = 25;
+Height         = 28;
 Thick          = 2;                    // Wall thickness
 Filet          = 2;                    // Corner rounding
 Resolution     = 50;                   // Filet smoothness
@@ -75,7 +75,8 @@ PCBThick       = 1.6;
 // BOSS/Foot Parameters
 ////////////////////////////////////////////////////////////////////
 
-FootHeight     = 16;
+FootHeight     = 18
+;
 FootDia        = 7;
 FootHole       = 3.0;
 FootPosX       = 5.08;
@@ -113,8 +114,8 @@ SpeakerHoleX = Krake ? PCBLength*.815 :PCBLength - 15.24;
 */
 //Parameters for LEDHole
 LEDspacing = 7.5 ;
-LEDYposOffset = -93 ; // offset from the Encoder edge of PCB
-LEDXposOffset = 79 ; // offset from the connector edge of PCB
+LEDYposOffset = -93.5 ; // offset from the Encoder edge of PCB
+LEDXposOffset = 79.5 ; // offset from the connector edge of PCB
 
 
 // Krake Modifications for RotaryEncodeHole
@@ -943,7 +944,7 @@ module BShell() {
 
 
 
-                CylinderHole(1,SpeakerHoleX,68.58,2); //reset hole
+               // CylinderHole(1,SpeakerHoleX,68.58,2); //reset hole
                 /*
                 //(On/Off, Xpos, Ypos, "Font", Size, Diameter, Arc(Deg), Starting Angle(Deg),"Text",_halign = "center",_valign="top")
                 rotate([0,180,0])translate( [0,0,-(Thick+.99)])CText(1,-(muteButtonXpos),muteButtonYpos,"Arial Black",4,9,110,270,"MUTE")color(Couleur3);
@@ -959,23 +960,24 @@ module BShell() {
     }
 
 }
-if(GPAD_BShell==1){
+if(GPAD_BShell==1) {
     OLEDPosX = 18;
     OLEDPosY = 30;
-    union() {
+    union(){
         difference() {
             BShell();
-        
+            translate([1,-3,-2]) 
             color("pink")
             translate([OLEDPosX,OLEDPosY,-1])
             hull()
             oled(); 
         }
         color("white")
+        translate([1,-3,0]) 
         translate([OLEDPosX,OLEDPosY,0])
         oled();
         if (OLED_testfit) {
-            translate([40,40,20])
+            translate([40,40,20])  
             color("green")
 //            import("OLED Display 0.96_.stl");
             ;
@@ -1113,8 +1115,8 @@ if(GPAD_BPanL==1){
     difference(){
         translate([Thick+m/2,Thick+m/2,Thick+m/2])
         Panel(Length,Width,Thick,Filet);
-        translate([12,36.5,12 ]) rotate([0,90,0]) {
-            DCSquareHole (DCOn, 0,0 , 12, 10, 1, Ccenter=true);//DC barrel
+        translate([12,36.4,14 ]) rotate([0,90,0]) {
+            DCSquareHole (DCOn, 0,0 , 12, 9, 1, Ccenter=true);//DC barrel
         }
     }
 }
