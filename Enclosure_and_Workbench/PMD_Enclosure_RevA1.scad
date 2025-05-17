@@ -139,26 +139,6 @@ DCOn      = Krake ? 1 : 1;
 DCOn      =  1;
 
 
-// OLED PCB dimensions (you can adjust as needed)
-oled_width = 27.2;
-oled_height = 27.2;
-oled_thickness = 2.6; // PCB thickness
-
-// OLED Design parameters
-wall = 2;             // Side and bottom wall thickness
-back_thickness = 1.5; // Back cover thickness
-clearance = 0.4;      // Fit tolerance
-pin_diameter = 2;
-pin_height = 2.5;
-hole_offset_x = 2.5;
-hole_offset_y = 2.5;
-
-// OLED Cutout parameters
-cutout_width = 12;
-cutout_height = 5;
-back_cutout_sizeX=19;
-back_cutout_sizeY = 27;
-
 
 
 if (Krake + GPAD > 1)
@@ -968,7 +948,7 @@ if(GPAD_BShell==1) {
             BShell();
             translate([1,-3,-2]) 
             color("pink")
-            translate([OLEDPosX,OLEDPosY,-1])
+            translate([OLEDPosX,OLEDPosY,0])
             hull()
             oled(); 
         }
@@ -976,10 +956,12 @@ if(GPAD_BShell==1) {
         translate([1,-3,0]) 
         translate([OLEDPosX,OLEDPosY,0])
         oled();
+        
+        // If you find a good OLED footprint, add it below.
         if (OLED_testfit) {
             translate([40,40,20])  
             color("green")
-//            import("OLED Display 0.96_.stl");
+            import("OLED Display 0.96_.stl");
             ;
         }
     }
