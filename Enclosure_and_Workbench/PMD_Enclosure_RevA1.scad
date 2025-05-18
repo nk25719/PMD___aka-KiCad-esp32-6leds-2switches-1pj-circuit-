@@ -43,15 +43,15 @@ PWA                  = 0;
 SPK                  = 0;
 HEAT_SET_INSERTS     = 0;
 speaker_clamp        = 0;
-switch_module        = 0;
+switch_module        = 1;
 OLED                 = 1;
 OLED_testfit         = 1;
 ////////////////////////////////////////////////////////////////////
 // Common Parameters - Base settings shared by all configurations
 ////////////////////////////////////////////////////////////////////
 
-Length         = 113 + 13;
-Width          = 53 + 13;
+Length         = 113 + 11;
+Width          = 53 + 11;
 Height         = 28;
 Thick          = 2;                    // Wall thickness
 Filet          = 2;                    // Corner rounding
@@ -65,8 +65,8 @@ Vent_width     = 1.5;
 // PCB Parameters - Common
 ////////////////////////////////////////////////////////////////////
 
-PCBPosX        = 0;
-PCBPosY        = 0;
+PCBPosX        = -3;
+PCBPosY        = -2;
 PCBLength      = 113.0620;
 PCBWidth       = 53.370;
 PCBThick       = 1.6;
@@ -114,8 +114,8 @@ SpeakerHoleX = Krake ? PCBLength*.815 :PCBLength - 15.24;
 */
 //Parameters for LEDHole
 LEDspacing = 7.5 ;
-LEDYposOffset = -93.5 ; // offset from the Encoder edge of PCB
-LEDXposOffset = 79.5 ; // offset from the connector edge of PCB
+LEDYposOffset = -90.5 ; // offset from the Encoder edge of PCB
+LEDXposOffset = 80.7 ; // offset from the connector edge of PCB
 
 
 // Krake Modifications for RotaryEncodeHole
@@ -640,7 +640,7 @@ module CText(OnOff,Tx,Ty,Font,Size,TxtRadius,Angl,Turn,Content,_valign="baseline
 
 include <dsub.scad>
     ////////////////////// <- New module Panel -> //////////////////////
-module FPanL(){
+ module FPanL(){
 
     centerDB9X = -25;
     centerDB9Y = -80;
@@ -864,25 +864,25 @@ module BShell() {
                     CylinderHole(1,PCBLength-(LEDXposOffset+LEDspacing*i),LEDYposOffset,5.2); //LED1
                 }
 
-                CylinderHole(1,PCBLength-107.5,PCBWidth-34.5,5); //LED6 power
-                CylinderHole(1,PCBLength-83,PCBWidth-41.5,5); //LED6 power
-                CylinderHole(1,PCBLength-83,PCBWidth-48.5,5); //LED6 power
+                CylinderHole(1,PCBLength-110.5,PCBWidth-36.2,5); //LED6 power
+                CylinderHole(1,PCBLength-85.5,PCBWidth-42.9,5); //LED6 power
+                CylinderHole(1,PCBLength-85.5,PCBWidth-49.9,5); //LED6 power
 
                 //translate([35.5,9-PCBThick,-113 ])
                 //DCSquareHole (DCOn, 0,0 , 10, 12, 1, Ccenter=true);//DC barrel
 
                 //PUSH_BUTN 1
-                translate([48,29,0])
-                cube([7,6,8.25], center=true);
+                translate([44.5,28 ,0])
+                cube([8,6,8.25], center=true);
                 //PUSH_BUTN 2
-                translate([48,21,0])
-                cube([7,6,8.25], center=true);
+                translate([44.5,20,0])
+                cube([8,6,8.25], center=true);
                 //PUSH_BUTN 3
-                translate([48,13,0])
-                cube([7,6,8.25], center=true);
+                translate([44.5,11.7,0])
+                cube([8,6,8.25], center=true);
                 //PUSH_BUTN 4
-                translate([48,5,0])
-                cube([7,6,8.25],center=true);
+                translate([44.5,3.5,0])
+                cube([8,6,8.25],center=true);
 
 
 
@@ -946,14 +946,14 @@ if(GPAD_BShell==1) {
     union(){
         difference() {
             BShell();
-            translate([1,-3,-2]) 
+            translate([-4,-7,-2]) 
             color("pink")
             translate([OLEDPosX,OLEDPosY,0])
             hull()
             oled(); 
         }
         color("white")
-        translate([1,-3,0]) 
+        translate([-4,-7,0]) 
         translate([OLEDPosX,OLEDPosY,0])
         oled();
         
@@ -971,19 +971,19 @@ if(GPAD_BShell==1) {
 if (switch_module==1){
     translate( [3*Thick+2,Thick+5,0]){
         //PUSH_BUTN 1
-        translate([48,29,13])rotate([180,0,90]){
+        translate([44 ,27.4,14.5])rotate([180,0,90]){
             include <Switch_key_caps.scad>}
 
         //PUSH_BUTN 2
-        translate([48,21,13 ])rotate([180,0,90]){
+        translate([44 ,19.4,14.5])rotate([180,0,90]){
             include <Switch_key_caps.scad>}
 
         //PUSH_BUTN 3
-        translate([48,13,13 ])rotate([180,0,90]){
+        translate([44 ,11.2,14.5 ])rotate([180,0,90]){
             include <Switch_key_caps.scad>}
 
         //PUSH_BUTN 4
-        translate([48,5,13])rotate([180,0,90]){
+        translate([44 ,3,14.5])rotate([180,0,90]){
             include <Switch_key_caps.scad>}
     }
 
@@ -1050,7 +1050,7 @@ if(PWA_PMD==1){
     //////////////////// - PCB only visible in the preview mode - /////////////////////
     translate([3*Thick+2,Thick+5,Thick+FootHeight+PCBThick/2+.9]){
 
-        rotate([0,180,180])translate([170/2,-98,PCBThick-0.2])import("homeWork2.stl", convexity=3);
+        rotate([0,180,180])translate([170/2-3,-96.5,PCBThick-0.2])import("homeWork2.stl", convexity=3);
         //%cube ([PCBLength,PCBWidth,PCBThick]);
         //translate([PCBLength/2,PCBWidth/2,0]){
         //color("Olive")
@@ -1097,8 +1097,8 @@ if(GPAD_BPanL==1){
     difference(){
         translate([Thick+m/2,Thick+m/2,Thick+m/2])
         Panel(Length,Width,Thick,Filet);
-        translate([12,36.4,14 ]) rotate([0,90,0]) {
-            DCSquareHole (DCOn, 0,0 , 12, 9, 1, Ccenter=true);//DC barrel
+        translate([12,35  ,13.7 ]) rotate([0,90,0]) {
+            DCSquareHole (DCOn, 0,0 , 12, 10, 1, Ccenter=true);//DC barrel
         }
     }
 }

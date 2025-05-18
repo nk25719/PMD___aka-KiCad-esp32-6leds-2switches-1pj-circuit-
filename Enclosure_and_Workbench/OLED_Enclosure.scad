@@ -2,7 +2,7 @@
 
 module oled()  {
     // OLED PCB dimensions (you can adjust as needed)
-    oled_width = 28;
+    oled_width = 27.9;
     oled_height = 28.5;
     oled_thickness = 4.2; // PCB thickness
     
@@ -59,4 +59,4 @@ module oled()  {
     for (y = [hole_offset_y, oled_height - hole_offset_y])
         translate([x + wall, y + wall, back_thickness])
             cylinder(d = pin_diameter, h = pin_height, $fn = 24);
-}
+} 
