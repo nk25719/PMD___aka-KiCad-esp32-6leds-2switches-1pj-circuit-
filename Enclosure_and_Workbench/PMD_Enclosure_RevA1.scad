@@ -530,6 +530,8 @@ module Feet(){
 module Panel(Length,Width,Thick,Filet){
     scale([0.5,1,1])
     minkowski(){
+        echo("Front and Rear Panel: ", [Thick,Width-(Thick*2+Filet*2+m),Height-(Thick*2+Filet*2+m)], " in mm.");
+
         cube([Thick,Width-(Thick*2+Filet*2+m),Height-(Thick*2+Filet*2+m)]);
         translate([0,Filet,Filet])
         rotate([0,90,0])
